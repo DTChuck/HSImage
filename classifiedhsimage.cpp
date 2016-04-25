@@ -1,0 +1,179 @@
+#include "classifiedhsimage.h"
+
+template <typename T>
+std::vector<T> operator+(const std::vector<T>& a, const std::vector<T>& b)
+{
+    assert(a.size() == b.size());
+
+    std::vector<T> result;
+    result.reserve(a.size());
+
+    std::transform(a.begin(), a.end(), b.begin(),
+                   std::back_inserter(result), std::plus<T>());
+    return result;
+}
+
+
+ClassifiedHSImage::ClassifiedHSImage(){}
+
+ClassifiedHSImage::ClassifiedHSImage(HSImage hsimage, cv::Mat labels, std::vector<classColor> c_names)
+{
+    load(hsimage,labels,c_names);
+}
+
+ClassifiedHSImage::ClassifiedHSImage(std::string raw_file, std::string hdr_file, std::string label_file, std::string class_hdr_file)
+{
+    HSImage im(hdr_file,raw_file);
+    cv::Mat labels = cv::imread(label_file);
+
+    colorMap c;
+    std::fstream in(class_hdr_file,std::ios_base::in);
+    c.fromFile(in);
+
+    std::vector<classColor> class_list;
+
+    //get class colors and names, then load into vector
+    const std::vector<target> *target_list = c.getTargetList(targetType::targetClass);
+    for(auto t : *target_list)
+    {
+        std::string name = t.getTitle();
+        cv::Vec3b color;
+        color[0] = t.getB();
+        color[1] = t.getG();
+        color[2] = t.getR();
+
+        classColor c;
+        c.first = name;
+        c.second = color;
+
+        if(std::find(class_list.begin(),class_list.end(),c)==class_list.end())
+            class_list.push_back(c);
+    }
+
+    load(im,labels,class_list);
+}
+
+
+void ClassifiedHSImage::load(HSImage hsimage, cv::Mat labels, std::vector<classColor> c_names)
+{
+    image = hsimage;
+    labels.copyTo(label);
+
+    for(auto c : c_names)
+        class_names.emplace(c.first,c.second);
+}
+
+std::vector<std::vector<u_int16_t> > ClassifiedHSImage::getClassSpectra(std::string class_label, unsigned int num_spectra)
+{
+    cv::Vec3b class_color = class_names[class_label];
+    cv::Mat mask,idx;
+    cv::inRange(label,class_color,class_color,mask);
+    cv::findNonZero(mask,idx);
+
+    std::vector<std::vector<u_int16_t>> output;
+    if(num_spectra > 0 && num_spectra < idx.total())
+    {
+        for(unsigned int i=0; i< num_spectra; i++)
+        {
+            cv::Point p = idx.at<cv::Point>(i);
+            std::vector<u_int16_t> tmp = image.getPixelSpectra(p.y, p.x);
+            output.push_back(tmp);
+        }
+    }
+    else
+    {
+        for(unsigned int i=0; i< idx.total(); i++)
+        {
+            cv::Point p = idx.at<cv::Point>(i);
+            std::vector<u_int16_t> tmp = image.getPixelSpectra(p.y, p.x);
+
+            output.push_back(tmp);
+        }
+    }
+
+    return output;
+}
+
+std::vector<std::vector<double> > ClassifiedHSImage::getClassTF(std::string class_label, unsigned int num_spectra)
+{
+    cv::Vec3b class_color = class_names[class_label];
+    cv::Mat mask,idx;
+    cv::inRange(label,class_color,class_color,mask);
+    cv::findNonZero(mask,idx);
+
+    std::vector<std::vector<double>> output;
+    if(num_spectra > 0 && num_spectra < idx.total())
+    {
+        for(unsigned int i=0; i< num_spectra; i++)
+        {
+            cv::Point p = idx.at<cv::Point>(i);
+            std::vector<double> tmp = image.getPixelTransferFunction(p.y, p.x);
+            output.push_back(tmp);
+        }
+    }
+    else
+    {
+        for(unsigned int i=0; i< idx.total(); i++)
+        {
+            cv::Point p = idx.at<cv::Point>(i);
+            std::vector<double> tmp = image.getPixelTransferFunction(p.y, p.x);
+
+            output.push_back(tmp);
+        }
+    }
+
+    return output;
+}
+
+std::vector<double> ClassifiedHSImage::getAvgClassTF(std::string class_label)
+{
+    cv::Vec3b class_color = class_names[class_label];
+    cv::Mat mask,idx;
+    cv::inRange(label,class_color,class_color,mask);
+    cv::findNonZero(mask,idx);
+    std::vector<double> transfer_function,var;
+    transfer_function.resize(image.wavelengths.size());
+    transfer_function.assign(transfer_function.size(),0);
+
+    for(unsigned int i=0;i<idx.total();i++)
+    {
+        cv::Point p = idx.at<cv::Point>(i);
+        std::vector<double> tmp = image.getPixelTransferFunction(p.y, p.x);
+        var = tmp + transfer_function;
+        transfer_function = var;
+    }
+
+    transform(transfer_function.begin(), transfer_function.end(), transfer_function.begin(),
+                std::bind2nd( std::multiplies<double>(), 1.0/(double)idx.total()));
+
+    return transfer_function;
+}
+
+
+void ClassifiedHSImage::setSpectraClass(int row, int col, std::string class_label)
+{
+    cv::Vec3b val;
+    val = class_names[class_label];
+
+    label.at<cv::Vec3b>(row, col) = val;
+}
+
+void ClassifiedHSImage::setSpectraClass(std::vector<std::pair< int, int > > pixel_locs, std::string class_label)
+{
+    for(auto loc : pixel_locs)
+    {
+        cv::Vec3b val;
+        val = class_names[class_label];
+
+        label.at<cv::Vec3b>(loc.first, loc.second) = val;
+    }
+}
+
+void ClassifiedHSImage::setImageClass(cv::Mat class_labels, std::vector<classColor> class_list)
+{
+    class_labels.copyTo(label);
+
+    class_names.clear();
+    for(auto c : class_list)
+        class_names.emplace(c.first,c.second);
+}
