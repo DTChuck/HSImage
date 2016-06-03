@@ -69,6 +69,7 @@ std::vector<std::vector<u_int16_t> > ClassifiedHSImage::getClassSpectra(std::str
     cv::Mat mask,idx;
     cv::inRange(label,class_color,class_color,mask);
     cv::findNonZero(mask,idx);
+    cv::randShuffle(idx);
 
     std::vector<std::vector<u_int16_t>> output;
     if(num_spectra > 0 && num_spectra < idx.total())
@@ -100,6 +101,7 @@ std::vector<std::vector<double> > ClassifiedHSImage::getClassTF(std::string clas
     cv::Mat mask,idx;
     cv::inRange(label,class_color,class_color,mask);
     cv::findNonZero(mask,idx);
+    cv::randShuffle(idx);
 
     std::vector<std::vector<double>> output;
     if(num_spectra > 0 && num_spectra < idx.total())
