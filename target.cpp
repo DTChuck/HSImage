@@ -11,9 +11,6 @@ const int target::maxDescSize = 255;
 
 
 
-/*!
- * \brief target::target Default constructor
- */
 target::target(){
 	
 }
@@ -21,12 +18,7 @@ target::~target(){
 	
 }
 
-/*!
- * \brief target::target
- * \param r
- * \param g
- * \param b
- */
+
 target::target(uint8_t r, uint8_t g, uint8_t b, std::string titleIn, targetType::types typeIn){
 	this->r = r;
 	this->g = g;
@@ -81,9 +73,6 @@ void target::toFile(std::fstream &fs){
 }
 
 
-/*!
- * \brief target::fromFile  Populates a target object given fstream
- */
 bool target::fromFile(std::fstream &fs){
 	//    qDebug() << "ENTER fromFile target";
 	
@@ -134,13 +123,6 @@ bool target::fromFile(std::fstream &fs){
 }
 
 
-
-/*!
- * \brief nextTargetExist   Returns true if a target definition exists immediatly next to the current input pos.
- * The current input pos is returned to its original state
- * \param fs    fstream object
- * \return      bool true if a target definition exists next to current input pos.
- */
 bool target::nextTargetExist(std::fstream &fs){
 	std::fstream::pos_type startPos = fs.tellg();   //store current input pos
 	

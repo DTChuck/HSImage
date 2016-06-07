@@ -9,9 +9,6 @@
 #include "annEnums.h"
 #include "target.h"
 
-/*!
- * \brief The version struct stores meta data on a color map
- */
 struct versionData{
     uint32_t _major;
     uint32_t _minor;

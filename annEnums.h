@@ -1,18 +1,6 @@
 #ifndef ANNENUMS_H
 #define ANNENUMS_H
 
-/*!
- *\file annEnums.h Defines enumerations for annotations
- * Version 1.0.0
- *
- */
-
-/*!
- * \brief The camera class This class defines the enum for camera prefixes
- * Instantiate the camera class as a: QMetaobject &mo = namespace::staticMetaObject
- * Find the index of the enumerator: int enumIndex = mo.indexOfEnumerator("enum name")
- * Instantiate the enum: QMetaEnum enumVar = mo.enumerator(enumIndex)
- */
 class cameras{
 
 public:
@@ -29,11 +17,6 @@ public:
 
 class targetType{
 public:
-    /*!
- * \brief The targetType enum This enum defines the type of target defined.
- * A target of the type class is the type of object (e.g. vegetation)
- * A target of the type instance is a
- */
     enum types{
         targetClass = 0,
         targetInstance,
@@ -41,11 +24,6 @@ public:
 
 };
 
-
-
-/*!
- * \brief The colorMap class This class
- */
 class colorMapHierarchy{
 public:
     //targetClass are the targets for object classes (e.g. vegetation)

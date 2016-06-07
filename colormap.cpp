@@ -84,10 +84,7 @@ bool colorMap::greaterVersion(const colorMap &cMap1, const colorMap &cMap2){
 
 
 // *******************  START   TARGETS     ***********//
-/*!
- * \brief colorMap::addTarget Adds a single target to the list
- * \param tarIn
- */
+
 void colorMap::addTarget(target tarIn){
 	switch (tarIn.getType()){
 	case targetType::targetClass:
@@ -120,17 +117,7 @@ void colorMap::addTarget(std::vector<target> tarV){
 	}
 	
 }
-/*!
- * \brief colorMap::toQComboBox Inserts the target objects in the QComboBox
- * \param qCBox QComboBox to write to
- * \param tType The type of targets to use
- */
 
-
-/*!
- * \brief colorMapp::removeTarget	Delete the given target from the d
- * \param targetToRemove	Ref to target to be removed
- */
 void colorMap::removeTarget(const target &targetToRemove){
 	//Find index
 	int tInd = this->findTargetInd(targetToRemove);
@@ -157,10 +144,6 @@ void colorMap::removeTarget(const target &targetToRemove){
 	targetV->erase(targetV->begin() + tInd);
 }
 
-/*!
- * \brief colorMap::findTargetInd	Find the index of the given target in the definition list.
- * \return	Integer location, negative if does not exist.
- */
 int colorMap::findTargetInd(const target &tIn){
 	//Find the target list
 	std::vector<target> *targetV;
@@ -209,10 +192,6 @@ int colorMap::findTargetInd(const target &tIn){
 
 // *******************  START   PARSING     ***********//
 
-/*!
- * \brief toFile    Write all data to file.
- * \param fs    fstream object
- */
 void colorMap::toFile(std::fstream &fs){
 	//Start tag for color map data
     fs.write(startTag,strlen(startTag));
@@ -236,12 +215,7 @@ void colorMap::toFile(std::fstream &fs){
 	
 }
 
-/*!
- * \brief colorMap::fromFile    Load one color map object from file
- * \param fs    fstream object
- * \param posIn point of the file to start reading from
- * \return True if succesful in reading from file
- */
+
 bool colorMap::fromFile(std::fstream &fs){
 	//check for the start tag
     char* tempSTag = new char[strlen(startTag)];
@@ -300,13 +274,6 @@ bool colorMap::fromFile(std::fstream &fs){
 
 
 
-
-/*!
- * \brief colorMap::nextColorMapExist   Returns true if a color map defintion exists immediatey next to the current pos
- * The current input pos is returned to its original state
- * \param fs    fstream object
- * \return  bool true if a color map definition exists next to current pos
- */
 bool colorMap::nextColorMapExist(std::fstream &fs){
 	//    qDebug() << "Start color map exist";
 	std::fstream::pos_type startPos = fs.tellg();   //read in current pos
@@ -378,11 +345,6 @@ std::vector<target> const *colorMap::getTargetList(targetType::types tType) cons
 	}
 }
 
-/*!
- * \brief colorMap::setTargetVector Assigns the current target vector given a new target vector.
- * Assumes that the new target vector is made up of only one target type.
- * \param inputVector The new vector of targets.
- */
 void colorMap::setTargetVector(const std::vector<target> &inputVector){
 //	qDebug() << "Enter colorMap::setTargetVector, new vector has " << inputVector.size() << "targets";
 	//Find what target type it is

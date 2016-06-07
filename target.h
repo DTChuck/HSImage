@@ -10,18 +10,6 @@
 #include "annEnums.h"
 
 
-
-/*!
- * \brief The target class This QObject stores data on target classes and instances for image annotation.
- *
- * This class stores information that can be used when hand labeling images.
- * The annotation system this is designed for is where classes (e.g. sky, building,
- * vegetation) and instances (e.g. building 1, ... , buildin N) are encoded in RGB
- * images where each color matches one class/instance. This system enforces that
- * one pixel be assigned to one class/instance, in order to reduce label noise.
- * The color is always opaque, i.e. alpha = 255;
- */
-
 class target
 {
 	
