@@ -13,6 +13,15 @@
 #include "hsimage_global.h"
 #include "colormap.h"
 
+
+struct Vec3bCompare
+{
+    bool operator() (const cv::Vec3b& lhs, const cv::Vec3b& rhs) const
+    {
+        return cv::norm(lhs, CV_L2) < cv::norm(rhs, CV_L2);
+    }
+};
+
 /*!
  * \brief The classColor typedef creates a simple interface for pairing a class name with a specific OpenCV color.
  */
@@ -48,6 +57,8 @@ public:
     HSImage image;/*!< HSImage object containing hyperspectral data. */
     cv::Mat label;/*!< OpenCV cv::Mat image containing labeling data. */
     std::map<std::string, cv::Vec3b> class_names;/*!< std::map containing key value paring betweeen class name and color.*/
+    std::map<cv::Vec3b,std::string, Vec3bCompare> class_keys;/*!< std::map containing key value paring betweeen color and class name. Inverse of class_names*/
+
 
     /*!
      * \brief Load ClassifiedHSImage from data in memory.
@@ -60,7 +71,7 @@ public:
      * \brief Returns up to num_spectra pixel spectra of the specified class.
      * \param class_label Class to return spectra from.
      * \param num_spectra Max number of returned spectra.
-     * \return Vector of spectra vectors.
+     * \return Vector of spectra vectors. Returns empty vector if class_label is not present in image.
      */
     std::vector<std::vector<u_int16_t> > getClassSpectra(std::string class_label, unsigned int num_spectra = 100);
 
@@ -77,6 +88,14 @@ public:
      * \return Vector of transfer function vectors.
      */
     std::vector<std::vector<double> > getClassTF(std::string class_label, unsigned int num_spectra = 100);
+
+    /*!
+     * \brief Returns class of given pixel
+     * \param row Row of pixel
+     * \param col Column of pixel
+     * \return Class name at pixel(row,col)
+     */
+    std::string getPixelClass(int row, int col);
 
     /*!
      * \brief Set class for a pixel by row,column.
