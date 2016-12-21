@@ -75,25 +75,28 @@ std::vector<std::vector<u_int16_t> > ClassifiedHSImage::getClassSpectra(std::str
         cv::Mat mask,idx;
         cv::inRange(label,class_color,class_color,mask);
         cv::findNonZero(mask,idx);
-        cv::randShuffle(idx);
-
-        if(num_spectra > 0 && num_spectra < idx.total())
+        if(idx.size > 0)
         {
-            for(unsigned int i=0; i< num_spectra; i++)
+            cv::randShuffle(idx);
+
+            if(num_spectra > 0 && num_spectra < idx.total())
             {
-                cv::Point p = idx.at<cv::Point>(i);
-                std::vector<u_int16_t> tmp = image.getPixelSpectra(p.y, p.x);
-                output.push_back(tmp);
+                for(unsigned int i=0; i< num_spectra; i++)
+                {
+                    cv::Point p = idx.at<cv::Point>(i);
+                    std::vector<u_int16_t> tmp = image.getPixelSpectra(p.y, p.x);
+                    output.push_back(tmp);
+                }
             }
-        }
-        else
-        {
-            for(unsigned int i=0; i< idx.total(); i++)
+            else
             {
-                cv::Point p = idx.at<cv::Point>(i);
-                std::vector<u_int16_t> tmp = image.getPixelSpectra(p.y, p.x);
+                for(unsigned int i=0; i< idx.total(); i++)
+                {
+                    cv::Point p = idx.at<cv::Point>(i);
+                    std::vector<u_int16_t> tmp = image.getPixelSpectra(p.y, p.x);
 
-                output.push_back(tmp);
+                    output.push_back(tmp);
+                }
             }
         }
     }
