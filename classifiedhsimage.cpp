@@ -72,27 +72,31 @@ std::vector<std::vector<u_int16_t> > ClassifiedHSImage::getClassSpectra(std::str
     if(class_names.count(class_label) > 0)
     {
         cv::Vec3b class_color = class_names[class_label];
-        cv::Mat mask,idx;
+        cv::Mat mask;
+        std::vector<cv::Point> idx;
         cv::inRange(label,class_color,class_color,mask);
         cv::findNonZero(mask,idx);
-        if(idx.size > 0)
+
+        std::cout << idx.size() << std::endl;
+
+        if(idx.size() > 0)
         {
             cv::randShuffle(idx);
 
-            if(num_spectra > 0 && num_spectra < idx.total())
+            if(num_spectra > 0 && num_spectra < idx.size())
             {
                 for(unsigned int i=0; i< num_spectra; i++)
                 {
-                    cv::Point p = idx.at<cv::Point>(i);
+                    cv::Point p = idx[i];
                     std::vector<u_int16_t> tmp = image.getPixelSpectra(p.y, p.x);
                     output.push_back(tmp);
                 }
             }
             else
             {
-                for(unsigned int i=0; i< idx.total(); i++)
+                for(unsigned int i=0; i< idx.size(); i++)
                 {
-                    cv::Point p = idx.at<cv::Point>(i);
+                    cv::Point p = idx[i];
                     std::vector<u_int16_t> tmp = image.getPixelSpectra(p.y, p.x);
 
                     output.push_back(tmp);
@@ -105,33 +109,40 @@ std::vector<std::vector<u_int16_t> > ClassifiedHSImage::getClassSpectra(std::str
 
 std::vector<std::vector<double> > ClassifiedHSImage::getClassTF(std::string class_label, unsigned int num_spectra)
 {
-    cv::Vec3b class_color = class_names[class_label];
-    cv::Mat mask,idx;
-    cv::inRange(label,class_color,class_color,mask);
-    cv::findNonZero(mask,idx);
-    cv::randShuffle(idx);
-
     std::vector<std::vector<double>> output;
-    if(num_spectra > 0 && num_spectra < idx.total())
+
+    if(class_names.count(class_label) > 0)
     {
-        for(unsigned int i=0; i< num_spectra; i++)
+        cv::Vec3b class_color = class_names[class_label];
+        cv::Mat mask,idx;
+        cv::inRange(label,class_color,class_color,mask);
+        cv::findNonZero(mask,idx);
+        if(cv::countNonZero(mask) > 0)
         {
-            cv::Point p = idx.at<cv::Point>(i);
-            std::vector<double> tmp = image.getPixelTransferFunction(p.y, p.x);
-            output.push_back(tmp);
+            cv::randShuffle(idx);
+
+            if(num_spectra > 0 && num_spectra < idx.total())
+            {
+                for(unsigned int i=0; i< num_spectra; i++)
+                {
+                    cv::Point p = idx.at<cv::Point>(i);
+                    std::vector<double> tmp = image.getPixelTransferFunction(p.y, p.x);
+                    output.push_back(tmp);
+                }
+            }
+            else
+            {
+                for(unsigned int i=0; i< idx.total(); i++)
+                {
+                    cv::Point p = idx.at<cv::Point>(i);
+                    std::vector<double> tmp = image.getPixelTransferFunction(p.y, p.x);
+
+                    output.push_back(tmp);
+                }
+            }
+
         }
     }
-    else
-    {
-        for(unsigned int i=0; i< idx.total(); i++)
-        {
-            cv::Point p = idx.at<cv::Point>(i);
-            std::vector<double> tmp = image.getPixelTransferFunction(p.y, p.x);
-
-            output.push_back(tmp);
-        }
-    }
-
     return output;
 }
 
