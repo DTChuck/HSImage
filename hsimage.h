@@ -15,6 +15,9 @@
 
 #include "hsimage_global.h"
 
+#include <boost_1_63_0/boost/python.hpp>
+
+
 /*!
  * \brief The HSImage class is the base class for interacting with ENVI type hyperspectral images.
  *

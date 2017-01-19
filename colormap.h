@@ -9,6 +9,9 @@
 #include "annEnums.h"
 #include "target.h"
 
+#include <boost_1_63_0/boost/python.hpp>
+
+
 struct versionData{
     uint32_t _major;
     uint32_t _minor;

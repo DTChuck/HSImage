@@ -9,6 +9,8 @@
 #include "stdint.h"
 #include "annEnums.h"
 
+#include <boost_1_63_0/boost/python.hpp>
+
 
 class target
 {
