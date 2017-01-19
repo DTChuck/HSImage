@@ -1,5 +1,5 @@
 #include "hsimage.h"
-
+namespace bp = boost::python;
 HSImage::HSImage()
 {
     has_spec_data = false;

@@ -1,4 +1,6 @@
 #include "classifiedhsimage.h"
+namespace bp = boost::python;
+
 
 template <typename T>
 std::vector<T> operator+(const std::vector<T>& a, const std::vector<T>& b)
@@ -210,3 +212,20 @@ void ClassifiedHSImage::setImageClass(cv::Mat class_labels, std::vector<classCol
     for(auto c : class_list)
         class_names.emplace(c.first,c.second);
 }
+
+// Setting up the Python Wrapper
+BOOST_PYTHON_MODULE(classifiedhsimage)
+{
+    bp::class_<ClassifiedHSImage>("ClassifiedHSImage")
+    .def(init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
+    .def(init<std::string, std::string, std::string, std::string>())
+
+    .def("load",&ClassifiedHSImage::load) //Member Functions
+    .def("getClassSpectra", &ClassifiedHSImage::getClassSpectra)
+    .def("getClassTF",&ClassifiedHSImage::getClassTF)
+    .def("getAvgClassTF", &ClassifiedHSImage::getAvgClassTF)
+    .def("getPixelClass", &ClassifiedHSImage::getPixelClass)
+    .def("setSpectraClass", &ClassifiedHSImage::setSpectraClass)
+    .def("setImageClass", &ClassifiedHSImage::setImageClass);
+}
+
