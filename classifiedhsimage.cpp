@@ -216,16 +216,20 @@ void ClassifiedHSImage::setImageClass(cv::Mat class_labels, std::vector<classCol
 // Setting up the Python Wrapper
 BOOST_PYTHON_MODULE(classifiedhsimage)
 {
+    void (ClassifiedHSImage::*d1)(int, int, std::string) = &ClassifiedHSImage::setSpectraClass;
+    void (ClassifiedHSImage::*d2)(std::vector<std::pair<int, int > >, std::string) = &ClassifiedHSImage::setSpectraClass;
+
     bp::class_<ClassifiedHSImage>("ClassifiedHSImage")
-    .def(init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
-    .def(init<std::string, std::string, std::string, std::string>())
+    .def(bp::init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
+    .def(bp::init<std::string, std::string, std::string, std::string>())
 
     .def("load",&ClassifiedHSImage::load) //Member Functions
     .def("getClassSpectra", &ClassifiedHSImage::getClassSpectra)
     .def("getClassTF",&ClassifiedHSImage::getClassTF)
     .def("getAvgClassTF", &ClassifiedHSImage::getAvgClassTF)
     .def("getPixelClass", &ClassifiedHSImage::getPixelClass)
-    .def("setSpectraClass", &ClassifiedHSImage::setSpectraClass)
+    .def("setSpectraClass", d1)
+    .def("setSpectraClass", d2)
     .def("setImageClass", &ClassifiedHSImage::setImageClass);
 }
 

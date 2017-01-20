@@ -491,3 +491,27 @@ std::string HSImage::createAbsoluteSpecFilepath(std::string rel_spec_filepath)
 
     return abs_spec_filepath;
 }
+
+// Setting up the Python Wrapper
+//BOOST_PYTHON_MODULE(hsimage)
+//{
+//    bp::class_<HSImage>("HSImage")
+//        //.def(bp::init<std::string, std::string>()) //Constructors
+//        //.def(bp::init<(std::string, std::string, std::vector<std::string>>()))
+//        //.def(bp::init<const HSImage>())
+
+//        .def("load", &HSImage::load) //Member Functions
+//        .def("loadHeader", &HSImage::loadHeader)
+//        .def("loadRawImage", &HSImage::loadRawImage)
+//        .def("loadSpectrometerData", &HSImage::loadSpectrometerData)
+//        .def("addSpecDataToHeader", &HSImage::addSpecDataToHeader)
+//        .def("hasSpecFiles", &HSImage::hasSpecFiles)
+//        .def("getPixelSpectra", &HSImage::getPixelSpectra)
+//        .def("getNormalizedPixelSpectra", &HSImage::getNormalizedPixelSpectra)
+//        .def("getPixelTransferFunction", &HSImage::getPixelTransferFunction)
+//        .def("getRange", &HSImage::getRange)
+//        .def("getSet", &HSImage::getSet)
+//        .def("createRelativeSpecFilepath", &HSImage::createRelativeSpecFilepath)
+//        .def("createAbsoluteSpecFilepath", &HSImage::createAbsoluteSpecFilepath);
+        
+//}

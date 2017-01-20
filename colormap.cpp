@@ -371,22 +371,32 @@ void colorMap::setTargetVector(const std::vector<target> &inputVector){
 // Setting up the Python Wrapper
 BOOST_PYTHON_MODULE(colormap)
 {
-    bp::class_<colorMap>("ClassifiedHSImage")
-        .def(init<uint32_t, uint32_t>()) //Constructors
 
-    	.def("greaterVersion",&colorMap::greaterVersion) //Member Functions
-    	.def("addTarget", &colorMap::addTarget)
-    	.def("removeTarget", &colorMap::removeTarget)
-    	.def("findTargetInd",&colorMap::findTargetInd)
-    	.def("toFile",&colorMap::toFile)
-    	.def("fromFile", &colormap::fromFile)
-    	.def("nextColorMapExist",&colorMap::nextColorMapExit)
-    	.def("setMajorV",&colorMap::setMajorV)
-    	.def("setMinorV",&colorMap::setMinorV)
-    	.def("getMajorV",&colorMap::getMajorV)
-    	.def("getMinorV",&colorMap::getMinorV)
-    	.def("getVersion",&colorMap::getVersion)
-    	.def("getNumTargets",&colormap::getNumTargets)
-    	.def("getTargetList",&colorMap::getTargetList)
-    	.def("setTargetVector",&colormap::setTargetVector);
+    void (colorMap::*d1)(target) = &colorMap::addTarget;
+    void (colorMap::*d2)(target[], int) = &colorMap::addTarget;
+    void (colorMap::*d3)(std::vector<target>) = &colorMap::addTarget;
+
+
+    bp::class_<colorMap>("ClassifiedHSImage")
+        .def(bp::init<uint32_t, uint32_t>()) //Constructors
+
+        .def("greaterVersion",&colorMap::greaterVersion) //Member Functions
+        .def("addTarget", d1)
+        .def("addTarget", d2)
+        .def("addTarget", d3)
+        .def("removeTarget", &colorMap::removeTarget)
+        .def("findTargetInd", &colorMap::findTargetInd)
+        .def("toFile", &colorMap::toFile)
+        .def("fromFile", &colorMap::fromFile)
+        .def("nextColorMapExist", &colorMap::nextColorMapExist)
+        .def("setMajorV", &colorMap::setMajorV)
+        .def("setMinorV", &colorMap::setMinorV)
+        .def("getMajorV", &colorMap::getMajorV)
+        .def("getMinorV", &colorMap::getMinorV)
+        .def("getVersion", &colorMap::getVersion)
+        .def("getNumTargets", &colorMap::getNumTargets)
+        .def("getTargetList", &colorMap::getTargetList)
+        .def("setTargetVector", &colorMap::setTargetVector);
 }
+//////////////////////////////////////////////////////
+////////////////////////// Still need to add constructor / copier???
