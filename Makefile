@@ -22,7 +22,7 @@ gesture.so: gesture.o
 	g++ -shared -Wl,--export-dynamic gesture.o -L$(BOOST_LIB) -lboost_python3 -L/usr/lib/python$(PYTHON_VERSION)/config-3.4m-x86_64-linux-gnu -lpython$(PYTHON_VERSION) -o gesture.so # Binaries
  
 
-classifiedhsimage.so: classifiedhsimage.o
+classifiedhsimage.so: classifiedhsimage.o colormap.o hsimage.o 
 
 colormap.so: colormap.o
 
