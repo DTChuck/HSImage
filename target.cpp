@@ -1,5 +1,4 @@
 #include "target.h"
-namespace bp = boost::python;
 
 
 const char *target::startTag = "<TSTART>\n\0";
@@ -194,24 +193,3 @@ uint8_t target::getB() const{ return this->b;}
 
 // *******************  END     GET/SET     ***********//
 
-/*
-BOOST_PYTHON_MODULE(target)
-{
-    bp::class_<target>("target")
-            .def(bp::init<uint8_t, uint8_t, uint8_t, std::string, targetType::types>()) //Constructors
-
-            .def("toFile", &target::toFile) //Member Functions
-            .def("fromFile", &target::fromFile)
-            .def("nextTargetExist", &target::nextTargetExist)
-            .def("setTitle", &target::setTitle)
-            .def("setDescription", &target::setDescription)
-            .def("setType", &target::setType)
-            .def("setR", &target::setR)
-            .def("setG", &target::setG)
-            .def("setB", &target::setB)
-            .def("getTitle", &target::getTitle)
-            .def("getDescription", &target::getDescription)
-            .def("getType", &target::getType);
-
-}
-*/
