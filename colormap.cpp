@@ -369,6 +369,7 @@ void colorMap::setTargetVector(const std::vector<target> &inputVector){
 // *******************  END     GET/SET     ***********//
 
 // Setting up the Python Wrapper
+/*
 BOOST_PYTHON_MODULE(colormap)
 {
 
@@ -398,5 +399,6 @@ BOOST_PYTHON_MODULE(colormap)
         .def("getTargetList", &colorMap::getTargetList)
         .def("setTargetVector", &colorMap::setTargetVector);
 }
+*/
 //////////////////////////////////////////////////////
 ////////////////////////// Still need to add constructor / copier???

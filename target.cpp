@@ -194,7 +194,7 @@ uint8_t target::getB() const{ return this->b;}
 
 // *******************  END     GET/SET     ***********//
 
-
+/*
 BOOST_PYTHON_MODULE(target)
 {
     bp::class_<target>("target")
@@ -214,3 +214,4 @@ BOOST_PYTHON_MODULE(target)
             .def("getType", &target::getType);
 
 }
+*/

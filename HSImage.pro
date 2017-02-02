@@ -27,8 +27,8 @@ QMAKE_CXXFLAGS += -std=c++11
 
 unix {
 #OpenCV Includes and Libs
-INCLUDEPATH += /usr/include/python3.4 \
-INCLUDEPATH =+ /usr/include/boost_1_63_0 \
+INCLUDEPATH += /usr/include/python3.5 \
+INCLUDEPATH =+ /usr/include/boost \
 
 
 LIBS += -L/usr/local/lib \
@@ -39,8 +39,8 @@ LIBS += -L/usr/local/lib \
         -lboost_system \
         -lboost_python3 \
 
-LIBS += -L/usr/lib/python3.4/config-3.4m-x86_64-linux-gnu \
-        -lpython3.4
+LIBS += -L/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
+        -lpython3.5
 
 
     target.path = /usr/local/lib

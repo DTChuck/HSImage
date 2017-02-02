@@ -214,6 +214,7 @@ void ClassifiedHSImage::setImageClass(cv::Mat class_labels, std::vector<classCol
 }
 
 // Setting up the Python Wrapper
+//*
 BOOST_PYTHON_MODULE(classifiedhsimage)
 {
     void (ClassifiedHSImage::*d1)(int, int, std::string) = &ClassifiedHSImage::setSpectraClass;
@@ -232,4 +233,4 @@ BOOST_PYTHON_MODULE(classifiedhsimage)
     .def("setSpectraClass", d2)
     .def("setImageClass", &ClassifiedHSImage::setImageClass);
 }
-
+//*/

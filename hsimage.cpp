@@ -493,6 +493,7 @@ std::string HSImage::createAbsoluteSpecFilepath(std::string rel_spec_filepath)
 }
 
 // Setting up the Python Wrapper
+/*
 //BOOST_PYTHON_MODULE(hsimage)
 //{
 //    bp::class_<HSImage>("HSImage")
@@ -515,3 +516,4 @@ std::string HSImage::createAbsoluteSpecFilepath(std::string rel_spec_filepath)
 //        .def("createAbsoluteSpecFilepath", &HSImage::createAbsoluteSpecFilepath);
         
 //}
+*/
