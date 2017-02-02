@@ -1,5 +1,4 @@
 #include "classifiedhsimage.h"
-namespace bp = boost::python;
 
 
 template <typename T>
@@ -213,10 +212,17 @@ void ClassifiedHSImage::setImageClass(cv::Mat class_labels, std::vector<classCol
         class_names.emplace(c.first,c.second);
 }
 
-// Setting up the Python Wrapper
-//*
-BOOST_PYTHON_MODULE(classifiedhsimage)
+void export_classifiedhsimage()
 {
+    namespace bp = boost::python;
+    // map the IO namespace to a sub-module
+    // make "from myPackage.class1 import <whatever>" work
+    bp::object classified_hsimageModule(bp::handle<>(bp::borrowed(PyImport_AddModule("hsi.classified_hsimage"))));
+    // make "from mypackage import class1" work
+    bp::scope().attr("classified_hsimage") = classified_hsimageModule;
+    // set the current scope to the new sub-module
+    bp::scope io_scope = classified_hsimageModule;
+
     void (ClassifiedHSImage::*d1)(int, int, std::string) = &ClassifiedHSImage::setSpectraClass; // Dealing with overloaded function
     void (ClassifiedHSImage::*d2)(std::vector<std::pair<int, int > >, std::string) = &ClassifiedHSImage::setSpectraClass;
     void (ClassifiedHSImage::*d3)(cv::Mat, std::vector<classColor>) = &ClassifiedHSImage::setImageClass;
@@ -235,4 +241,3 @@ BOOST_PYTHON_MODULE(classifiedhsimage)
     .def("setSpectraClass", d3)
     .def("setImageClass", &ClassifiedHSImage::setImageClass);
 }
-//*/

@@ -1,5 +1,4 @@
 #include "hsimage.h"
-namespace bp = boost::python;
 HSImage::HSImage()
 {
     has_spec_data = false;
@@ -492,10 +491,18 @@ std::string HSImage::createAbsoluteSpecFilepath(std::string rel_spec_filepath)
     return abs_spec_filepath;
 }
 
-// Setting up the Python Wrapper
-//*
-BOOST_PYTHON_MODULE(hsimage)
+void export_hsimage()
 {
+    namespace bp = boost::python;
+    // map the IO namespace to a sub-module
+    // make "from myPackage.class1 import <whatever>" work
+    bp::object hsimageModule(bp::handle<>(bp::borrowed(PyImport_AddModule("hsi.hsimage"))));
+    // make "from mypackage import class1" work
+    bp::scope().attr("hsimage") = hsimageModule;
+    // set the current scope to the new sub-module
+    bp::scope io_scope = hsimageModule;
+
+
     void (HSImage::*d1)(std::string, std::string) = &HSImage::load; // Dealing with overloaded function
     void (HSImage::*d2)(std::string, std::string, std::vector<std::string>) = &HSImage::load;
 
@@ -504,7 +511,7 @@ BOOST_PYTHON_MODULE(hsimage)
         .def(bp::init<std::string, std::string, std::vector<std::string>>())
         .def(bp::init<const HSImage&>())
 
-//        .def("operator=", &HSImage::operator =) //Member Functions
+        //.def("operator=", &HSImage::operator =) //Member Functions
         .def("load", d1)
         .def("load", d2)
         .def("loadHeader", &HSImage::loadHeader)
@@ -520,4 +527,3 @@ BOOST_PYTHON_MODULE(hsimage)
         .def("operator[]", &HSImage::operator []);
 
 }
-//*/

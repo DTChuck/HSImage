@@ -13,8 +13,6 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 
-#include "hsimage_global.h"
-
 #include <boost/python.hpp> //<boost_1_63_0/boost/python.hpp>
 
 
@@ -26,7 +24,7 @@
  * The spectrometer files required to properly enable this behavior are a visible light file (400-700 nm) and a NIR file (700-1000 nm).
  */
 
-class HSIMAGESHARED_EXPORT HSImage
+class HSImage
 {
 
 public:
@@ -177,5 +175,7 @@ private:
     }
 
 };
+
+
 
 #endif // HSIMAGE_H

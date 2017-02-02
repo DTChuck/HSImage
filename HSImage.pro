@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       -= gui
+QT       -= core gui
 
 TARGET = HSImage
 TEMPLATE = lib
@@ -14,7 +14,8 @@ DEFINES += HSIMAGE_LIBRARY
 SOURCES += hsimage.cpp \
     classifiedhsimage.cpp \
     target.cpp \
-    colormap.cpp
+    colormap.cpp \
+    main.cpp
 
 HEADERS += hsimage.h\
         hsimage_global.h \
@@ -26,10 +27,16 @@ HEADERS += hsimage.h\
 QMAKE_CXXFLAGS += -std=c++11
 
 unix {
-#OpenCV Includes and Libs
-INCLUDEPATH += /usr/include/python3.5 \
-INCLUDEPATH =+ /usr/include/boost \
 
+CONFIG += ryan_computer #comment this line out to run on josh's computer
+
+ryan_computer {
+    INCLUDEPATH += /usr/include/python3.4
+} else {
+    INCLUDEPATH += /usr/include/python3.5
+}
+
+INCLUDEPATH += /usr/include/boost \
 
 LIBS += -L/usr/local/lib \
         -lopencv_core \
@@ -39,8 +46,13 @@ LIBS += -L/usr/local/lib \
         -lboost_system \
         -lboost_python3 \
 
-LIBS += -L/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
+ryan_computer {
+    LIBS += -L/usr/lib/python3.4/config-3.4m-x86_64-linux-gnu \
+        -lpython3.4
+} else {
+    LIBS += -L/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
         -lpython3.5
+}
 
 
     target.path = /usr/local/lib
@@ -50,4 +62,6 @@ LIBS += -L/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
     headers.files = $$HEADERS
 
     INSTALLS += headers
+
+    QMAKE_POST_LINK = cp libHSImage.so.1.0.0 HSI.so
 }

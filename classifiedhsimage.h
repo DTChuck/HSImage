@@ -10,7 +10,7 @@
 #include <opencv2/imgproc.hpp>
 
 #include "hsimage.h"
-#include "hsimage_global.h"
+//#include "hsimage_global.h"
 #include "colormap.h"
 
 #include <boost/python.hpp>//<boost_1_63_0/boost/python.hpp>
@@ -37,7 +37,7 @@ typedef std::pair<std::string,cv::Vec3b> classColor;
  *
  * Does not current support internal saving of files. Under construction.
  */
-class HSIMAGESHARED_EXPORT ClassifiedHSImage
+class ClassifiedHSImage
 {
 public:
     ClassifiedHSImage();/*!< Base constructor */
@@ -120,5 +120,6 @@ public:
      */
     void setImageClass(cv::Mat class_labels, std::vector<classColor> class_list);
 };
+
 
 #endif // CLASSIFIEDHSIMAGE_H
