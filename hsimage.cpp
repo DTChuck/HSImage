@@ -11,7 +11,7 @@ HSImage::HSImage(std::string header_location, std::string image_location)
     load(header_location,image_location);
 }
 
-HSImage::HSImage(std::string header_location, std::string image_location,std::vector<std::string> spec_location)
+HSImage::HSImage(std::string header_location, std::string image_location, std::vector<std::string> spec_location)
 {
     has_spec_data = false;
     load(header_location,image_location,spec_location);
