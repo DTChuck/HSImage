@@ -217,8 +217,9 @@ void ClassifiedHSImage::setImageClass(cv::Mat class_labels, std::vector<classCol
 //*
 BOOST_PYTHON_MODULE(classifiedhsimage)
 {
-    void (ClassifiedHSImage::*d1)(int, int, std::string) = &ClassifiedHSImage::setSpectraClass;
+    void (ClassifiedHSImage::*d1)(int, int, std::string) = &ClassifiedHSImage::setSpectraClass; // Dealing with overloaded function
     void (ClassifiedHSImage::*d2)(std::vector<std::pair<int, int > >, std::string) = &ClassifiedHSImage::setSpectraClass;
+    void (ClassifiedHSImage::*d3)(cv::Mat, std::vector<classColor>) = &ClassifiedHSImage::setImageClass;
 
     bp::class_<ClassifiedHSImage>("ClassifiedHSImage")
     .def(bp::init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
@@ -231,6 +232,7 @@ BOOST_PYTHON_MODULE(classifiedhsimage)
     .def("getPixelClass", &ClassifiedHSImage::getPixelClass)
     .def("setSpectraClass", d1)
     .def("setSpectraClass", d2)
+    .def("setSpectraClass", d3)
     .def("setImageClass", &ClassifiedHSImage::setImageClass);
 }
 //*/
