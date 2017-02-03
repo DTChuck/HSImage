@@ -506,7 +506,7 @@ void export_hsimage()
     void (HSImage::*d1)(std::string, std::string) = &HSImage::load; // Dealing with overloaded function
     void (HSImage::*d2)(std::string, std::string, std::vector<std::string>) = &HSImage::load;
 
-    bp::class_<HSImage>("HSImage")
+    bp::class_<HSImage>("hsimage")
         .def(bp::init<std::string, std::string>()) //Constructors
         .def(bp::init<std::string, std::string, std::vector<std::string>>())
         .def(bp::init<const HSImage&>())
@@ -514,8 +514,8 @@ void export_hsimage()
         //.def("operator=", &HSImage::operator =) //Member Functions
         .def("load", d1)
         .def("load", d2)
-        .def("loadHeader", &HSImage::loadHeader)
-        .def("loadRawImage", &HSImage::loadRawImage)
+//        .def("loadHeader", &HSImage::loadHeader)
+//        .def("loadRawImage", &HSImage::loadRawImage)
         .def("loadSpectrometerData", &HSImage::loadSpectrometerData)
         .def("addSpecDataToHeader", &HSImage::addSpecDataToHeader)
         .def("hasSpecFiles", &HSImage::hasSpecFiles)
@@ -524,6 +524,6 @@ void export_hsimage()
         .def("getPixelTransferFunction", &HSImage::getPixelTransferFunction)
         .def("getRange", &HSImage::getRange)
         .def("getSet", &HSImage::getSet)
-        .def("operator[]", &HSImage::operator []);
+        .def("getBand", &HSImage::operator []);
 
 }

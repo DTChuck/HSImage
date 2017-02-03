@@ -15,14 +15,16 @@ SOURCES += hsimage.cpp \
     classifiedhsimage.cpp \
     target.cpp \
     colormap.cpp \
-    main.cpp
+    main.cpp \
+    python_utils.cpp
 
 HEADERS += hsimage.h\
         hsimage_global.h \
         classifiedhsimage.h \
         annEnums.h \
         target.h \
-        colormap.h
+        colormap.h \
+    python_utils.h
 
 QMAKE_CXXFLAGS += -std=c++11
 

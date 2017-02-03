@@ -9,11 +9,12 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 
+#include <boost/python.hpp>
+
 #include "hsimage.h"
 //#include "hsimage_global.h"
 #include "colormap.h"
-
-#include <boost/python.hpp>//<boost_1_63_0/boost/python.hpp>
+#include "python_utils.h"
 
 
 

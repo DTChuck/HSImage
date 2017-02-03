@@ -49,12 +49,14 @@ SOURCES       = ../hsimage.cpp \
 		../classifiedhsimage.cpp \
 		../target.cpp \
 		../colormap.cpp \
-		../main.cpp 
+		../main.cpp \
+		../python_utils.cpp 
 OBJECTS       = hsimage.o \
 		classifiedhsimage.o \
 		target.o \
 		colormap.o \
-		main.o
+		main.o \
+		python_utils.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -323,11 +325,17 @@ compiler_clean:
 
 ####### Compile
 
-hsimage.o: ../hsimage.cpp ../hsimage.h
+hsimage.o: ../hsimage.cpp ../hsimage.h \
+		../python_utils.h \
+		../classifiedhsimage.h \
+		../colormap.h \
+		../annEnums.h \
+		../target.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o hsimage.o ../hsimage.cpp
 
 classifiedhsimage.o: ../classifiedhsimage.cpp ../classifiedhsimage.h \
 		../hsimage.h \
+		../python_utils.h \
 		../colormap.h \
 		../annEnums.h \
 		../target.h
@@ -344,10 +352,19 @@ colormap.o: ../colormap.cpp ../colormap.h \
 
 main.o: ../main.cpp ../classifiedhsimage.h \
 		../hsimage.h \
+		../python_utils.h \
 		../colormap.h \
 		../annEnums.h \
 		../target.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../main.cpp
+
+python_utils.o: ../python_utils.cpp ../python_utils.h \
+		../classifiedhsimage.h \
+		../hsimage.h \
+		../colormap.h \
+		../annEnums.h \
+		../target.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o python_utils.o ../python_utils.cpp
 
 ####### Install
 
@@ -374,8 +391,10 @@ install_headers: first FORCE
 	-$(INSTALL_PROGRAM) /media/ryan/HDD/Perception/Dissertation/Software/HSImage/annEnums.h $(INSTALL_ROOT)/usr/local/include/
 	-$(INSTALL_PROGRAM) /media/ryan/HDD/Perception/Dissertation/Software/HSImage/target.h $(INSTALL_ROOT)/usr/local/include/
 	-$(INSTALL_PROGRAM) /media/ryan/HDD/Perception/Dissertation/Software/HSImage/colormap.h $(INSTALL_ROOT)/usr/local/include/
+	-$(INSTALL_PROGRAM) /media/ryan/HDD/Perception/Dissertation/Software/HSImage/python_utils.h $(INSTALL_ROOT)/usr/local/include/
 
 uninstall_headers: FORCE
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/include/python_utils.h
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/include/colormap.h
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/include/target.h
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/include/annEnums.h

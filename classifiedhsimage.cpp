@@ -227,7 +227,7 @@ void export_classifiedhsimage()
     void (ClassifiedHSImage::*d2)(std::vector<std::pair<int, int > >, std::string) = &ClassifiedHSImage::setSpectraClass;
     void (ClassifiedHSImage::*d3)(cv::Mat, std::vector<classColor>) = &ClassifiedHSImage::setImageClass;
 
-    bp::class_<ClassifiedHSImage>("ClassifiedHSImage")
+    bp::class_<ClassifiedHSImage>("classified_hsimage")
     .def(bp::init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
     .def(bp::init<std::string, std::string, std::string, std::string>())
 

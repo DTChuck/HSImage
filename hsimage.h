@@ -13,7 +13,9 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 
-#include <boost/python.hpp> //<boost_1_63_0/boost/python.hpp>
+#include <boost/python.hpp>
+
+#include "python_utils.h"
 
 
 /*!
@@ -47,19 +49,6 @@ public:
      * \param spec_locations location of the spectrometer files.
      */
     void load(std::string header_location, std::string image_location, std::vector<std::string> spec_locations);
-
-    /*!
-     * \brief  Load only .hdr file of hyperspectral image.
-     * \param header_location location of .hdr file
-     * Not intended for external use. Use load() instead.
-     */
-    void loadHeader(std::string header_location);
-    /*!
-     * \brief  Load only .raw file of hyperspectral image
-     * \param image_location
-     * Not intended for external use. Use load() instead.
-     */
-    void loadRawImage(std::string image_location);
     /*!
      * \brief  Load only spectrometer data for use with hyperspectral image
      * \param filenames locations of the spectrometer filenames.
@@ -142,6 +131,19 @@ public:
     std::string vis_spec_file;/*!< Location of VIS spectrometer file */
 
 private:
+    /*!
+     * \brief  Load only .hdr file of hyperspectral image.
+     * \param header_location location of .hdr file
+     * Not intended for external use. Use load() instead.
+     */
+    void loadHeader(std::string header_location);
+    /*!
+     * \brief  Load only .raw file of hyperspectral image
+     * \param image_location
+     * Not intended for external use. Use load() instead.
+     */
+    void loadRawImage(std::string image_location);
+
     std::unordered_map<float,uchar*> image_map;
     std::unique_ptr<u_int16_t[]> image_data;
     std::unique_ptr<u_int16_t[]> pixel_data;
