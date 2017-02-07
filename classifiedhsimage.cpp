@@ -183,7 +183,6 @@ std::string ClassifiedHSImage::getPixelClass(int row, int col)
     return name;
 }
 
-
 void ClassifiedHSImage::setSpectraClass(int row, int col, std::string class_label)
 {
     cv::Vec3b val;
@@ -231,7 +230,7 @@ void export_classifiedhsimage()
     .def(bp::init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
     .def(bp::init<std::string, std::string, std::string, std::string>())
 
-    .def("load",&ClassifiedHSImage::load) //Member Functions
+//    .def("load",&ClassifiedHSImage::load) //Member Functions
     .def("getClassSpectra", &ClassifiedHSImage::getClassSpectra)
     .def("getClassTF",&ClassifiedHSImage::getClassTF)
     .def("getAvgClassTF", &ClassifiedHSImage::getAvgClassTF)
