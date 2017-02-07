@@ -16,7 +16,8 @@ SOURCES += hsimage.cpp \
     target.cpp \
     colormap.cpp \
     main.cpp \
-    python_utils.cpp
+    python_utils.cpp \
+    pyboost_cv3_converter.cpp
 
 HEADERS += hsimage.h\
         hsimage_global.h \
@@ -24,7 +25,8 @@ HEADERS += hsimage.h\
         annEnums.h \
         target.h \
         colormap.h \
-    python_utils.h
+    python_utils.h \
+    pyboostconverter/pyboostcvconverter.hpp
 
 QMAKE_CXXFLAGS += -std=c++11
 
