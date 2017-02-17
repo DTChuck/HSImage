@@ -85,6 +85,32 @@ struct iterable_converter
 
 };
 
+// Converts a std::pair instance to a Python tuple.
+template <typename T1, typename T2>
+struct std_pair_to_tuple
+{
+  static PyObject* convert(std::pair<T1, T2> const& p)
+  {
+    return boost::python::incref(
+      boost::python::make_tuple(p.first, p.second).ptr());
+  }
+  static PyTypeObject const *get_pytype () {return &PyTuple_Type; }
+};
+
+// Helper for convenience.
+template <typename T1, typename T2>
+struct std_pair_to_python_converter
+{
+  std_pair_to_python_converter()
+  {
+    boost::python::to_python_converter<
+      std::pair<T1, T2>,
+      std_pair_to_tuple<T1, T2>,
+      true //std_pair_to_tuple has get_pytype
+      >();
+  }
+};
+
 ////define vector wrapper for Python - std::vector interoperability
 #define MAKE_VECTOR_WRAPPER( CPP_NAME , PYTHON_NAME )                         \
    boost::python::class_< CPP_NAME >( #PYTHON_NAME )                          \

@@ -211,6 +211,11 @@ void ClassifiedHSImage::setImageClass(cv::Mat class_labels, std::vector<classCol
         class_names.emplace(c.first,c.second);
 }
 
+cv::Mat ClassifiedHSImage::getImageClass()
+{
+    return label;
+}
+
 void export_classifiedhsimage()
 {
     namespace bp = boost::python;
@@ -238,5 +243,6 @@ void export_classifiedhsimage()
     .def("setSpectraClass", d1)
     .def("setSpectraClass", d2)
     .def("setSpectraClass", d3)
-    .def("setImageClass", &ClassifiedHSImage::setImageClass);
+    .def("setImageClass", &ClassifiedHSImage::setImageClass)
+    .def("getImageClass", &ClassifiedHSImage::getImageClass);
 }

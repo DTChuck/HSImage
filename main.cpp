@@ -46,6 +46,8 @@ BOOST_PYTHON_MODULE(HSI)
             .from_python<std::vector<std::string>> () \
     ;
 
+    std_pair_to_python_converter<std::string, cv::Vec3b>();
+
 
     MAKE_VECTOR_WRAPPER(std::vector<std::string>, stringVector);
     MAKE_VECTOR_WRAPPER(std::vector<u_int16_t>, uint16Vector);
@@ -54,6 +56,7 @@ BOOST_PYTHON_MODULE(HSI)
     MAKE_VECTOR_WRAPPER(std::vector<double>, doubleVector);
     MAKE_VECTOR_WRAPPER(std::vector<float>, floatVector);
     MAKE_VECTOR_WRAPPER_LIMITED(std::vector<cv::Mat>, cvMatVector);
+    MAKE_VECTOR_WRAPPER_LIMITED(std::vector<classColor>, classColorVector);
 
     export_hsimage();
     export_classifiedhsimage();

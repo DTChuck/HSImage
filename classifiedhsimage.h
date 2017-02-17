@@ -120,6 +120,8 @@ public:
      * \param class_list Vector of classColor objects containing name and color information for the classes in class_labels.
      */
     void setImageClass(cv::Mat class_labels, std::vector<classColor> class_list);
+
+    cv::Mat getImageClass();
 };
 
 
