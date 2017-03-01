@@ -388,6 +388,11 @@ std::vector<u_int16_t> HSImage::getNormalizedPixelSpectra(int row, int col)
     return output;
 }
 
+std::vector<float> HSImage::getWavelengths()
+{
+    return wavelengths;
+}
+
 std::vector<double> HSImage::getPixelTransferFunction(int row, int col)
 {
     std::vector<u_int16_t> output = getPixelSpectra(row,col);
