@@ -111,6 +111,12 @@ public:
      */
     cv::Mat operator[] (const float wavelength);
 
+    /*!
+     * \brief Return vector of imaged wavlengths.
+     * \return std::vector<float> containing each wavelength that the sensor detected.
+     */
+    std::vector<float> getWavelengths();
+
     //image metadata
     std::string acquisition_date; /*!< Date of image aquisition. Acquired from .hdr file. */
     int tint; /*!< Exposure value of hyperspectral image. Acquired from .hdr file. */

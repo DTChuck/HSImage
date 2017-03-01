@@ -10,7 +10,7 @@ HSImage::HSImage(std::string header_location, std::string image_location)
     load(header_location,image_location);
 }
 
-HSImage::HSImage(std::string header_location, std::string image_location,std::vector<std::string> spec_location)
+HSImage::HSImage(std::string header_location, std::string image_location, std::vector<std::string> spec_location)
 {
     has_spec_data = false;
     load(header_location,image_location,spec_location);
@@ -385,6 +385,11 @@ std::vector<u_int16_t> HSImage::getNormalizedPixelSpectra(int row, int col)
         output[i] = output[i] - ambient_intensities[i];
 
     return output;
+}
+
+std::vector<float> HSImage::getWavelengths()
+{
+    return wavelengths;
 }
 
 std::vector<double> HSImage::getPixelTransferFunction(int row, int col)
