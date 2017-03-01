@@ -116,6 +116,12 @@ public:
      * \return std::vector<float> containing each wavelength that the sensor detected.
      */
     std::vector<float> getWavelengths();
+    
+    /*!
+     * \brief Return vector of ambient wavelength intensites.
+     * \return std::vector<float> containing the intensity of the ambient light at each wavelength imaged.
+     */
+    std::vector<float> getAmbientIntensities(); 
 
     //image metadata
     std::string acquisition_date; /*!< Date of image aquisition. Acquired from .hdr file. */

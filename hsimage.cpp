@@ -392,6 +392,11 @@ std::vector<float> HSImage::getWavelengths()
     return wavelengths;
 }
 
+std::vector<float> HSImage::getAmbientIntensities()
+{ 
+    return ambient_intensities;
+}
+
 std::vector<double> HSImage::getPixelTransferFunction(int row, int col)
 {
     std::vector<u_int16_t> output = getPixelSpectra(row,col);
@@ -526,6 +531,8 @@ void export_hsimage()
         .def("hasSpecFiles", &HSImage::hasSpecFiles)
         .staticmethod("hasSpecFiles")
         .def("getPixelSpectra", &HSImage::getPixelSpectra)
+	.def("getWavelengths", &HSImage::getWavelengths)
+	.def("getAmbientIntensities",&HSImage::getAmbientIntensities)
         .def("getNormalizedPixelSpectra", &HSImage::getNormalizedPixelSpectra)
         .def("getPixelTransferFunction", &HSImage::getPixelTransferFunction)
         .def("getRange", &HSImage::getRange)
