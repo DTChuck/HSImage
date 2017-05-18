@@ -15,6 +15,7 @@
 //#include "hsimage_global.h"
 #include "colormap.h"
 #include "python_utils.h"
+#include "labelfile.h"
 
 
 
@@ -57,6 +58,13 @@ public:
      * \param class_hdr_file .hdr file with class information about color/name pairs
      */
     ClassifiedHSImage(std::string raw_file, std::string hdr_file, std::string label_file, std::string class_hdr_file);
+    /*!
+     * \brief Constructor for loading ClassifiedHSImage from .lif labeling style
+     * \param raw_file .raw hyperspectral image file
+     * \param hdr_file .hdr hyperspectral image file
+     * \param lif_file .lif LabelMe style label file
+     */
+    ClassifiedHSImage(std::string raw_file, std::string hdr_file, std::string lif_file);
 
     HSImage image;/*!< HSImage object containing hyperspectral data. */
     cv::Mat label;/*!< OpenCV cv::Mat image containing labeling data. */

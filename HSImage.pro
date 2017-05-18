@@ -17,7 +17,9 @@ SOURCES += hsimage.cpp \
     colormap.cpp \
     main.cpp \
     python_utils.cpp \
-    pyboost_cv3_converter.cpp
+    pyboost_cv3_converter.cpp \
+    labelfile.cpp \
+    jsoncpp/jsoncpp.cpp
 
 HEADERS += hsimage.h\
         hsimage_global.h \
@@ -26,7 +28,10 @@ HEADERS += hsimage.h\
         target.h \
         colormap.h \
     python_utils.h \
-    pyboostconverter/pyboostcvconverter.hpp
+    pyboostconverter/pyboostcvconverter.hpp \
+    labelfile.h \
+    jsoncpp/json/json.h \
+    jsoncpp/json/json-forwards.h
 
 QMAKE_CXXFLAGS += -std=c++11
 

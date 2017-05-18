@@ -54,6 +54,14 @@ ClassifiedHSImage::ClassifiedHSImage(std::string raw_file, std::string hdr_file,
     load(im,labels,class_list);
 }
 
+ClassifiedHSImage::ClassifiedHSImage(std::string raw_file, std::string hdr_file, std::string lif_file)
+{
+    HSImage im(hdr_file,raw_file);
+    LabelFile lf(lif_file);
+
+    load(im,lf.getLabelImage(),lf.getClassInfo());
+}
+
 void ClassifiedHSImage::load(HSImage hsimage, cv::Mat labels, std::vector<classColor> c_names)
 {
     image = hsimage;
@@ -234,6 +242,7 @@ void export_classifiedhsimage()
     bp::class_<ClassifiedHSImage>("classified_hsimage")
     .def(bp::init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
     .def(bp::init<std::string, std::string, std::string, std::string>())
+    .def(bp::init<std::string, std::string, std::string>())
 
 //    .def("load",&ClassifiedHSImage::load) //Member Functions
     .def("getClassSpectra", &ClassifiedHSImage::getClassSpectra)
