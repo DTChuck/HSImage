@@ -25,6 +25,7 @@ void LabelFile::loadFile(std::string filename)
     //prepare instance vectors
     obj_vector.clear();
     class_info.clear();
+    class_map.clear();
 
     //process each shape individually
     for(auto shape : shapes)
@@ -34,11 +35,21 @@ void LabelFile::loadFile(std::string filename)
 
         //get object label
         std::string label = shape["label"].asString();
+	
+	cv::Vec3b color;
 
+	auto search = class_map.find(label)
+	if(search != class_map.end())
+		color = search.second;
+	else
+	{
+		color = getRandomColor();
+		class_map[label] = color;
+	}
         //get object color
-        cv::Vec3b color;
-        if(shape["fill color"].asString() == "")
-            color = getRandomColor();
+        //cv::Vec3b color;
+        //if(shape["fill color"].asString() == "")
+        //   color = getRandomColor();
 
         //get polygon points
         std::vector<cv::Point> poly;

@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <random>
+#include <map>
 
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
@@ -76,6 +77,7 @@ private:
     cv::Mat label_overlay;
 
     std::vector<classColor> class_info;
+    std::map<std::string,cv::Vec3b> class_map;
 };
 
 #endif // LABELFILE_H
