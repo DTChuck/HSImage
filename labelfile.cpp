@@ -36,21 +36,23 @@ void LabelFile::loadFile(std::string filename)
         //get object label
         std::string label = shape["label"].asString();
 	
+	//get object color
 	cv::Vec3b color;
 
-	auto search = class_map.find(label)
+	//look to see if label already present in image
+	auto search = class_map.find(label);
 	if(search != class_map.end())
-		color = search.second;
+	{
+		//if label is present, get color from color_map
+		color = class_map[label];
+	}
 	else
 	{
+		//if label is not present, get random color and add it to color map
 		color = getRandomColor();
 		class_map[label] = color;
 	}
-        //get object color
-        //cv::Vec3b color;
-        //if(shape["fill color"].asString() == "")
-        //   color = getRandomColor();
-
+       
         //get polygon points
         std::vector<cv::Point> poly;
         Json::Value points = shape["points"];
@@ -222,4 +224,24 @@ classColor LabeledObject::getInfo()
 std::vector<cv::Point> LabeledObject::getPolygon()
 {
     return polygon;
+}
+
+void export_labelfile()
+{
+    namespace bp = boost::python;
+    //map the namespace to a submodule
+    //make "from myPackage.class1 import <anything>" work
+    bp::object hsimageModule(bp::handle<>(bp::borrowed(PyImport_AddModule("hsi.labelfile"))));
+    //make "from myPackage import class1 work
+    bp::scope().attr("labelfile") = hsimageModule;
+    //set current scope to the new sub-module
+    bp::scope io_scope = hsimageModule;
+
+    bp::class_<LabelFile>("labelfile")
+	    .def(bp::init<std::string>())
+	    .def("load", &LabelFile::loadFile)
+	    .def("getRGBImage", &LabelFile::getRGBImage)
+	    .def("getLabelImage", &LabelFile::getLabelImage)
+	    .def("getOverlayImage", &LabelFile::getViewingImage)
+	    .def("getClassInfo", &LabelFile::getClassInfo);
 }

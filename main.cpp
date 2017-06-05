@@ -4,11 +4,13 @@
 
 #include <boost/python/suite/indexing/vector_indexing_suite.hpp>
 
+#include "labelfile.h"
 #include "classifiedhsimage.h"
 #include "hsimage.h"
 #include "pyboostconverter/pyboostcvconverter.hpp"
 
 //declarations for Python class exports
+void export_labelfile();
 void export_hsimage();
 void export_classifiedhsimage();
 
@@ -58,6 +60,7 @@ BOOST_PYTHON_MODULE(HSI)
     MAKE_VECTOR_WRAPPER_LIMITED(std::vector<cv::Mat>, cvMatVector);
     MAKE_VECTOR_WRAPPER_LIMITED(std::vector<classColor>, classColorVector);
 
+    export_labelfile();
     export_hsimage();
     export_classifiedhsimage();
 }

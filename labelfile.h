@@ -20,6 +20,9 @@
 #include <boost/archive/iterators/insert_linebreaks.hpp>
 #include <boost/archive/iterators/remove_whitespace.hpp>
 
+#include <boost/python.hpp>
+#include "python_utils.h"
+
 #include "jsoncpp/json/json.h"
 
 /*!
