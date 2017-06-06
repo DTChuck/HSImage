@@ -111,6 +111,19 @@ struct std_pair_to_python_converter
   }
 };
 
+struct cv_vec3b_to_python_converter
+{
+	static PyObject* convert(cv::Vec3b const& vec)
+	{
+		boost::python::list l;
+		l.append(boost::python::object(vec[0]));
+		l.append(boost::python::object(vec[1]));
+		l.append(boost::python::object(vec[2]));
+		return boost::python::incref(l.ptr());
+	}
+};
+
+
 ////define vector wrapper for Python - std::vector interoperability
 #define MAKE_VECTOR_WRAPPER( CPP_NAME , PYTHON_NAME )                         \
    boost::python::class_< CPP_NAME >( #PYTHON_NAME )                          \

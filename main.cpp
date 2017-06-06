@@ -37,11 +37,13 @@ BOOST_PYTHON_MODULE(HSI)
 
     init_ar();
 
-           //initialize converters
-           boost::python::to_python_converter<cv::Mat,
-                   pbcvt::matToNDArrayBoostConverter>();
-           pbcvt::matFromNDArrayBoostConverter();
+   //initialize converters
+    boost::python::to_python_converter<cv::Mat,
+           pbcvt::matToNDArrayBoostConverter>();
+    pbcvt::matFromNDArrayBoostConverter();
 
+    boost::python::to_python_converter<cv::Vec3b,
+	    cv_vec3b_to_python_converter>();
 
     iterable_converter()
             .from_python<std::vector<float>> () \
@@ -50,7 +52,6 @@ BOOST_PYTHON_MODULE(HSI)
 
     std_pair_to_python_converter<std::string, cv::Vec3b>();
 
-
     MAKE_VECTOR_WRAPPER(std::vector<std::string>, stringVector);
     MAKE_VECTOR_WRAPPER(std::vector<u_int16_t>, uint16Vector);
     MAKE_VECTOR_WRAPPER(std::vector<std::vector<u_int16_t>>, classSpectraArray);
@@ -58,7 +59,7 @@ BOOST_PYTHON_MODULE(HSI)
     MAKE_VECTOR_WRAPPER(std::vector<double>, doubleVector);
     MAKE_VECTOR_WRAPPER(std::vector<float>, floatVector);
     MAKE_VECTOR_WRAPPER_LIMITED(std::vector<cv::Mat>, cvMatVector);
-    MAKE_VECTOR_WRAPPER_LIMITED(std::vector<classColor>, classColorVector);
+    MAKE_VECTOR_WRAPPER_LIMITED(std::vector<classColor>, classInfoVector);
 
     export_labelfile();
     export_hsimage();
