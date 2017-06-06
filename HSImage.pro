@@ -37,12 +37,13 @@ QMAKE_CXXFLAGS += -std=c++11
 
 unix {
 
-CONFIG += ryan_computer #comment this line out to run on josh's computer
+#CONFIG += ryan_computer #comment this line out to run on josh's computer
 
 ryan_computer {
     INCLUDEPATH += /usr/include/python3.4
 } else {
     INCLUDEPATH += /usr/include/python3.5
+    INCLUDEPATH += /home/joshua/.virtualenvs/cv/lib/python3.5/site-packages/numpy/core/include
 }
 
 INCLUDEPATH += /usr/include/boost \
