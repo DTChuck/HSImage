@@ -37,10 +37,16 @@ QMAKE_CXXFLAGS += -std=c++11
 
 unix {
 
-#CONFIG += ryan_computer #comment this line out to run on josh's computer
-
+#CONFIG += ryan_computer #comment this line out when not on Ryans's computer
+CONFIG += perception_computer #comment this line out when not on perception computer
 ryan_computer {
     INCLUDEPATH += /usr/include/python3.4
+}
+perception_computer {
+    INCLUDEPATH += /usr/include/python3.4
+    INCLUDEPATH += /home/lab/.virtualenvs/ml/lib/python3.4/site-packages/numpy/core/include
+
+
 } else {
     INCLUDEPATH += /usr/include/python3.5
     INCLUDEPATH += /home/joshua/.virtualenvs/cv/lib/python3.5/site-packages/numpy/core/include
@@ -55,13 +61,25 @@ LIBS += -L/usr/local/lib \
         -lopencv_imgcodecs \
         -lboost_system \
         -lboost_python3 \
+        -lboost_system \
 
+
+}
 ryan_computer {
     LIBS += -L/usr/lib/python3.4/config-3.4m-x86_64-linux-gnu \
         -lpython3.4
-} else {
+
+}
+perception_computer{
+    LIBS += -L/usr/lib/python3.4/config-3.4m-x86_64-linux-gnu \
+        -lpython3.4
+
+
+}
+ else {
     LIBS += -L/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
         -lpython3.5
+
 }
 
 
@@ -74,4 +92,4 @@ ryan_computer {
     INSTALLS += headers
 
     QMAKE_POST_LINK = cp libHSImage.so.1.0.0 HSI.so
-}
+#}
