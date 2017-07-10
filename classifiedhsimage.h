@@ -9,9 +9,14 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 
+#include <boost/python.hpp>
+
 #include "hsimage.h"
-#include "hsimage_global.h"
+//#include "hsimage_global.h"
 #include "colormap.h"
+#include "python_utils.h"
+#include "labelfile.h"
+
 
 
 struct Vec3bCompare
@@ -34,7 +39,7 @@ typedef std::pair<std::string,cv::Vec3b> classColor;
  *
  * Does not current support internal saving of files. Under construction.
  */
-class HSIMAGESHARED_EXPORT ClassifiedHSImage
+class ClassifiedHSImage
 {
 public:
     ClassifiedHSImage();/*!< Base constructor */
@@ -53,6 +58,13 @@ public:
      * \param class_hdr_file .hdr file with class information about color/name pairs
      */
     ClassifiedHSImage(std::string raw_file, std::string hdr_file, std::string label_file, std::string class_hdr_file);
+    /*!
+     * \brief Constructor for loading ClassifiedHSImage from .lif labeling style
+     * \param raw_file .raw hyperspectral image file
+     * \param hdr_file .hdr hyperspectral image file
+     * \param lif_file .lif LabelMe style label file
+     */
+    ClassifiedHSImage(std::string raw_file, std::string hdr_file, std::string lif_file);
 
     HSImage image;/*!< HSImage object containing hyperspectral data. */
     cv::Mat label;/*!< OpenCV cv::Mat image containing labeling data. */
@@ -116,6 +128,12 @@ public:
      * \param class_list Vector of classColor objects containing name and color information for the classes in class_labels.
      */
     void setImageClass(cv::Mat class_labels, std::vector<classColor> class_list);
+    /*!
+     * \brief Get cv::Mat showing image classes
+     * \return cv::Mat with color overlay for each class
+     */
+    cv::Mat getImageClass();
 };
+
 
 #endif // CLASSIFIEDHSIMAGE_H

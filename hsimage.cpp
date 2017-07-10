@@ -1,5 +1,4 @@
 #include "hsimage.h"
-
 HSImage::HSImage()
 {
     has_spec_data = false;
@@ -388,6 +387,16 @@ std::vector<u_int16_t> HSImage::getNormalizedPixelSpectra(int row, int col)
     return output;
 }
 
+std::vector<float> HSImage::getWavelengths()
+{
+    return wavelengths;
+}
+
+std::vector<float> HSImage::getAmbientIntensities()
+{ 
+    return ambient_intensities;
+}
+
 std::vector<double> HSImage::getPixelTransferFunction(int row, int col)
 {
     std::vector<u_int16_t> output = getPixelSpectra(row,col);
@@ -490,4 +499,44 @@ std::string HSImage::createAbsoluteSpecFilepath(std::string rel_spec_filepath)
     abs_spec_filepath += rel_spec_filepath;
 
     return abs_spec_filepath;
+}
+
+void export_hsimage()
+{
+    namespace bp = boost::python;
+    // map the IO namespace to a sub-module
+    // make "from myPackage.class1 import <whatever>" work
+    bp::object hsimageModule(bp::handle<>(bp::borrowed(PyImport_AddModule("hsi.hsimage"))));
+    // make "from mypackage import class1" work
+    bp::scope().attr("hsimage") = hsimageModule;
+    // set the current scope to the new sub-module
+    bp::scope io_scope = hsimageModule;
+
+
+    void (HSImage::*d1)(std::string, std::string) = &HSImage::load; // Dealing with overloaded function
+    void (HSImage::*d2)(std::string, std::string, std::vector<std::string>) = &HSImage::load;
+
+    bp::class_<HSImage>("hsimage")
+        .def(bp::init<std::string, std::string>()) //Constructors
+        .def(bp::init<std::string, std::string, std::vector<std::string>>())
+        .def(bp::init<const HSImage&>())
+
+        //.def("operator=", &HSImage::operator =) //Member Functions
+        .def("load", d1)
+        .def("load", d2)
+//        .def("loadHeader", &HSImage::loadHeader)
+//        .def("loadRawImage", &HSImage::loadRawImage)
+        .def("loadSpectrometerData", &HSImage::loadSpectrometerData)
+        .def("addSpecDataToHeader", &HSImage::addSpecDataToHeader)
+        .def("hasSpecFiles", &HSImage::hasSpecFiles)
+        .staticmethod("hasSpecFiles")
+        .def("getPixelSpectra", &HSImage::getPixelSpectra)
+	.def("getWavelengths", &HSImage::getWavelengths)
+	.def("getAmbientIntensities",&HSImage::getAmbientIntensities)
+        .def("getNormalizedPixelSpectra", &HSImage::getNormalizedPixelSpectra)
+        .def("getPixelTransferFunction", &HSImage::getPixelTransferFunction)
+        .def("getRange", &HSImage::getRange)
+        .def("getSet", &HSImage::getSet)
+        .def("getBand", &HSImage::operator []);
+
 }

@@ -1,0 +1,6 @@
+*.pro.*
+*.autosave
+*.so*
+*.o
+*qmake.stash
+build/

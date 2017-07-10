@@ -13,7 +13,10 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 
-#include "hsimage_global.h"
+#include <boost/python.hpp>
+
+#include "python_utils.h"
+
 
 /*!
  * \brief The HSImage class is the base class for interacting with ENVI type hyperspectral images.
@@ -23,7 +26,7 @@
  * The spectrometer files required to properly enable this behavior are a visible light file (400-700 nm) and a NIR file (700-1000 nm).
  */
 
-class HSIMAGESHARED_EXPORT HSImage
+class HSImage
 {
 
 public:
@@ -46,19 +49,6 @@ public:
      * \param spec_locations location of the spectrometer files.
      */
     void load(std::string header_location, std::string image_location, std::vector<std::string> spec_locations);
-
-    /*!
-     * \brief  Load only .hdr file of hyperspectral image.
-     * \param header_location location of .hdr file
-     * Not intended for external use. Use load() instead.
-     */
-    void loadHeader(std::string header_location);
-    /*!
-     * \brief  Load only .raw file of hyperspectral image
-     * \param image_location
-     * Not intended for external use. Use load() instead.
-     */
-    void loadRawImage(std::string image_location);
     /*!
      * \brief  Load only spectrometer data for use with hyperspectral image
      * \param filenames locations of the spectrometer filenames.
@@ -121,6 +111,18 @@ public:
      */
     cv::Mat operator[] (const float wavelength);
 
+    /*!
+     * \brief Return vector of imaged wavlengths.
+     * \return std::vector<float> containing each wavelength that the sensor detected.
+     */
+    std::vector<float> getWavelengths();
+    
+    /*!
+     * \brief Return vector of ambient wavelength intensites.
+     * \return std::vector<float> containing the intensity of the ambient light at each wavelength imaged.
+     */
+    std::vector<float> getAmbientIntensities(); 
+
     //image metadata
     std::string acquisition_date; /*!< Date of image aquisition. Acquired from .hdr file. */
     int tint; /*!< Exposure value of hyperspectral image. Acquired from .hdr file. */
@@ -141,6 +143,19 @@ public:
     std::string vis_spec_file;/*!< Location of VIS spectrometer file */
 
 private:
+    /*!
+     * \brief  Load only .hdr file of hyperspectral image.
+     * \param header_location location of .hdr file
+     * Not intended for external use. Use load() instead.
+     */
+    void loadHeader(std::string header_location);
+    /*!
+     * \brief  Load only .raw file of hyperspectral image
+     * \param image_location
+     * Not intended for external use. Use load() instead.
+     */
+    void loadRawImage(std::string image_location);
+
     std::unordered_map<float,uchar*> image_map;
     std::unique_ptr<u_int16_t[]> image_data;
     std::unique_ptr<u_int16_t[]> pixel_data;
@@ -174,5 +189,7 @@ private:
     }
 
 };
+
+
 
 #endif // HSIMAGE_H

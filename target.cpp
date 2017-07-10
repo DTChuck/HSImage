@@ -191,18 +191,5 @@ uint8_t target::getB() const{ return this->b;}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // *******************  END     GET/SET     ***********//
+
