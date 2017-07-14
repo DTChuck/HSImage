@@ -1,3 +1,1 @@
-HSImage library project. 
-
-Requires OpenCV 3 and STL libraries to function.
+h1. html README file
