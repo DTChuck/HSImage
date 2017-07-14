@@ -1,0 +1,187 @@
+## @class hsimage
+#Documentation for hsimage class
+#
+#This class provides an interface to an unlabeled hyperspectral image. It requires a header (.hdr) file and an image (.raw) file for basic operation, and two spectrometer files (.txt) for full operation. 
+class hsimage:
+    	
+    	## Constructor
+    	# Construction for loading with a header (.hdr) file and an image (.raw) file
+    	# @param header_loc: Location of header file
+    	# @param image_loc Location of image file
+    	# @return hsimage hsimage instance
+    	def __init__(header_loc, image_loc):
+	
+	## Constructor
+	# Constructor for loading with header (.hdr), image (.raw) and spectrometer files (.txt)
+	# @param header_loc: Location of header file
+	# @param image_loc: Location of image file
+	# @param spec_locations: List of strings of spectrometer location files
+	# @return hsimage hsimage instance
+	def __init__(header_loc, image_loc, spec_locations):
+
+	## Constructor
+	#
+	# Copy constructor
+	# @param hsimage_instance: Instance to copy from
+	# @return hsimage hsimage instance
+	def __init__(hsimage_instance):
+	
+	## Load
+	#
+	# Load function
+	# @param header_loc: Location of header file
+	# @param image_loc: Location of image file
+	def load(header_loc,image_loc):
+
+	##Load
+	#
+	#Load function
+	#@param header_loc: Location of header file
+	#@param image_loc: Location of image file
+	#@param spec_locations: List of spectrometer file location strings
+	def load(header_loc,image_loc,spec_locations):
+
+	##loadSpectrometerData
+	#
+	#Load spectrometer data into existing hsimage instance
+	#@param spec_locations: List of spectrometer file location strings
+	def loadSpectrometerData(spec_locations):
+
+	##hasSpecFiles
+	#
+	#Check if instance of hsimage has associated spectrometer files
+	#@return Boolean Returns True if spectrometer file locations stored in header (.hdr) file, otherwise returns False
+	def hasSpecFiles():
+
+	##getPixelSpectra
+	#
+	#Get wavelength vector at a single pixel (row,col) location
+	#@param row Row of pixel to retrieve
+	#@param col Column of pixel to retrieve
+	#@return List[float] Returns a wavelength intensity vector of the specified pixel
+	def getPixelSpectra(row,col):
+
+	##getWavelengths
+	#
+	#Get wavelengths detected by camera
+	#@return List[float] Returns a list of detected wavelengths
+	def getWavelengths():
+
+	##getAmbientIntensities
+	#
+	#Get ambient intensities at wavelengths given by getWavelengths() if spectrometer data has been loaded into hsimage instance
+	#@return List[float] Returns a list of ambient (spectrometer) intensities at the measured wavelengths
+	def getAmbientIntensities():
+
+	##getPixelTransferFunction
+	#
+	#Get pixel transfer function, or pixel reflectance, at a specific row, col location. Only enabled if spectrometer data has been loaded into hsimage instance
+	#@param row Row of pixel to retrieve
+	#@param col Column of pixel to retrieve
+	#@return List[float] 
+	def getPixelTransferFunction(row,col):
+
+	##getRange
+	#
+	#Get range of wavelength arrays from a minimum wavelength to a maximum wavelength, inclusive
+	#@param low_wavelength Lower wavelength
+	#@param high_wavelength Higher wavelength
+	#@return List[List[float]] Returns a nested list of wavelength spectra
+	def getRange(low_wavelength, high_wavelength):
+
+	##getSet
+	#
+	#Get set of wavelength arrays from list of wavelengths passed into function
+	#@param wavelengths List of wavelengths to return
+	#@return List[List[float]] Returns a nested list of wavelength spectra
+	def getSet(wavelengths):
+
+	##getBand
+	#
+	#Returns a numpy array useable with OpenCV of the intensities at every pixel of one wavelength
+	#@param wavelength Wavelength image to return
+	#@return np.array OpenCV compatible numpy array wavelength image
+	def getBand(wavelength):
+
+## @class classified_hsimage
+#
+#This class provides an interface for labeled and classified ENVI-BIL hyperspectral images. It requires either a loaded hsimage instance, an OpenCV image and a list of ("name", [color]) tuples or a full set of hyperspectral image files: header (.hdr), image (.raw) and a label (.lif) file. Using the method with the .lif files is recommended. This method assumes that the spectrometer files have been previously loaded with the hsimage instance and have been saved to the (.hdr) file. This happens automatically if the spectrometer files are loaded with the hsimage instance.
+class classified_hsimage:
+
+	##Constructor
+	#
+	#Constructor for loading with hsimage instance, OpenCV Label image and vector of class name and color tuples
+	#@param img hsimage instance
+	#@param label_img numpy array compatible with OpenCV containing 3-channel colors for the different classes present in the image
+	#@param label_colors list of ("name",[blue,green,red]) tuples associating the class names to the appropriate color in the label_img
+	#@return classified_hsimage classified_hsimage instance
+	def __init__(img,label_img,label_colors):
+
+	##Constructor (Recommended)
+	#
+	#Constructor for loading from file system using the image (.raw), header (.hdr) and label (.lif) files. This method assumes that at some previous time the spectrometer files have been loaded in the image and stored in the image .hdr file. If you are unsure that this has happened, load the underlying hsimage into memory and specify the spectrometer file locations. You can can also check to see if the end of the header file has the spectrometer file locations stored at the end of the file.
+	#@param image_file Image (.raw) file
+	#@param header_file Header (.hdr) file
+	#@param label_file Label (.lif) file
+	#@return classified_hsimage classified_hsimage instance
+	def __init__(image_file,header_file,label_file):
+
+	##getClassSpectra
+	#
+	#Gets a number of wavelength spectra from a specific class by name
+	#@param class_name Name of class to retrieve
+	#@param num_spectra Number of spectra to return. -1 to return all class spectra
+	#@return List[List[float]] Returns a nested list of wavelength spectra intensities of one class
+	def getClassSpectra(class_name,num_spectra):
+
+	##getClassTF
+	#
+	#Gets the reflectance (transfer function) spectra from a specific class by name
+	#@param class_name Name of class to retrieve
+	#@param num_spectra Number of spectra to return. -1 to return all class reflectance spectra
+	#@return List[List[float]] Returns a nested list of floats containing the returned reflectance spectra in the requested class
+	def getClassTF(class_name,num_spectra):
+
+	##getAvgClassTF
+	#
+	#Gets the mean reflectance spectrum of a specific class. Returns one spectrum.
+	#@param class_name Name of class to retrieve
+	#@return List[float] Returns a list of floats containing the average spectrum of a class
+	def getAvgClassTF(class_name):
+
+	##getPixelClass
+	#
+	#Gets the class of a specific (row,col) pixel and returns it as a string
+	#@param row Row of pixel to retrieve
+	#@param col Column of pixel to retrieve
+	#@return String Name of class of retrieved pixel
+	def getPixelClass(row,col):
+
+	##setSpectraClass
+	#
+	#Sets the class of one pixel by (row,col) to a new class by name
+	#@param row Row of pixel to change class
+	#@param col Column of pixel to change class
+	#@param class_name New class name for updated pixel
+	def setSpectraClass(row,col,class_name):
+
+	##setSpectraClass
+	#
+	#Sets the class of a set of pixels to a new class by name
+	#@param pixel_locs A list of (row,col) tuples for each pixel to update
+	#@param class_name New class name for updated pixel
+	def setSpectraClass(pixel_locs,class_name):
+
+	##setSpectraClass
+	#
+	#Sets the class(es) of the whole image to a new class or set of classes by updating the label image
+	#@param class_labels OpenCV compatible numpy array where each point is colored with the corresponding class color
+	#@param class_list List of tuples of class name and corresponding color
+	def setSpectraClass(class_labels,class_list):
+
+	##getImageClass
+	#
+	#Returns the OpenCV compatilble numpy array showing the class labels by color at each pixel of the image.
+	#@return np.array OpenCV compatible numpy array
+	def getImageClass():
+	#@param class_list 
