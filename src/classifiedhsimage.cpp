@@ -241,7 +241,7 @@ void export_classifiedhsimage()
 
     bp::class_<ClassifiedHSImage>("classified_hsimage")
     .def(bp::init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
-    .def(bp::init<std::string, std::string, std::string, std::string>())
+//    .def(bp::init<std::string, std::string, std::string, std::string>())
     .def(bp::init<std::string, std::string, std::string>())
 
 //    .def("load",&ClassifiedHSImage::load) //Member Functions

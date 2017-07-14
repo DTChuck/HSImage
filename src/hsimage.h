@@ -1,3 +1,20 @@
+/*! \mainpage Hyperspectral Image Interface Library Documentation
+ *
+ * \section intro_sec Introduction
+ *This library is designed to allow open-source experimentation with ENVI-BIL hyperspectral images. The goal of this software is to promote the study of hyperspectral images in the academic computer vision research world. This software provides both a C++ and Python interface for ease of use. An associated project has resulted in a publicly available library of images available at https://osf.io/pd49t/. These images are all compatible and intended to be used with this software interface library.
+ *
+ * \section install_sec Installation
+ * To install, clone this repository or download the zip file and extract to the location of your choice. Ensure that you have a C++ compiler installed, the boost cross-platform framework <a href="http://www.boost.org"> (boost.org)</a>and OpenCV 3.x.
+ * Also ensure you have Python 3.x installed with numpy and OpenCV 3.x as a python package.
+ * Once the prequisites have been installed, you will need to identify the location of the numpy header "ndarrayobject.h". This file is usually present in the include folder inside the numpy folder located in your python packages directory. Copy the location of that file. 
+ * Return to the directory containing the source code for the library and run 
+ * \code{.sh}python setup.py build build_ext -I/location/to/your/ndarrayobject.h/file
+ *python setup.py install
+ * \endcode
+ *
+ * This will build the c++/python combined library file and install it to the site-packages folder in your current Python evironment. To use the C++ libary, simply include the hsimage.h and classifiedhsimage.h files in your project and link to the generated library file at compile.
+ */
+
 #ifndef HSIMAGE_H
 #define HSIMAGE_H
 
@@ -17,6 +34,10 @@
 
 #include "python_utils.h"
 
+/*! \defgroup cplus_module C++ Interface 
+ * This library allows C++ interactivity with ENVI-BIL hyperspectral images
+ * \{
+ */
 
 /*!
  * \brief The HSImage class is the base class for interacting with ENVI type hyperspectral images.
@@ -190,6 +211,6 @@ private:
 
 };
 
-
+/*! \} */
 
 #endif // HSIMAGE_H

@@ -18,7 +18,6 @@
 #include "labelfile.h"
 
 
-
 struct Vec3bCompare
 {
     bool operator() (const cv::Vec3b& lhs, const cv::Vec3b& rhs) const
@@ -26,6 +25,10 @@ struct Vec3bCompare
         return cv::norm(lhs, CV_L2) < cv::norm(rhs, CV_L2);
     }
 };
+
+/*! \addtogroup cplus_module 
+ * \{ 
+ */
 
 /*!
  * \brief The classColor typedef creates a simple interface for pairing a class name with a specific OpenCV color.
@@ -135,5 +138,6 @@ public:
     cv::Mat getImageClass();
 };
 
+/*! \} */
 
 #endif // CLASSIFIEDHSIMAGE_H

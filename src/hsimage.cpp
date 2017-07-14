@@ -1,7 +1,3 @@
-/*!\file hsimage.cpp
- * \brief Implemetation file for HSImage class
- */
-
 #include "hsimage.h"
 HSImage::HSImage()
 {
