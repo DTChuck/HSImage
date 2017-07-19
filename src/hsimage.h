@@ -31,6 +31,7 @@
 #include <opencv2/highgui.hpp>
 
 #include <boost/python.hpp>
+#include <boost/mpl/vector.hpp>
 
 #include "python_utils.h"
 
@@ -38,6 +39,21 @@
  * This library allows C++ interactivity with ENVI-BIL hyperspectral images
  * \{
  */
+
+/// @brief Adapter a member function that returns a shared_ptr to
+///        a python function object that returns a raw pointer but
+///        explicitly passes ownership to Python.
+template <typename T,
+          typename C,
+          typename ...Args>
+boost::python::object adapt_unique(std::unique_ptr<T>& (C::*fn)(Args...))
+{
+  return boost::python::make_function(
+      [fn](C& self, Args... args) { return (self.*fn)(args...).release(); },
+      boost::python::return_value_policy<boost::python::manage_new_object>(),
+      boost::mpl::vector<T*, C&, Args...>()
+    );
+}
 
 /*!
  * \brief The HSImage class is the base class for interacting with ENVI type hyperspectral images.
@@ -133,6 +149,12 @@ public:
     cv::Mat operator[] (const float wavelength);
 
     /*!
+     * \brief Get all data formatted as a row major pixel array (row*col,bands)
+     * \return std::vector<u_int16_t> Vector of pixel values
+     */
+    std::vector<u_int16_t>& getRawPixelData();
+
+    /*!
      * \brief Return vector of imaged wavlengths.
      * \return std::vector<float> containing each wavelength that the sensor detected.
      */
@@ -178,8 +200,11 @@ private:
     void loadRawImage(std::string image_location);
 
     std::unordered_map<float,uchar*> image_map;
-    std::unique_ptr<u_int16_t[]> image_data;
-    std::unique_ptr<u_int16_t[]> pixel_data;
+    //std::unique_ptr<u_int16_t[]> image_data;
+    //std::unique_ptr<u_int16_t[]> pixel_data;
+
+    std::vector<u_int16_t> image_data;
+    std::vector<u_int16_t> pixel_data;
 
     std::string createRelativeSpecFilepath(std::string abs_spec_filepath);
     std::string createAbsoluteSpecFilepath(std::string rel_spec_filepath);

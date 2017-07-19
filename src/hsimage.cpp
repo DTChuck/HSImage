@@ -38,15 +38,17 @@ HSImage::HSImage(const HSImage& other)
 
     ambient_intensities = other.ambient_intensities;
 
-    image_data.reset(new u_int16_t[lines*samples*bands]);
-    memcpy((void*)image_data.get(),(void*)other.image_data.get(),lines*bands*samples*sizeof(u_int16_t));
+//    image_data.reset(new u_int16_t[lines*samples*bands]);
+//    memcpy((void*)image_data.get(),(void*)other.image_data.get(),lines*bands*samples*sizeof(u_int16_t));
+    image_data = other.image_data;
 
-    pixel_data.reset(new u_int16_t[lines*samples*bands]);
-    memcpy((void*)pixel_data.get(),(void*)other.pixel_data.get(),lines*bands*samples*sizeof(u_int16_t));
+//    pixel_data.reset(new u_int16_t[lines*samples*bands]);
+//    memcpy((void*)pixel_data.get(),(void*)other.pixel_data.get(),lines*bands*samples*sizeof(u_int16_t));
+    pixel_data = other.pixel_data;
 
     //create map of wavelengths -> OpenCV Mat data pointers
     for(unsigned int i=0;i<wavelengths.size();i++)
-        image_map.emplace(wavelengths[i],(uchar*)image_data.get()+lines*samples*i*sizeof(u_int16_t));
+        image_map.emplace(wavelengths[i],(uchar*)image_data.data()+lines*samples*i*sizeof(u_int16_t));
 }
 
 HSImage& HSImage::operator=(const HSImage& other)
@@ -219,8 +221,11 @@ void HSImage::loadRawImage(std::string image_location)
         unsigned int size = raw_file.tellg();
         if(size == sizeof(u_int16_t)*lines*samples*bands)
         {
-            image_data.reset(new u_int16_t[lines*samples*bands]);
-            pixel_data.reset(new u_int16_t[lines*samples*bands]);
+            //image_data.reset(new u_int16_t[lines*samples*bands]);
+            //pixel_data.reset(new u_int16_t[lines*samples*bands]);
+
+            image_data.reserve(lines*samples*bands);
+            pixel_data.reserve(lines*samples*bands);
 
             raw_file.seekg(0,std::ios::beg);
             int storage_spot = 0;
@@ -229,7 +234,8 @@ void HSImage::loadRawImage(std::string image_location)
                 for(int l=0;l<lines;l++)
                 {
                     raw_file.seekg((l*bands*samples+b*samples)*sizeof(u_int16_t),std::ios::beg);
-                    raw_file.read((char*)image_data.get()+storage_spot,samples*sizeof(u_int16_t));
+                    //raw_file.read((char*)image_data.get()+storage_spot,samples*sizeof(u_int16_t));
+                    raw_file.read((char*)image_data.data()+storage_spot,samples*sizeof(u_int16_t));
                     storage_spot+=samples*sizeof(u_int16_t);
                 }
             }
@@ -250,7 +256,8 @@ void HSImage::loadRawImage(std::string image_location)
 
             //create map of wavelengths -> OpenCV Mat data pointers
             for(unsigned int i=0;i<wavelengths.size();i++)
-                image_map.emplace(wavelengths[i],(uchar*)image_data.get()+lines*samples*i*sizeof(u_int16_t));
+                //image_map.emplace(wavelengths[i],(uchar*)image_data.get()+lines*samples*i*sizeof(u_int16_t));
+                image_map.emplace(wavelengths[i],(uchar*)image_data.data()+lines*samples*i*sizeof(u_int16_t));
 
             img_file = image_location;
         }
@@ -372,14 +379,14 @@ bool HSImage::hasSpecFiles(std::string header_location)
 std::vector<u_int16_t> HSImage::getPixelSpectra(int row, int col)
 {
     int loc = row*samples*bands + col*bands;
-    std::vector<u_int16_t> output(pixel_data.get()+loc,pixel_data.get()+ loc + bands);
+    std::vector<u_int16_t> output(&pixel_data[loc],&pixel_data[loc + bands]);
     return output;
 }
 
 std::vector<u_int16_t> HSImage::getNormalizedPixelSpectra(int row, int col)
 {
     int loc = row*samples*bands + col*bands;
-    std::vector<u_int16_t> output(pixel_data.get()+loc,pixel_data.get()+ loc + bands);
+    std::vector<u_int16_t> output(&pixel_data[loc],&pixel_data[loc + bands]);
 
     for(unsigned int i=0;i<output.size();i++)
         output[i] = output[i] - ambient_intensities[i];
@@ -471,6 +478,11 @@ cv::Mat HSImage::operator[] (const float wavelength)
 
 }
 
+std::vector<u_int16_t>&  HSImage::getRawPixelData()
+{
+    return pixel_data;
+}
+
 std::string HSImage::createRelativeSpecFilepath(std::string abs_spec_filepath)
 {
     std::pair<std::string::iterator, std::string::iterator> diff_pair;
@@ -537,6 +549,7 @@ void export_hsimage()
         .def("getPixelTransferFunction", &HSImage::getPixelTransferFunction)
         .def("getRange", &HSImage::getRange)
         .def("getSet", &HSImage::getSet)
-        .def("getBand", &HSImage::operator []);
-
+        .def("getBand", &HSImage::operator [])
+        .def("getPixelArray",&HSImage::getRawPixelData,
+             boost::python::return_value_policy<boost::python::reference_existing_object>());
 }

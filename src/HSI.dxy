@@ -86,6 +86,13 @@ class hsimage:
 	#@return List[float] 
 	def getPixelTransferFunction(row,col):
 
+	##getPixelArray
+	#
+	#Get the entire pixel array, in row major order. Array returned is of size (rows*cols, bands)
+	#@return List(uint)
+	def getPixelArray():	
+
+
 	##getRange
 	#
 	#Get range of wavelength arrays from a minimum wavelength to a maximum wavelength, inclusive
