@@ -4,7 +4,7 @@ var searchData=
   ['getavgclasstf',['getAvgClassTF',['../classClassifiedHSImage.html#ac1e57e363b7b56d597de9f565a725b8a',1,'ClassifiedHSImage::getAvgClassTF()'],['../classHSI_1_1classified__hsimage.html#ab9f67e71ed6c4e5cea2d62d8f24379ed',1,'HSI.classified_hsimage.getAvgClassTF()']]],
   ['getband',['getBand',['../classHSI_1_1hsimage.html#a7bab5de5a948a6bffdf46110c728866e',1,'HSI::hsimage']]],
   ['getclassinfo',['getClassInfo',['../classLabelFile.html#a36fb1317b008ab54b1a6d9e7be26ae8f',1,'LabelFile::getClassInfo()'],['../classHSI_1_1labelfile.html#ac7c54038ceb6129f876707303f489f5d',1,'HSI.labelfile.getClassInfo()']]],
-  ['getclassspectra',['getClassSpectra',['../classClassifiedHSImage.html#adcc665df3989d42064ea44aaaeb3c387',1,'ClassifiedHSImage::getClassSpectra()'],['../classHSI_1_1classified__hsimage.html#a0c8e9a1e472ed6b40996bec5aa95402d',1,'HSI.classified_hsimage.getClassSpectra()']]],
+  ['getclassspectra',['getClassSpectra',['../classClassifiedHSImage.html#adcc665df3989d42064ea44aaaeb3c387',1,'ClassifiedHSImage']]],
   ['getclasstf',['getClassTF',['../classClassifiedHSImage.html#a3ceac86996d7b86471c123043cf75ba7',1,'ClassifiedHSImage::getClassTF()'],['../classHSI_1_1classified__hsimage.html#a9e261b66f195083bfde53c9e74597d51',1,'HSI.classified_hsimage.getClassTF()']]],
   ['getcolor',['getColor',['../classLabeledObject.html#a3c37f77e130be1ca83794273a9165f22',1,'LabeledObject']]],
   ['getimageclass',['getImageClass',['../classClassifiedHSImage.html#ae0728520d89945ec5114a0632cf434e2',1,'ClassifiedHSImage::getImageClass()'],['../classHSI_1_1classified__hsimage.html#a45eed5bc08f4cc8b600fbbc3b5470abf',1,'HSI.classified_hsimage.getImageClass()']]],
