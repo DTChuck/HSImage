@@ -132,6 +132,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adbc47b3323602c8f61f112a22814e8cd"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHSI_1_1hsimage.html#adbc47b3323602c8f61f112a22814e8cd">getPixelTransferFunction</a></td></tr>
 <tr class="memdesc:adbc47b3323602c8f61f112a22814e8cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">getPixelTransferFunction  <a href="#adbc47b3323602c8f61f112a22814e8cd">More...</a><br/></td></tr>
 <tr class="separator:adbc47b3323602c8f61f112a22814e8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade21fbf055a51618c2778e4a9cdca36a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHSI_1_1hsimage.html#ade21fbf055a51618c2778e4a9cdca36a">getPixelArray</a></td></tr>
+<tr class="memdesc:ade21fbf055a51618c2778e4a9cdca36a"><td class="mdescLeft">&#160;</td><td class="mdescRight">getPixelArray  <a href="#ade21fbf055a51618c2778e4a9cdca36a">More...</a><br/></td></tr>
+<tr class="separator:ade21fbf055a51618c2778e4a9cdca36a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a529b4509df4c7696ab44acae26e2b9b4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHSI_1_1hsimage.html#a529b4509df4c7696ab44acae26e2b9b4">getRange</a></td></tr>
 <tr class="memdesc:a529b4509df4c7696ab44acae26e2b9b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">getRange  <a href="#a529b4509df4c7696ab44acae26e2b9b4">More...</a><br/></td></tr>
 <tr class="separator:a529b4509df4c7696ab44acae26e2b9b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -305,7 +308,28 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>np.array OpenCV compatible numpy array wavelength image </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00109">109</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00116">116</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ade21fbf055a51618c2778e4a9cdca36a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def HSI.hsimage.getPixelArray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getPixelArray </p>
+<p>Get the entire pixel array, in row major order. Array returned is of size (rows*cols, bands) </p>
+<dl class="section return"><dt>Returns</dt><dd>List(uint) </dd></dl>
+
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00093">93</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -422,7 +446,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>List[List[float]] Returns a nested list of wavelength spectra </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00095">95</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00102">102</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -450,7 +474,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>List[List[float]] Returns a nested list of wavelength spectra </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00102">102</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00109">109</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -612,7 +636,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 15:28:41 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 19 2017 12:41:36 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -77,7 +77,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">C++ Interface</div>  </div>
 </div><!--header-->
@@ -99,13 +100,21 @@ typedef std::pair&lt; std::string, <br class="typebreak"/>
 cv::Vec3b &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#gabff5449da239a87b6dac4f35fd13daf0">classColor</a></td></tr>
 <tr class="memdesc:gabff5449da239a87b6dac4f35fd13daf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The classColor typedef creates a simple interface for pairing a class name with a specific OpenCV color. <br/></td></tr>
 <tr class="separator:gabff5449da239a87b6dac4f35fd13daf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga67c79a7cc9d33e2f433e2b54ecd71b03"><td class="memTemplParams" colspan="2"><a class="anchor" id="ga67c79a7cc9d33e2f433e2b54ecd71b03"></a>
+template&lt;typename T , typename C , typename... Args&gt; </td></tr>
+<tr class="memitem:ga67c79a7cc9d33e2f433e2b54ecd71b03"><td class="memTemplItemLeft" align="right" valign="top">boost::python::object&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga67c79a7cc9d33e2f433e2b54ecd71b03">adapt_unique</a> (std::unique_ptr&lt; T &gt; &amp;(C::*fn)(Args...))</td></tr>
+<tr class="memdesc:ga67c79a7cc9d33e2f433e2b54ecd71b03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adapter a member function that returns a shared_ptr to a python function object that returns a raw pointer but explicitly passes ownership to Python. <br/></td></tr>
+<tr class="separator:ga67c79a7cc9d33e2f433e2b54ecd71b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>This library allows C++ interactivity with ENVI-BIL hyperspectral images </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 15:28:41 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 19 2017 12:41:36 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
