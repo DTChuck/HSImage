@@ -4,10 +4,16 @@
 
 #include <boost/python/suite/indexing/vector_indexing_suite.hpp>
 
+#include "pybind11/pybind11.h"
+
+
 #include "labelfile.h"
 #include "classifiedhsimage.h"
 #include "hsimage.h"
 #include "pyboostconverter/pyboostcvconverter.hpp"
+
+
+
 
 //declarations for Python class exports
 void export_labelfile();
@@ -26,6 +32,18 @@ void export_classifiedhsimage();
         import_array();
         return NUMPY_IMPORT_ARRAY_RETVAL;
     }
+
+PYBIND11_PLUGIN(HSI)
+{
+    namespace py = pybind11;
+
+    py::module m("HSI","Python interface module for ENVI-BIL hyperspectral images");
+
+
+
+    return m.ptr();
+}
+
 
 BOOST_PYTHON_MODULE(HSI)
 {
