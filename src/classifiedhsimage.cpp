@@ -244,7 +244,6 @@ void export_classifiedhsimage()
 //    .def(bp::init<std::string, std::string, std::string, std::string>())
     .def(bp::init<std::string, std::string, std::string>())
     .def_readwrite("hsimage",&ClassifiedHSImage::image)
-
 //    .def("load",&ClassifiedHSImage::load) //Member Functions
     .def("getClassSpectra", &ClassifiedHSImage::getClassSpectra)
     .def("getClassTF",&ClassifiedHSImage::getClassTF)

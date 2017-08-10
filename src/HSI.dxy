@@ -147,7 +147,7 @@ class classified_hsimage:
 	##hsimage
 	#
 	#Underlying hsimage object that contains the image data that classified_hsimage is built around. Accessible and enables the entire API of hsimage.
-	hsimage = None 
+	hsimage = hsimage() 
 
 	def getClassSpectra(class_name,num_spectra):
 

@@ -214,6 +214,7 @@ void HSImage::loadRawImage(std::string image_location)
 {
     //load in image file
     std::ifstream raw_file;
+
     raw_file.open(image_location,std::ios::binary | std::ios::ate);
 
     if(raw_file.is_open())
@@ -308,6 +309,7 @@ void HSImage::loadSpectrometerData(std::vector<std::string> filenames)
         }
         else
         {
+            std::cout << strerror(errno) << std::endl;
             std::cout << "Cannot Open Spectrometer Data File!" << std::endl;
             return;
         }
