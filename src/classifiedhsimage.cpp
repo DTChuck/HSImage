@@ -56,9 +56,9 @@ ClassifiedHSImage::ClassifiedHSImage(std::string raw_file, std::string hdr_file,
 
 ClassifiedHSImage::ClassifiedHSImage(std::string raw_file, std::string hdr_file, std::string lif_file)
 {
+    if (PyObject *err = PyErr_Occurred()) PyErr_Clear();
     HSImage im(hdr_file,raw_file);
     LabelFile lf(lif_file);
-
     load(im,lf.getLabelImage(),lf.getClassInfo());
 }
 
@@ -228,9 +228,9 @@ void export_classifiedhsimage(pybind11::module m)
 {
     namespace py = pybind11;
 
-    py::module m2 = m.def_submodule("classified_hsimage","Labeled ENVI-BIL Hyperspectral Image Interface Module using CSAIL/LabelMe label-style.");
+//    py::module m2 = m.def_submodule("classified_hsimage","Labeled ENVI-BIL Hyperspectral Image Interface Module using CSAIL/LabelMe label-style.");
 
-    py::class_<ClassifiedHSImage> classified_hsimage(m2, "ClassifiedHSImage");
+    py::class_<ClassifiedHSImage> classified_hsimage(m, "classified_hsimage");
     classified_hsimage
                 .def(py::init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
                 .def(py::init<std::string, std::string, std::string>())

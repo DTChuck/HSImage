@@ -230,9 +230,9 @@ void export_labelfile(pybind11::module m)
 {
     namespace py = pybind11;
 
-    py::module m2 = m.def_submodule("labelfile","CSAIL/LabelMe label file interface module");
+//    py::module m2 = m.def_submodule("labelfile","CSAIL/LabelMe label file interface module");
 
-    py::class_<LabelFile> labelfile (m2, "LabelFile");
+    py::class_<LabelFile> labelfile (m, "labelfile");
     labelfile
             .def(py::init<std::string>())
             .def("load", &LabelFile::loadFile)

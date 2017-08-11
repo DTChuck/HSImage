@@ -10,7 +10,7 @@ HSImage::HSImage(std::string header_location, std::string image_location)
     load(header_location,image_location);
 }
 
-HSImage::HSImage(std::string header_location, std::string image_location, std::vector<std::string> spec_location)
+HSImage::HSImage(std::string header_location, std::string image_location, std::vector<std::string> &spec_location)
 {
     has_spec_data = false;
     load(header_location,image_location,spec_location);
@@ -82,7 +82,9 @@ HSImage& HSImage::operator=(const HSImage& other)
 void HSImage::load(std::string header_location, std::string image_location)
 {
     loadHeader(header_location);
+
     loadRawImage(image_location);
+
     if(has_spec_data)
     {
         std::vector<std::string> filenames;
@@ -517,9 +519,9 @@ void export_hsimage(pybind11::module m)
 {
     namespace py = pybind11;
 
-    py::module m2 = m.def_submodule("hsimage","ENVI-BIL Hyperspectral Image Interface Module");
+//    py::module m2 = m.def_submodule("hsimage","ENVI-BIL Hyperspectral Image Interface Module");
 
-    py::class_<HSImage> hsimage (m2, "HSImage");
+    py::class_<HSImage> hsimage (m, "hsimage");
     hsimage
             .def(py::init<std::string, std::string>())
             .def(py::init<std::string, std::string, std::vector<std::string>>())
@@ -530,7 +532,6 @@ void export_hsimage(pybind11::module m)
             .def("load", (void (HSImage::*)(std::string, std::string, std::vector<std::string>)) &HSImage::load, "Load data into HSImage instance", py::arg("header_filename"), py::arg("image_filename"),py::arg("spec_filename_vector"))
 
             .def("loadSpectrometerData", &HSImage::loadSpectrometerData)
-            .def("hasSpecFiles", &HSImage::hasSpecFiles)
             .def_static("hasSpecFiles", &HSImage::hasSpecFiles)
             .def("getPixelSpectra", &HSImage::getPixelSpectra)
             .def("getWavelengths", &HSImage::getWavelengths)

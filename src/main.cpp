@@ -15,7 +15,7 @@ void export_hsimage(pybind11::module m);
 void export_classifiedhsimage(pybind11::module m);
 
 
-PYBIND11_MAKE_OPAQUE(std::vector<std::string>)
+//PYBIND11_MAKE_OPAQUE(std::vector<std::string>)
 PYBIND11_MAKE_OPAQUE(std::vector<u_int16_t>)
 PYBIND11_MAKE_OPAQUE(std::vector<std::vector<u_int16_t> >)
 PYBIND11_MAKE_OPAQUE(std::vector<double>)
@@ -31,7 +31,7 @@ PYBIND11_MODULE(HSI,m)
 
     NDArrayConverter::init_numpy();
 
-    py::bind_vector<std::vector<std::string> >(m, "StringVector");
+//    py::bind_vector<std::vector<std::string> >(m, "StringVector");
     py::bind_vector<std::vector<u_int16_t> >(m, "UInt16Vector");
     py::bind_vector<std::vector<std::vector<u_int16_t> > >(m, "UInt16VectorArray");
     py::bind_vector<std::vector<double> >(m, "DoubleVector");
@@ -43,7 +43,6 @@ PYBIND11_MODULE(HSI,m)
     export_labelfile(m);
     export_hsimage(m);
     export_classifiedhsimage(m);
-
 }
 
 
