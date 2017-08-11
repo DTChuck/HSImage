@@ -513,43 +513,73 @@ std::string HSImage::createAbsoluteSpecFilepath(std::string rel_spec_filepath)
     return abs_spec_filepath;
 }
 
-void export_hsimage()
+void export_hsimage(pybind11::module m)
 {
-    namespace bp = boost::python;
-    // map the IO namespace to a sub-module
-    // make "from myPackage.class1 import <whatever>" work
-    bp::object hsimageModule(bp::handle<>(bp::borrowed(PyImport_AddModule("hsi.hsimage"))));
-    // make "from mypackage import class1" work
-    bp::scope().attr("hsimage") = hsimageModule;
-    // set the current scope to the new sub-module
-    bp::scope io_scope = hsimageModule;
+    namespace py = pybind11;
 
+    py::module m2 = m.def_submodule("hsimage","ENVI-BIL Hyperspectral Image Interface Module");
 
-    void (HSImage::*d1)(std::string, std::string) = &HSImage::load; // Dealing with overloaded function
-    void (HSImage::*d2)(std::string, std::string, std::vector<std::string>) = &HSImage::load;
+    py::class_<HSImage> hsimage (m2, "HSImage");
+    hsimage
+            .def(py::init<std::string, std::string>())
+            .def(py::init<std::string, std::string, std::vector<std::string>>())
+            .def(py::init<const HSImage&>())
 
-    bp::class_<HSImage>("hsimage")
-        .def(bp::init<std::string, std::string>())
-        .def(bp::init<std::string, std::string, std::vector<std::string>>())
-        .def(bp::init<const HSImage&>())
+            .def("load", (void (HSImage::*)(std::string, std::string)) &HSImage::load, "Load data into HSImage instance", py::arg("header_filename"), py::arg("image_filename"))
 
-        //.def("operator=", &HSImage::operator =) //Member Functions
-        .def("load", d1)
-        .def("load", d2)
-//        .def("loadHeader", &HSImage::loadHeader)
-//        .def("loadRawImage", &HSImage::loadRawImage)
-        .def("loadSpectrometerData", &HSImage::loadSpectrometerData)
-//        .def("addSpecDataToHeader", &HSImage::addSpecDataToHeader)
-        .def("hasSpecFiles", &HSImage::hasSpecFiles)
-        .staticmethod("hasSpecFiles")
-        .def("getPixelSpectra", &HSImage::getPixelSpectra)
-	.def("getWavelengths", &HSImage::getWavelengths)
-	.def("getAmbientIntensities",&HSImage::getAmbientIntensities)
-//        .def("getNormalizedPixelSpectra", &HSImage::getNormalizedPixelSpectra)
-        .def("getPixelTransferFunction", &HSImage::getPixelTransferFunction)
-        .def("getRange", &HSImage::getRange)
-        .def("getSet", &HSImage::getSet)
-        .def("getBand", &HSImage::operator [])
-        .def("getPixelArray",&HSImage::getRawPixelData,
-             boost::python::return_value_policy<boost::python::reference_existing_object>());
+            .def("load", (void (HSImage::*)(std::string, std::string, std::vector<std::string>)) &HSImage::load, "Load data into HSImage instance", py::arg("header_filename"), py::arg("image_filename"),py::arg("spec_filename_vector"))
+
+            .def("loadSpectrometerData", &HSImage::loadSpectrometerData)
+            .def("hasSpecFiles", &HSImage::hasSpecFiles)
+            .def_static("hasSpecFiles", &HSImage::hasSpecFiles)
+            .def("getPixelSpectra", &HSImage::getPixelSpectra)
+            .def("getWavelengths", &HSImage::getWavelengths)
+            .def("getAmbientIntensities",&HSImage::getAmbientIntensities)
+            .def("getPixelTransferFunction", &HSImage::getPixelTransferFunction)
+            .def("getRange", &HSImage::getRange)
+            .def("getSet", &HSImage::getSet)
+            .def("getBand", &HSImage::operator [])
+            .def("getPixelArray",&HSImage::getRawPixelData);
+
 }
+
+//void export_hsimage()
+//{
+//    namespace bp = boost::python;
+//    // map the IO namespace to a sub-module
+//    // make "from myPackage.class1 import <whatever>" work
+//    bp::object hsimageModule(bp::handle<>(bp::borrowed(PyImport_AddModule("hsi.hsimage"))));
+//    // make "from mypackage import class1" work
+//    bp::scope().attr("hsimage") = hsimageModule;
+//    // set the current scope to the new sub-module
+//    bp::scope io_scope = hsimageModule;
+
+
+//    void (HSImage::*d1)(std::string, std::string) = &HSImage::load; // Dealing with overloaded function
+//    void (HSImage::*d2)(std::string, std::string, std::vector<std::string>) = &HSImage::load;
+
+//    bp::class_<HSImage>("hsimage")
+//        .def(bp::init<std::string, std::string>())
+//        .def(bp::init<std::string, std::string, std::vector<std::string>>())
+//        .def(bp::init<const HSImage&>())
+
+//        //.def("operator=", &HSImage::operator =) //Member Functions
+//        .def("load", d1)
+//        .def("load", d2)
+////        .def("loadHeader", &HSImage::loadHeader)
+////        .def("loadRawImage", &HSImage::loadRawImage)
+//        .def("loadSpectrometerData", &HSImage::loadSpectrometerData)
+////        .def("addSpecDataToHeader", &HSImage::addSpecDataToHeader)
+//        .def("hasSpecFiles", &HSImage::hasSpecFiles)
+//        .staticmethod("hasSpecFiles")
+//        .def("getPixelSpectra", &HSImage::getPixelSpectra)
+//	.def("getWavelengths", &HSImage::getWavelengths)
+//	.def("getAmbientIntensities",&HSImage::getAmbientIntensities)
+////        .def("getNormalizedPixelSpectra", &HSImage::getNormalizedPixelSpectra)
+//        .def("getPixelTransferFunction", &HSImage::getPixelTransferFunction)
+//        .def("getRange", &HSImage::getRange)
+//        .def("getSet", &HSImage::getSet)
+//        .def("getBand", &HSImage::operator [])
+//        .def("getPixelArray",&HSImage::getRawPixelData,
+//             boost::python::return_value_policy<boost::python::reference_existing_object>());
+//}

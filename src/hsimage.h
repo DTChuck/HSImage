@@ -30,6 +30,8 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 
+#include "pybind11_opencv_numpy/pybind11/pybind11.h"
+
 #include <boost/python.hpp>
 #include <boost/mpl/vector.hpp>
 

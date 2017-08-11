@@ -70,41 +70,41 @@ void vector_if_copy_constructible(enable_if_t<is_copy_constructible<Vector>::val
     cl.def(init<const Vector &>(), "Copy constructor");
 }
 
-template<typename Vector, typename Class_>
-void vector_if_equal_operator(enable_if_t<is_comparable<Vector>::value, Class_> &cl) {
-    using T = typename Vector::value_type;
+//template<typename Vector, typename Class_>
+//void vector_if_equal_operator(enable_if_t<is_comparable<Vector>::value, Class_> &cl) {
+//    using T = typename Vector::value_type;
 
-    cl.def(self == self);
-    cl.def(self != self);
+//    cl.def(self == self);
+//    cl.def(self != self);
 
-    cl.def("count",
-        [](const Vector &v, const T &x) {
-            return std::count(v.begin(), v.end(), x);
-        },
-        arg("x"),
-        "Return the number of times ``x`` appears in the list"
-    );
+//    cl.def("count",
+//        [](const Vector &v, const T &x) {
+//            return std::count(v.begin(), v.end(), x);
+//        },
+//        arg("x"),
+//        "Return the number of times ``x`` appears in the list"
+//    );
 
-    cl.def("remove", [](Vector &v, const T &x) {
-            auto p = std::find(v.begin(), v.end(), x);
-            if (p != v.end())
-                v.erase(p);
-            else
-                throw value_error();
-        },
-        arg("x"),
-        "Remove the first item from the list whose value is x. "
-        "It is an error if there is no such item."
-    );
+//    cl.def("remove", [](Vector &v, const T &x) {
+//            auto p = std::find(v.begin(), v.end(), x);
+//            if (p != v.end())
+//                v.erase(p);
+//            else
+//                throw value_error();
+//        },
+//        arg("x"),
+//        "Remove the first item from the list whose value is x. "
+//        "It is an error if there is no such item."
+//    );
 
-    cl.def("__contains__",
-        [](const Vector &v, const T &x) {
-            return std::find(v.begin(), v.end(), x) != v.end();
-        },
-        arg("x"),
-        "Return true the container contains ``x``"
-    );
-}
+//    cl.def("__contains__",
+//        [](const Vector &v, const T &x) {
+//            return std::find(v.begin(), v.end(), x) != v.end();
+//        },
+//        arg("x"),
+//        "Return true the container contains ``x``"
+//    );
+//}
 
 // Vector modifiers -- requires a copyable vector_type:
 // (Technically, some of these (pop and __delitem__) don't actually require copyability, but it seems

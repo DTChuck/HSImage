@@ -1,9 +1,3 @@
-#define PY_ARRAY_UNIQUE_SYMBOL pbcvt_ARRAY_API
-
-#include <boost/python.hpp>
-
-#include <boost/python/suite/indexing/vector_indexing_suite.hpp>
-
 #include "pybind11_opencv_numpy/pybind11/pybind11.h"
 #include "pybind11_opencv_numpy/pybind11/stl.h"
 #include "pybind11_opencv_numpy/pybind11/stl_bind.h"
@@ -11,29 +5,15 @@
 #include "labelfile.h"
 #include "classifiedhsimage.h"
 #include "hsimage.h"
-#include "pyboostconverter/pyboostcvconverter.hpp"
 
 #include "pybind11_opencv_numpy/ndarray_converter.h"
 
 
-
 //declarations for Python class exports
-void export_labelfile();
-void export_hsimage();
-void export_classifiedhsimage();
+void export_labelfile(pybind11::module m);
+void export_hsimage(pybind11::module m);
+void export_classifiedhsimage(pybind11::module m);
 
-
-#if (PY_VERSION_HEX >= 0x03000000)
-
-    static void *init_ar() {
-#else
-        static void init_ar(){
-#endif
-        Py_Initialize();
-
-        import_array();
-        return NUMPY_IMPORT_ARRAY_RETVAL;
-    }
 
 PYBIND11_MAKE_OPAQUE(std::vector<std::string>)
 PYBIND11_MAKE_OPAQUE(std::vector<u_int16_t>)
@@ -45,11 +25,9 @@ PYBIND11_MAKE_OPAQUE(std::vector<cv::Mat>)
 PYBIND11_MAKE_OPAQUE(std::vector<classColor>)
 
 
-PYBIND11_PLUGIN(HSI)
+PYBIND11_MODULE(HSI,m)
 {
     namespace py = pybind11;
-
-    py::module m("HSI","Python interface module for ENVI-BIL hyperspectral images");
 
     NDArrayConverter::init_numpy();
 
@@ -62,10 +40,10 @@ PYBIND11_PLUGIN(HSI)
     py::bind_vector<std::vector<cv::Mat> >(m, "MatVector");
     py::bind_vector<std::vector<classColor> >(m, "ClassInfoVector");
 
+    export_labelfile(m);
+    export_hsimage(m);
+    export_classifiedhsimage(m);
 
-
-
-    return m.ptr();
 }
 
 
