@@ -99,8 +99,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2ddc94864552bfaddb0cce884e7647d0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHSI_1_1hsimage.html#a2ddc94864552bfaddb0cce884e7647d0">__init__</a></td></tr>
-<tr class="memdesc:a2ddc94864552bfaddb0cce884e7647d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor Construction for loading with a header (.hdr) file and an image (.raw) file.  <a href="#a2ddc94864552bfaddb0cce884e7647d0">More...</a><br/></td></tr>
+<tr class="memitem:a2ddc94864552bfaddb0cce884e7647d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ddc94864552bfaddb0cce884e7647d0"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHSI_1_1hsimage.html#a2ddc94864552bfaddb0cce884e7647d0">__init__</a></td></tr>
+<tr class="memdesc:a2ddc94864552bfaddb0cce884e7647d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor Default Constructor to create empty hsimage instance. <br/></td></tr>
 <tr class="separator:a2ddc94864552bfaddb0cce884e7647d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ddc94864552bfaddb0cce884e7647d0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHSI_1_1hsimage.html#a2ddc94864552bfaddb0cce884e7647d0">__init__</a></td></tr>
 <tr class="memdesc:a2ddc94864552bfaddb0cce884e7647d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor Constructor for loading with header (.hdr), image (.raw) and spectrometer files (.txt)  <a href="#a2ddc94864552bfaddb0cce884e7647d0">More...</a><br/></td></tr>
@@ -165,44 +166,6 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>image_loc</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor Construction for loading with a header (.hdr) file and an image (.raw) file. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">header_loc</td><td>Location of header file </td></tr>
-    <tr><td class="paramname">image_loc</td><td>Location of image file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>hsimage hsimage instance </dd></dl>
-
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00017">17</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2ddc94864552bfaddb0cce884e7647d0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def HSI.hsimage.__init__ </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>header_loc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
           <td class="paramname"><em>image_loc</em>, </td>
         </tr>
         <tr>
@@ -230,7 +193,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>hsimage hsimage instance </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00025">25</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00029">29</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -258,7 +221,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>hsimage hsimage instance </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00032">32</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00036">36</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -280,7 +243,7 @@ Public Member Functions</h2></td></tr>
 <p>Get ambient intensities at wavelengths given by <a class="el" href="classHSI_1_1hsimage.html#aed3f58757003b011ed6ae9bd8a863a28" title="getWavelengths ">getWavelengths()</a> if spectrometer data has been loaded into hsimage instance </p>
 <dl class="section return"><dt>Returns</dt><dd>List[float] Returns a list of ambient (spectrometer) intensities at the measured wavelengths </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00079">79</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00083">83</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -308,7 +271,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>np.array OpenCV compatible numpy array wavelength image </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00116">116</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00120">120</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -329,7 +292,7 @@ Public Member Functions</h2></td></tr>
 <p>Get the entire pixel array, in row major order. Array returned is of size (rows*cols, bands) </p>
 <dl class="section return"><dt>Returns</dt><dd>List(uint) </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00093">93</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00097">97</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -368,7 +331,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>List[float] Returns a wavelength intensity vector of the specified pixel </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00067">67</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00071">71</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -407,7 +370,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>List[float] </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00087">87</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00091">91</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -446,7 +409,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>List[List[float]] Returns a nested list of wavelength spectra </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00102">102</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00106">106</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -474,7 +437,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>List[List[float]] Returns a nested list of wavelength spectra </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00109">109</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00113">113</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -495,7 +458,7 @@ Public Member Functions</h2></td></tr>
 <p>Get wavelengths detected by camera </p>
 <dl class="section return"><dt>Returns</dt><dd>List[float] Returns a list of detected wavelengths </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00073">73</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00077">77</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -516,7 +479,7 @@ Public Member Functions</h2></td></tr>
 <p>Check if instance of hsimage has associated spectrometer files </p>
 <dl class="section return"><dt>Returns</dt><dd>Boolean Returns True if spectrometer file locations stored in header (.hdr) file, otherwise returns False </dd></dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00059">59</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00063">63</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -554,7 +517,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00039">39</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00043">43</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -599,7 +562,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00047">47</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00051">51</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -626,7 +589,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00053">53</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
+<p>Definition at line <a class="el" href="HSI_8dxy_source.html#l00057">57</a> of file <a class="el" href="HSI_8dxy_source.html">HSI.dxy</a>.</p>
 
 </div>
 </div>
@@ -636,7 +599,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 10 2017 15:20:56 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 14 2017 17:14:53 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -100,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classHSImage.html#aa386b2de653bc3fad7bda7c1997c2918">load</a>(header_location,image_location);</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classHSImage.html#a347451b3b3981c9a743a8a66972510c2">   13</a></span>&#160;<a class="code" href="classHSImage.html#ae629cd4dbac4ec4f626df8c56c3111ed">HSImage::HSImage</a>(std::string header_location, std::string image_location, std::vector&lt;std::string&gt; spec_location)</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classHSImage.html#a429d66f224e6dcac72710323a3084f25">   13</a></span>&#160;<a class="code" href="classHSImage.html#ae629cd4dbac4ec4f626df8c56c3111ed">HSImage::HSImage</a>(std::string header_location, std::string image_location, std::vector&lt;std::string&gt; &amp;spec_location)</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classHSImage.html#a9e57d2e0b5e2796ea59e74a9f9e3e312">has_spec_data</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classHSImage.html#aa386b2de653bc3fad7bda7c1997c2918">load</a>(header_location,image_location,spec_location);</div>
@@ -172,234 +172,234 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classHSImage.html#aa386b2de653bc3fad7bda7c1997c2918">   82</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classHSImage.html#aa386b2de653bc3fad7bda7c1997c2918">HSImage::load</a>(std::string header_location, std::string image_location)</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    loadHeader(header_location);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    loadRawImage(image_location);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classHSImage.html#a9e57d2e0b5e2796ea59e74a9f9e3e312">has_spec_data</a>)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::vector&lt;std::string&gt; filenames;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        filenames.push_back(createAbsoluteSpecFilepath( <a class="code" href="classHSImage.html#a83f99042aeaf44441ac91b3e18df6412">vis_spec_file</a> ));</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        filenames.push_back(createAbsoluteSpecFilepath( <a class="code" href="classHSImage.html#a7505859168aca2a1616e722fa0ece075">nir_spec_file</a> ));</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">loadSpectrometerData</a>(filenames);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classHSImage.html#a6d717ab2cc26f4380a354d330367aa9f">   96</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classHSImage.html#aa386b2de653bc3fad7bda7c1997c2918">HSImage::load</a>(std::string header_location, std::string image_location, std::vector&lt;std::string&gt; spec_locations)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    loadHeader(header_location);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    loadRawImage(image_location);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classHSImage.html#a83f99042aeaf44441ac91b3e18df6412">vis_spec_file</a>.empty() &amp;&amp; <a class="code" href="classHSImage.html#a83f99042aeaf44441ac91b3e18df6412">vis_spec_file</a>.empty())</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="classHSImage.html#a6a3f291264cea92414cf37da00d79f90">addSpecDataToHeader</a>(spec_locations);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">loadSpectrometerData</a>(spec_locations);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        std::vector&lt;std::string&gt; filenames;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        filenames.push_back(createAbsoluteSpecFilepath( <a class="code" href="classHSImage.html#a83f99042aeaf44441ac91b3e18df6412">vis_spec_file</a> ));</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        filenames.push_back(createAbsoluteSpecFilepath( <a class="code" href="classHSImage.html#a7505859168aca2a1616e722fa0ece075">nir_spec_file</a> ));</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">loadSpectrometerData</a>(filenames);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordtype">void</span> HSImage::loadHeader(std::string header_location)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;{</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">//load in header file</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    std::string line;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    std::ifstream in_stream;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    in_stream.open(header_location);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">if</span>(in_stream.is_open())</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordtype">int</span> line_number = 1;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        in_stream &gt;&gt; line;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">if</span>(!line.compare(<span class="stringliteral">&quot;ENVI&quot;</span>))</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keywordtype">bool</span> in_wavelengths = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keywordtype">bool</span> in_fwhm = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="keywordtype">bool</span> nir_spec = <span class="keyword">false</span>,vis_spec = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">while</span>(std::getline(in_stream,line))</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                line_number++;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                std::vector&lt;std::string&gt; words = split(line,<span class="charliteral">&#39; &#39;</span>);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                <span class="keywordflow">if</span>(in_wavelengths)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                {</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                    <span class="keywordflow">if</span>(words[0].compare(<span class="stringliteral">&quot;}\r&quot;</span>))</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                        <a class="code" href="classHSImage.html#ae83f750ddb14b9d730d384650cd60845">wavelengths</a>.push_back(stof(words.front()));</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                        in_wavelengths = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                }</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <span class="keywordflow">if</span>(in_fwhm)</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                {</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                    <span class="keywordflow">if</span>(words[0].compare(<span class="stringliteral">&quot;}\r&quot;</span>))</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                        <a class="code" href="classHSImage.html#a7b305bcb7d523cffc2e233d02b94c0f7">fwhm</a>.push_back(stof(words.front()));</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                        in_fwhm = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                }</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;NIR_spec_file&quot;</span>))</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                {</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                    <a class="code" href="classHSImage.html#a7505859168aca2a1616e722fa0ece075">nir_spec_file</a> = words.back();</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                    nir_spec = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                }</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;VIS_spec_file&quot;</span>))</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                {</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                    <a class="code" href="classHSImage.html#a83f99042aeaf44441ac91b3e18df6412">vis_spec_file</a> = words.back();</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                    vis_spec = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                }</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;acquisition&quot;</span>))</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                    <a class="code" href="classHSImage.html#a6ad4c3cd7687b52cf02e4788a8720052">acquisition_date</a> = words.back();</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;samples&quot;</span>))</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                    <a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a> = stoi(words.back());</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;lines&quot;</span>))</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                    <a class="code" href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">lines</a> = stoi(words.back());</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;bands&quot;</span>))</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                    <a class="code" href="classHSImage.html#a4b2e003c9984fdcd8ad91f5460c14665">bands</a> = stoi(words.back());</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;fps&quot;</span>))</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                    <a class="code" href="classHSImage.html#a9cc83537920027a5e3b2186d8b15227c">fps</a> = stoi(words.back());</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;tint&quot;</span>))</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                    <a class="code" href="classHSImage.html#af4f709b1009ea6e1fb0b2c95bbc414f5">tint</a> = stoi(words.back());</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;binning&quot;</span>))</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                {</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                    <a class="code" href="classHSImage.html#a8676dd41b19f159a74290a1148cf72a3">binning</a>[0] = stoi(words[3]);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                    <a class="code" href="classHSImage.html#a8676dd41b19f159a74290a1148cf72a3">binning</a>[1] = stoi(words[4]);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                }</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;Wavelength&quot;</span>))</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                {</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                    in_wavelengths = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                }</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;fwhm&quot;</span>))</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                {</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                    in_fwhm = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                }</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            }</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            <span class="keywordflow">if</span>(vis_spec &amp;&amp; nir_spec)</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                <a class="code" href="classHSImage.html#a9e57d2e0b5e2796ea59e74a9f9e3e312">has_spec_data</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <a class="code" href="classHSImage.html#adf6d334e34fd8ca1ce356d4743e12f5a">hdr_file</a> = header_location;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        }</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        {</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;Incorrect Header File! Failed at Line &quot;</span> &lt;&lt; line_number &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        }</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    }</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    {</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Could not open &quot;</span> &lt;&lt; header_location &lt;&lt; <span class="stringliteral">&quot; for reading.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    }</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;}</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="keywordtype">void</span> HSImage::loadRawImage(std::string image_location)</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;{</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="comment">//load in image file</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    std::ifstream raw_file;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    raw_file.open(image_location,std::ios::binary | std::ios::ate);</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">if</span>(raw_file.is_open())</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    {</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size = raw_file.tellg();</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordflow">if</span>(size == <span class="keyword">sizeof</span>(u_int16_t)*<a class="code" href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">lines</a>*<a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a>*<a class="code" href="classHSImage.html#a4b2e003c9984fdcd8ad91f5460c14665">bands</a>)</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        {</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            <span class="comment">//image_data.reset(new u_int16_t[lines*samples*bands]);</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            <span class="comment">//pixel_data.reset(new u_int16_t[lines*samples*bands]);</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            image_data.reserve(<a class="code" href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">lines</a>*<a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a>*bands);</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            pixel_data.reserve(<a class="code" href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">lines</a>*<a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a>*bands);</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            raw_file.seekg(0,std::ios::beg);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <span class="keywordtype">int</span> storage_spot = 0;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> b=0;b&lt;<a class="code" href="classHSImage.html#a4b2e003c9984fdcd8ad91f5460c14665">bands</a>;b++)</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            {</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> l=0;l&lt;<a class="code" href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">lines</a>;l++)</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                {</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                    raw_file.seekg((l*bands*<a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a>+b*<a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a>)*<span class="keyword">sizeof</span>(u_int16_t),std::ios::beg);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                    <span class="comment">//raw_file.read((char*)image_data.get()+storage_spot,samples*sizeof(u_int16_t));</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                    raw_file.read((<span class="keywordtype">char</span>*)image_data.data()+storage_spot,samples*<span class="keyword">sizeof</span>(u_int16_t));</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                    storage_spot+=samples*<span class="keyword">sizeof</span>(u_int16_t);</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                }</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            }</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            raw_file.close();</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            storage_spot = 0;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> l=0;l&lt;<a class="code" href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">lines</a>;l++)</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            {</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> s=0;s&lt;<a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a>;s++)</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                {</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> b=0;b&lt;<a class="code" href="classHSImage.html#a4b2e003c9984fdcd8ad91f5460c14665">bands</a>;b++)</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                    {</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                        pixel_data[storage_spot] = image_data[b*lines*samples+l*samples+s];<span class="comment">//</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                        storage_spot++;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                    }</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                }</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <span class="comment">//create map of wavelengths -&gt; OpenCV Mat data pointers</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="classHSImage.html#ae83f750ddb14b9d730d384650cd60845">wavelengths</a>.size();i++)</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                <span class="comment">//image_map.emplace(wavelengths[i],(uchar*)image_data.get()+lines*samples*i*sizeof(u_int16_t));</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                image_map.emplace(<a class="code" href="classHSImage.html#ae83f750ddb14b9d730d384650cd60845">wavelengths</a>[i],(uchar*)image_data.data()+lines*samples*i*<span class="keyword">sizeof</span>(u_int16_t));</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            <a class="code" href="classHSImage.html#a10a9880ae3386fb6b36459c90df4ca37">img_file</a> = image_location;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        }</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        {</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;Header File contains wrong data size for .raw image file.&quot;</span> &lt;&lt; std::endl</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                      &lt;&lt; <span class="stringliteral">&quot;Header size: &quot;</span> &lt;&lt; <span class="keyword">sizeof</span>(u_int16_t)*lines*samples*bands &lt;&lt; std::endl</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                      &lt;&lt; <span class="stringliteral">&quot;.raw file size: &quot;</span> &lt;&lt; size &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        }</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    }</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    {</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Cannot Open .raw Image File!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    }</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;}</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">  279</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">HSImage::loadSpectrometerData</a>(std::vector&lt;std::string&gt; filenames)</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;{</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    std::vector&lt;float&gt; w,val;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> filename : filenames)</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    {</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        std::ifstream file;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        file.open(filename);</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="keywordflow">if</span>(file.is_open())</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        {</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            std::string line;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;18-1;i++)</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                file.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(),<span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            <span class="keywordflow">while</span>(std::getline(file,line))</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            {</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                line.erase(line.end()-1,line.end());</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                std::vector&lt;std::string&gt; words = split(line,<span class="charliteral">&#39;\t&#39;</span>);</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                <span class="keywordflow">if</span>(words.size() &lt; 3 &amp;&amp; line.compare(<span class="stringliteral">&quot;&gt;&gt;&gt;&gt;&gt;End Processed Spectral Data&lt;&lt;&lt;&lt;&lt;&quot;</span>))</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                {</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                    <span class="keywordflow">if</span>(w.size() &lt; 1 || stof(words.front()) &gt; w.back())</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                    {</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                        w.push_back(stof(words.front()));</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                        val.push_back(stof(words.back()));</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                    }</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                }</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            }                </div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        }</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        {</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            std::cout &lt;&lt; strerror(errno) &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    loadRawImage(image_location);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classHSImage.html#a9e57d2e0b5e2796ea59e74a9f9e3e312">has_spec_data</a>)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        std::vector&lt;std::string&gt; filenames;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        filenames.push_back(createAbsoluteSpecFilepath( <a class="code" href="classHSImage.html#a83f99042aeaf44441ac91b3e18df6412">vis_spec_file</a> ));</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        filenames.push_back(createAbsoluteSpecFilepath( <a class="code" href="classHSImage.html#a7505859168aca2a1616e722fa0ece075">nir_spec_file</a> ));</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">loadSpectrometerData</a>(filenames);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classHSImage.html#a6d717ab2cc26f4380a354d330367aa9f">   98</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classHSImage.html#aa386b2de653bc3fad7bda7c1997c2918">HSImage::load</a>(std::string header_location, std::string image_location, std::vector&lt;std::string&gt; spec_locations)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    loadHeader(header_location);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    loadRawImage(image_location);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classHSImage.html#a83f99042aeaf44441ac91b3e18df6412">vis_spec_file</a>.empty() &amp;&amp; <a class="code" href="classHSImage.html#a83f99042aeaf44441ac91b3e18df6412">vis_spec_file</a>.empty())</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <a class="code" href="classHSImage.html#a6a3f291264cea92414cf37da00d79f90">addSpecDataToHeader</a>(spec_locations);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">loadSpectrometerData</a>(spec_locations);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        std::vector&lt;std::string&gt; filenames;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        filenames.push_back(createAbsoluteSpecFilepath( <a class="code" href="classHSImage.html#a83f99042aeaf44441ac91b3e18df6412">vis_spec_file</a> ));</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        filenames.push_back(createAbsoluteSpecFilepath( <a class="code" href="classHSImage.html#a7505859168aca2a1616e722fa0ece075">nir_spec_file</a> ));</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <a class="code" href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">loadSpectrometerData</a>(filenames);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordtype">void</span> HSImage::loadHeader(std::string header_location)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">//load in header file</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    std::string line;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    std::ifstream in_stream;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    in_stream.open(header_location);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">if</span>(in_stream.is_open())</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordtype">int</span> line_number = 1;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        in_stream &gt;&gt; line;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">if</span>(!line.compare(<span class="stringliteral">&quot;ENVI&quot;</span>))</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="keywordtype">bool</span> in_wavelengths = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordtype">bool</span> in_fwhm = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="keywordtype">bool</span> nir_spec = <span class="keyword">false</span>,vis_spec = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">while</span>(std::getline(in_stream,line))</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            {</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                line_number++;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                std::vector&lt;std::string&gt; words = split(line,<span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                <span class="keywordflow">if</span>(in_wavelengths)</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                    <span class="keywordflow">if</span>(words[0].compare(<span class="stringliteral">&quot;}\r&quot;</span>))</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                        <a class="code" href="classHSImage.html#ae83f750ddb14b9d730d384650cd60845">wavelengths</a>.push_back(stof(words.front()));</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                        in_wavelengths = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                }</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                <span class="keywordflow">if</span>(in_fwhm)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                    <span class="keywordflow">if</span>(words[0].compare(<span class="stringliteral">&quot;}\r&quot;</span>))</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                        <a class="code" href="classHSImage.html#a7b305bcb7d523cffc2e233d02b94c0f7">fwhm</a>.push_back(stof(words.front()));</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                        in_fwhm = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;NIR_spec_file&quot;</span>))</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                    <a class="code" href="classHSImage.html#a7505859168aca2a1616e722fa0ece075">nir_spec_file</a> = words.back();</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                    nir_spec = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;VIS_spec_file&quot;</span>))</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                {</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                    <a class="code" href="classHSImage.html#a83f99042aeaf44441ac91b3e18df6412">vis_spec_file</a> = words.back();</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                    vis_spec = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;acquisition&quot;</span>))</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                    <a class="code" href="classHSImage.html#a6ad4c3cd7687b52cf02e4788a8720052">acquisition_date</a> = words.back();</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;samples&quot;</span>))</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                    <a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a> = stoi(words.back());</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;lines&quot;</span>))</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                    <a class="code" href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">lines</a> = stoi(words.back());</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;bands&quot;</span>))</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                    <a class="code" href="classHSImage.html#a4b2e003c9984fdcd8ad91f5460c14665">bands</a> = stoi(words.back());</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;fps&quot;</span>))</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                    <a class="code" href="classHSImage.html#a9cc83537920027a5e3b2186d8b15227c">fps</a> = stoi(words.back());</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;tint&quot;</span>))</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                    <a class="code" href="classHSImage.html#af4f709b1009ea6e1fb0b2c95bbc414f5">tint</a> = stoi(words.back());</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;binning&quot;</span>))</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                {</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                    <a class="code" href="classHSImage.html#a8676dd41b19f159a74290a1148cf72a3">binning</a>[0] = stoi(words[3]);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                    <a class="code" href="classHSImage.html#a8676dd41b19f159a74290a1148cf72a3">binning</a>[1] = stoi(words[4]);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;Wavelength&quot;</span>))</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                {</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                    in_wavelengths = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                <span class="keywordflow">if</span>(!words[0].compare(<span class="stringliteral">&quot;fwhm&quot;</span>))</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                {</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                    in_fwhm = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            }</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="keywordflow">if</span>(vis_spec &amp;&amp; nir_spec)</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                <a class="code" href="classHSImage.html#a9e57d2e0b5e2796ea59e74a9f9e3e312">has_spec_data</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <a class="code" href="classHSImage.html#adf6d334e34fd8ca1ce356d4743e12f5a">hdr_file</a> = header_location;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        {</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;Incorrect Header File! Failed at Line &quot;</span> &lt;&lt; line_number &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        }</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    }</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    {</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Could not open &quot;</span> &lt;&lt; header_location &lt;&lt; <span class="stringliteral">&quot; for reading.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;}</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="keywordtype">void</span> HSImage::loadRawImage(std::string image_location)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;{</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">//load in image file</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    std::ifstream raw_file;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    raw_file.open(image_location,std::ios::binary | std::ios::ate);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">if</span>(raw_file.is_open())</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size = raw_file.tellg();</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">if</span>(size == <span class="keyword">sizeof</span>(u_int16_t)*<a class="code" href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">lines</a>*<a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a>*<a class="code" href="classHSImage.html#a4b2e003c9984fdcd8ad91f5460c14665">bands</a>)</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        {</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            <span class="comment">//image_data.reset(new u_int16_t[lines*samples*bands]);</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            <span class="comment">//pixel_data.reset(new u_int16_t[lines*samples*bands]);</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            image_data.reserve(<a class="code" href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">lines</a>*<a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a>*bands);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            pixel_data.reserve(<a class="code" href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">lines</a>*<a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a>*bands);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            raw_file.seekg(0,std::ios::beg);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            <span class="keywordtype">int</span> storage_spot = 0;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> b=0;b&lt;<a class="code" href="classHSImage.html#a4b2e003c9984fdcd8ad91f5460c14665">bands</a>;b++)</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> l=0;l&lt;<a class="code" href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">lines</a>;l++)</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                {</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                    raw_file.seekg((l*bands*<a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a>+b*<a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a>)*<span class="keyword">sizeof</span>(u_int16_t),std::ios::beg);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                    <span class="comment">//raw_file.read((char*)image_data.get()+storage_spot,samples*sizeof(u_int16_t));</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                    raw_file.read((<span class="keywordtype">char</span>*)image_data.data()+storage_spot,samples*<span class="keyword">sizeof</span>(u_int16_t));</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                    storage_spot+=samples*<span class="keyword">sizeof</span>(u_int16_t);</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                }</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            raw_file.close();</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            storage_spot = 0;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> l=0;l&lt;<a class="code" href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">lines</a>;l++)</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            {</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> s=0;s&lt;<a class="code" href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">samples</a>;s++)</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                {</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> b=0;b&lt;<a class="code" href="classHSImage.html#a4b2e003c9984fdcd8ad91f5460c14665">bands</a>;b++)</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                    {</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                        pixel_data[storage_spot] = image_data[b*lines*samples+l*samples+s];<span class="comment">//</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                        storage_spot++;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                    }</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                }</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            }</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            <span class="comment">//create map of wavelengths -&gt; OpenCV Mat data pointers</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="classHSImage.html#ae83f750ddb14b9d730d384650cd60845">wavelengths</a>.size();i++)</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                <span class="comment">//image_map.emplace(wavelengths[i],(uchar*)image_data.get()+lines*samples*i*sizeof(u_int16_t));</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                image_map.emplace(<a class="code" href="classHSImage.html#ae83f750ddb14b9d730d384650cd60845">wavelengths</a>[i],(uchar*)image_data.data()+lines*samples*i*<span class="keyword">sizeof</span>(u_int16_t));</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            <a class="code" href="classHSImage.html#a10a9880ae3386fb6b36459c90df4ca37">img_file</a> = image_location;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        }</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        {</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;Header File contains wrong data size for .raw image file.&quot;</span> &lt;&lt; std::endl</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                      &lt;&lt; <span class="stringliteral">&quot;Header size: &quot;</span> &lt;&lt; <span class="keyword">sizeof</span>(u_int16_t)*lines*samples*bands &lt;&lt; std::endl</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                      &lt;&lt; <span class="stringliteral">&quot;.raw file size: &quot;</span> &lt;&lt; size &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        }</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    }</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    {</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Cannot Open .raw Image File!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    }</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;}</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
+<div class="line"><a name="l00280"></a><span class="lineno"><a class="line" href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">  280</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">HSImage::loadSpectrometerData</a>(std::vector&lt;std::string&gt; filenames)</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;{</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    std::vector&lt;float&gt; w,val;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> filename : filenames)</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    {</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        std::ifstream file;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        file.open(filename);</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="keywordflow">if</span>(file.is_open())</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        {</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            std::string line;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;18-1;i++)</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                file.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(),<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            <span class="keywordflow">while</span>(std::getline(file,line))</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            {</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                line.erase(line.end()-1,line.end());</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                std::vector&lt;std::string&gt; words = split(line,<span class="charliteral">&#39;\t&#39;</span>);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                <span class="keywordflow">if</span>(words.size() &lt; 3 &amp;&amp; line.compare(<span class="stringliteral">&quot;&gt;&gt;&gt;&gt;&gt;End Processed Spectral Data&lt;&lt;&lt;&lt;&lt;&quot;</span>))</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                {</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                    <span class="keywordflow">if</span>(w.size() &lt; 1 || stof(words.front()) &gt; w.back())</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                    {</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                        w.push_back(stof(words.front()));</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                        val.push_back(stof(words.back()));</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                    }</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                }</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            }                </div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        }</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        {</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;Cannot Open Spectrometer Data File!&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        }</div>
@@ -605,81 +605,107 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="keywordflow">return</span> abs_spec_filepath;</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;}</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="keywordtype">void</span> export_hsimage()</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="keywordtype">void</span> export_hsimage(pybind11::module m)</div>
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;{</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="keyword">namespace </span>bp = boost::python;</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    <span class="comment">// map the IO namespace to a sub-module</span></div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="comment">// make &quot;from myPackage.class1 import &lt;whatever&gt;&quot; work</span></div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    bp::object hsimageModule(bp::handle&lt;&gt;(bp::borrowed(PyImport_AddModule(<span class="stringliteral">&quot;hsi.hsimage&quot;</span>))));</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="comment">// make &quot;from mypackage import class1&quot; work</span></div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    bp::scope().attr(<span class="stringliteral">&quot;hsimage&quot;</span>) = hsimageModule;</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    <span class="comment">// set the current scope to the new sub-module</span></div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    bp::scope io_scope = hsimageModule;</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    void (<a class="code" href="classHSImage.html">HSImage</a>::*d1)(std::string, std::string) = &amp;<a class="code" href="classHSImage.html#aa386b2de653bc3fad7bda7c1997c2918">HSImage::load</a>; <span class="comment">// Dealing with overloaded function</span></div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    void (<a class="code" href="classHSImage.html">HSImage</a>::*d2)(std::string, std::string, std::vector&lt;std::string&gt;) = &amp;<a class="code" href="classHSImage.html#aa386b2de653bc3fad7bda7c1997c2918">HSImage::load</a>;</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="keyword">namespace </span>py = pybind11;</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="comment">//    py::module m2 = m.def_submodule(&quot;hsimage&quot;,&quot;ENVI-BIL Hyperspectral Image Interface Module&quot;);</span></div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    py::class_&lt;HSImage&gt; hsimage (m, <span class="stringliteral">&quot;hsimage&quot;</span>);</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    hsimage</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;            .def(py::init&lt;&gt;())</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;            .def(py::init&lt;std::string, std::string&gt;())</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;            .def(py::init&lt;std::string, std::string, std::vector&lt;std::string&gt;&gt;())</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;            .def(py::init&lt;const HSImage&amp;&gt;())</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;            .def(<span class="stringliteral">&quot;load&quot;</span>, (<span class="keywordtype">void</span> (<a class="code" href="classHSImage.html">HSImage</a>::*)(std::string, std::string)) &amp;<a class="code" href="classHSImage.html#aa386b2de653bc3fad7bda7c1997c2918">HSImage::load</a>, <span class="stringliteral">&quot;Load data into HSImage instance&quot;</span>, py::arg(<span class="stringliteral">&quot;header_filename&quot;</span>), py::arg(<span class="stringliteral">&quot;image_filename&quot;</span>))</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    bp::class_&lt;HSImage&gt;(<span class="stringliteral">&quot;hsimage&quot;</span>)</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;        .def(bp::init&lt;std::string, std::string&gt;())</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;        .def(bp::init&lt;std::string, std::string, std::vector&lt;std::string&gt;&gt;())</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;        .def(bp::init&lt;const HSImage&amp;&gt;())</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;        <span class="comment">//.def(&quot;operator=&quot;, &amp;HSImage::operator =) //Member Functions</span></div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;        .def(<span class="stringliteral">&quot;load&quot;</span>, d1)</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;        .def(<span class="stringliteral">&quot;load&quot;</span>, d2)</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="comment">//        .def(&quot;loadHeader&quot;, &amp;HSImage::loadHeader)</span></div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;<span class="comment">//        .def(&quot;loadRawImage&quot;, &amp;HSImage::loadRawImage)</span></div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        .def(<span class="stringliteral">&quot;loadSpectrometerData&quot;</span>, &amp;<a class="code" href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">HSImage::loadSpectrometerData</a>)</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;<span class="comment">//        .def(&quot;addSpecDataToHeader&quot;, &amp;HSImage::addSpecDataToHeader)</span></div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;        .def(<span class="stringliteral">&quot;hasSpecFiles&quot;</span>, &amp;<a class="code" href="classHSImage.html#aca2984a12c33110a809469226fcbe26f">HSImage::hasSpecFiles</a>)</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;        .staticmethod(<span class="stringliteral">&quot;hasSpecFiles&quot;</span>)</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;        .def(<span class="stringliteral">&quot;getPixelSpectra&quot;</span>, &amp;<a class="code" href="classHSImage.html#a58dc0292b6d0d8a57d8f92e57cc60204">HSImage::getPixelSpectra</a>)</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    .def(<span class="stringliteral">&quot;getWavelengths&quot;</span>, &amp;<a class="code" href="classHSImage.html#a91341f838f5ae2d8168b3b130f43eb15">HSImage::getWavelengths</a>)</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    .def(<span class="stringliteral">&quot;getAmbientIntensities&quot;</span>,&amp;<a class="code" href="classHSImage.html#a82b661ea98f1f6cc4fc298af0687d02a">HSImage::getAmbientIntensities</a>)</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;<span class="comment">//        .def(&quot;getNormalizedPixelSpectra&quot;, &amp;HSImage::getNormalizedPixelSpectra)</span></div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        .def(<span class="stringliteral">&quot;getPixelTransferFunction&quot;</span>, &amp;<a class="code" href="classHSImage.html#afef0b6b25c88572065ca401834e0c9df">HSImage::getPixelTransferFunction</a>)</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;        .def(<span class="stringliteral">&quot;getRange&quot;</span>, &amp;<a class="code" href="classHSImage.html#a9a770d00e8652463e0f9c95dc231bac9">HSImage::getRange</a>)</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;        .def(<span class="stringliteral">&quot;getSet&quot;</span>, &amp;<a class="code" href="classHSImage.html#a7cda1fcf99a4c01c96a22042ea2c6773">HSImage::getSet</a>)</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        .def(<span class="stringliteral">&quot;getBand&quot;</span>, &amp;HSImage::operator [])</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        .def(<span class="stringliteral">&quot;getPixelArray&quot;</span>,&amp;<a class="code" href="classHSImage.html#a228e2a3272a0607c865d1bfcb7830b2c">HSImage::getRawPixelData</a>,</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;             boost::python::return_value_policy&lt;boost::python::reference_existing_object&gt;());</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;}</div>
-<div class="ttc" id="classHSImage_html_a6ad4c3cd7687b52cf02e4788a8720052"><div class="ttname"><a href="classHSImage.html#a6ad4c3cd7687b52cf02e4788a8720052">HSImage::acquisition_date</a></div><div class="ttdeci">std::string acquisition_date</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00170">hsimage.h:170</a></div></div>
-<div class="ttc" id="classHSImage_html_a4b2e003c9984fdcd8ad91f5460c14665"><div class="ttname"><a href="classHSImage.html#a4b2e003c9984fdcd8ad91f5460c14665">HSImage::bands</a></div><div class="ttdeci">int bands</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00174">hsimage.h:174</a></div></div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;            .def(<span class="stringliteral">&quot;load&quot;</span>, (<span class="keywordtype">void</span> (<a class="code" href="classHSImage.html">HSImage</a>::*)(std::string, std::string, std::vector&lt;std::string&gt;)) &amp;HSImage::load, <span class="stringliteral">&quot;Load data into HSImage instance&quot;</span>, py::arg(<span class="stringliteral">&quot;header_filename&quot;</span>), py::arg(<span class="stringliteral">&quot;image_filename&quot;</span>),py::arg(<span class="stringliteral">&quot;spec_filename_vector&quot;</span>))</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;            .def(<span class="stringliteral">&quot;loadSpectrometerData&quot;</span>, &amp;<a class="code" href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">HSImage::loadSpectrometerData</a>)</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;            .def_static(<span class="stringliteral">&quot;hasSpecFiles&quot;</span>, &amp;<a class="code" href="classHSImage.html#aca2984a12c33110a809469226fcbe26f">HSImage::hasSpecFiles</a>)</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;            .def(<span class="stringliteral">&quot;getPixelSpectra&quot;</span>, &amp;<a class="code" href="classHSImage.html#a58dc0292b6d0d8a57d8f92e57cc60204">HSImage::getPixelSpectra</a>)</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;            .def(<span class="stringliteral">&quot;getWavelengths&quot;</span>, &amp;<a class="code" href="classHSImage.html#a91341f838f5ae2d8168b3b130f43eb15">HSImage::getWavelengths</a>)</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;            .def(<span class="stringliteral">&quot;getAmbientIntensities&quot;</span>,&amp;<a class="code" href="classHSImage.html#a82b661ea98f1f6cc4fc298af0687d02a">HSImage::getAmbientIntensities</a>)</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;            .def(<span class="stringliteral">&quot;getPixelTransferFunction&quot;</span>, &amp;<a class="code" href="classHSImage.html#afef0b6b25c88572065ca401834e0c9df">HSImage::getPixelTransferFunction</a>)</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;            .def(<span class="stringliteral">&quot;getRange&quot;</span>, &amp;<a class="code" href="classHSImage.html#a9a770d00e8652463e0f9c95dc231bac9">HSImage::getRange</a>)</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;            .def(<span class="stringliteral">&quot;getSet&quot;</span>, &amp;<a class="code" href="classHSImage.html#a7cda1fcf99a4c01c96a22042ea2c6773">HSImage::getSet</a>)</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;            .def(<span class="stringliteral">&quot;getBand&quot;</span>, &amp;HSImage::operator [])</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;            .def(<span class="stringliteral">&quot;getPixelArray&quot;</span>,&amp;<a class="code" href="classHSImage.html#a228e2a3272a0607c865d1bfcb7830b2c">HSImage::getRawPixelData</a>);</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;}</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="comment">//void export_hsimage()</span></div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="comment">//{</span></div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;<span class="comment">//    namespace bp = boost::python;</span></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;<span class="comment">//    // map the IO namespace to a sub-module</span></div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="comment">//    // make &quot;from myPackage.class1 import &lt;whatever&gt;&quot; work</span></div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="comment">//    bp::object hsimageModule(bp::handle&lt;&gt;(bp::borrowed(PyImport_AddModule(&quot;hsi.hsimage&quot;))));</span></div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;<span class="comment">//    // make &quot;from mypackage import class1&quot; work</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;<span class="comment">//    bp::scope().attr(&quot;hsimage&quot;) = hsimageModule;</span></div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;<span class="comment">//    // set the current scope to the new sub-module</span></div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;<span class="comment">//    bp::scope io_scope = hsimageModule;</span></div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;<span class="comment">//    void (HSImage::*d1)(std::string, std::string) = &amp;HSImage::load; // Dealing with overloaded function</span></div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="comment">//    void (HSImage::*d2)(std::string, std::string, std::vector&lt;std::string&gt;) = &amp;HSImage::load;</span></div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="comment">//    bp::class_&lt;HSImage&gt;(&quot;hsimage&quot;)</span></div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;<span class="comment">//        .def(bp::init&lt;std::string, std::string&gt;())</span></div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="comment">//        .def(bp::init&lt;std::string, std::string, std::vector&lt;std::string&gt;&gt;())</span></div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="comment">//        .def(bp::init&lt;const HSImage&amp;&gt;())</span></div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;<span class="comment">//        //.def(&quot;operator=&quot;, &amp;HSImage::operator =) //Member Functions</span></div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="comment">//        .def(&quot;load&quot;, d1)</span></div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="comment">//        .def(&quot;load&quot;, d2)</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="comment"></span><span class="comment">//        .def(&quot;loadSpectrometerData&quot;, &amp;HSImage::loadSpectrometerData)</span></div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;<span class="comment"></span><span class="comment">//        .def(&quot;hasSpecFiles&quot;, &amp;HSImage::hasSpecFiles)</span></div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="comment">//        .staticmethod(&quot;hasSpecFiles&quot;)</span></div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="comment">//        .def(&quot;getPixelSpectra&quot;, &amp;HSImage::getPixelSpectra)</span></div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;<span class="comment">//  .def(&quot;getWavelengths&quot;, &amp;HSImage::getWavelengths)</span></div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;<span class="comment">//  .def(&quot;getAmbientIntensities&quot;,&amp;HSImage::getAmbientIntensities)</span></div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;<span class="comment"></span><span class="comment">//        .def(&quot;getPixelTransferFunction&quot;, &amp;HSImage::getPixelTransferFunction)</span></div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;<span class="comment">//        .def(&quot;getRange&quot;, &amp;HSImage::getRange)</span></div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="comment">//        .def(&quot;getSet&quot;, &amp;HSImage::getSet)</span></div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="comment">//        .def(&quot;getBand&quot;, &amp;HSImage::operator [])</span></div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="comment">//        .def(&quot;getPixelArray&quot;,&amp;HSImage::getRawPixelData,</span></div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;<span class="comment">//             boost::python::return_value_policy&lt;boost::python::reference_existing_object&gt;());</span></div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;<span class="comment">//}</span></div>
+<div class="ttc" id="classHSImage_html_a6ad4c3cd7687b52cf02e4788a8720052"><div class="ttname"><a href="classHSImage.html#a6ad4c3cd7687b52cf02e4788a8720052">HSImage::acquisition_date</a></div><div class="ttdeci">std::string acquisition_date</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00175">hsimage.h:175</a></div></div>
+<div class="ttc" id="classHSImage_html_a4b2e003c9984fdcd8ad91f5460c14665"><div class="ttname"><a href="classHSImage.html#a4b2e003c9984fdcd8ad91f5460c14665">HSImage::bands</a></div><div class="ttdeci">int bands</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00179">hsimage.h:179</a></div></div>
 <div class="ttc" id="classHSImage_html_a228e2a3272a0607c865d1bfcb7830b2c"><div class="ttname"><a href="classHSImage.html#a228e2a3272a0607c865d1bfcb7830b2c">HSImage::getRawPixelData</a></div><div class="ttdeci">std::vector&lt; u_int16_t &gt; &amp; getRawPixelData()</div><div class="ttdoc">Get all data formatted as a row major pixel array (row*col,bands) </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00483">hsimage.cpp:483</a></div></div>
 <div class="ttc" id="classHSImage_html_a7a9317455d18d572ab7802bbd6fd05d4"><div class="ttname"><a href="classHSImage.html#a7a9317455d18d572ab7802bbd6fd05d4">HSImage::getNormalizedPixelSpectra</a></div><div class="ttdeci">std::vector&lt; u_int16_t &gt; getNormalizedPixelSpectra(int row, int col)</div><div class="ttdoc">Depracated. Do Not Use. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00388">hsimage.cpp:388</a></div></div>
 <div class="ttc" id="classHSImage_html_a7cda1fcf99a4c01c96a22042ea2c6773"><div class="ttname"><a href="classHSImage.html#a7cda1fcf99a4c01c96a22042ea2c6773">HSImage::getSet</a></div><div class="ttdeci">std::vector&lt; cv::Mat &gt; getSet(const std::vector&lt; float &gt; wavelength_set)</div><div class="ttdoc">Return a disparate set of wavelength images as OpenCV cv::Mat objects. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00442">hsimage.cpp:442</a></div></div>
 <div class="ttc" id="classHSImage_html_a91341f838f5ae2d8168b3b130f43eb15"><div class="ttname"><a href="classHSImage.html#a91341f838f5ae2d8168b3b130f43eb15">HSImage::getWavelengths</a></div><div class="ttdeci">std::vector&lt; float &gt; getWavelengths()</div><div class="ttdoc">Return vector of imaged wavlengths. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00399">hsimage.cpp:399</a></div></div>
-<div class="ttc" id="classHSImage_html_a8676dd41b19f159a74290a1148cf72a3"><div class="ttname"><a href="classHSImage.html#a8676dd41b19f159a74290a1148cf72a3">HSImage::binning</a></div><div class="ttdeci">int binning[2]</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00176">hsimage.h:176</a></div></div>
+<div class="ttc" id="classHSImage_html_a8676dd41b19f159a74290a1148cf72a3"><div class="ttname"><a href="classHSImage.html#a8676dd41b19f159a74290a1148cf72a3">HSImage::binning</a></div><div class="ttdeci">int binning[2]</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00181">hsimage.h:181</a></div></div>
 <div class="ttc" id="classHSImage_html_a29be76993390539ce2c5cb421abf25f7"><div class="ttname"><a href="classHSImage.html#a29be76993390539ce2c5cb421abf25f7">HSImage::operator=</a></div><div class="ttdeci">HSImage &amp; operator=(const HSImage &amp;other)</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00054">hsimage.cpp:54</a></div></div>
 <div class="ttc" id="classHSImage_html_a82b661ea98f1f6cc4fc298af0687d02a"><div class="ttname"><a href="classHSImage.html#a82b661ea98f1f6cc4fc298af0687d02a">HSImage::getAmbientIntensities</a></div><div class="ttdeci">std::vector&lt; float &gt; getAmbientIntensities()</div><div class="ttdoc">Return vector of ambient wavelength intensites. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00404">hsimage.cpp:404</a></div></div>
 <div class="ttc" id="classHSImage_html_a6a3f291264cea92414cf37da00d79f90"><div class="ttname"><a href="classHSImage.html#a6a3f291264cea92414cf37da00d79f90">HSImage::addSpecDataToHeader</a></div><div class="ttdeci">void addSpecDataToHeader(std::vector&lt; std::string &gt; filenames)</div><div class="ttdoc">Adds spectrometer file data to the corresponding .hdr file. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00329">hsimage.cpp:329</a></div></div>
-<div class="ttc" id="classHSImage_html_adf6d334e34fd8ca1ce356d4743e12f5a"><div class="ttname"><a href="classHSImage.html#adf6d334e34fd8ca1ce356d4743e12f5a">HSImage::hdr_file</a></div><div class="ttdeci">std::string hdr_file</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00184">hsimage.h:184</a></div></div>
-<div class="ttc" id="classHSImage_html_a5e6e829d731ed578529a2651c95dc57b"><div class="ttname"><a href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">HSImage::samples</a></div><div class="ttdeci">int samples</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00172">hsimage.h:172</a></div></div>
-<div class="ttc" id="classHSImage_html_a9e57d2e0b5e2796ea59e74a9f9e3e312"><div class="ttname"><a href="classHSImage.html#a9e57d2e0b5e2796ea59e74a9f9e3e312">HSImage::has_spec_data</a></div><div class="ttdeci">bool has_spec_data</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00180">hsimage.h:180</a></div></div>
+<div class="ttc" id="classHSImage_html_adf6d334e34fd8ca1ce356d4743e12f5a"><div class="ttname"><a href="classHSImage.html#adf6d334e34fd8ca1ce356d4743e12f5a">HSImage::hdr_file</a></div><div class="ttdeci">std::string hdr_file</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00189">hsimage.h:189</a></div></div>
+<div class="ttc" id="classHSImage_html_a5e6e829d731ed578529a2651c95dc57b"><div class="ttname"><a href="classHSImage.html#a5e6e829d731ed578529a2651c95dc57b">HSImage::samples</a></div><div class="ttdeci">int samples</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00177">hsimage.h:177</a></div></div>
+<div class="ttc" id="classHSImage_html_a9e57d2e0b5e2796ea59e74a9f9e3e312"><div class="ttname"><a href="classHSImage.html#a9e57d2e0b5e2796ea59e74a9f9e3e312">HSImage::has_spec_data</a></div><div class="ttdeci">bool has_spec_data</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00185">hsimage.h:185</a></div></div>
 <div class="ttc" id="classHSImage_html_afef0b6b25c88572065ca401834e0c9df"><div class="ttname"><a href="classHSImage.html#afef0b6b25c88572065ca401834e0c9df">HSImage::getPixelTransferFunction</a></div><div class="ttdeci">std::vector&lt; double &gt; getPixelTransferFunction(int row, int col)</div><div class="ttdoc">Returns pixel &quot;transfer function&quot;. Requires spectrometer data. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00409">hsimage.cpp:409</a></div></div>
 <div class="ttc" id="classHSImage_html_a4a4a662ae1a34754037c773bb4483199"><div class="ttname"><a href="classHSImage.html#a4a4a662ae1a34754037c773bb4483199">HSImage::operator[]</a></div><div class="ttdeci">cv::Mat operator[](const float wavelength)</div><div class="ttdoc">Get single deisred wavelength image. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00465">hsimage.cpp:465</a></div></div>
-<div class="ttc" id="classHSImage_html_a9cc83537920027a5e3b2186d8b15227c"><div class="ttname"><a href="classHSImage.html#a9cc83537920027a5e3b2186d8b15227c">HSImage::fps</a></div><div class="ttdeci">int fps</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00175">hsimage.h:175</a></div></div>
-<div class="ttc" id="classHSImage_html_a7505859168aca2a1616e722fa0ece075"><div class="ttname"><a href="classHSImage.html#a7505859168aca2a1616e722fa0ece075">HSImage::nir_spec_file</a></div><div class="ttdeci">std::string nir_spec_file</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00185">hsimage.h:185</a></div></div>
+<div class="ttc" id="classHSImage_html_a9cc83537920027a5e3b2186d8b15227c"><div class="ttname"><a href="classHSImage.html#a9cc83537920027a5e3b2186d8b15227c">HSImage::fps</a></div><div class="ttdeci">int fps</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00180">hsimage.h:180</a></div></div>
+<div class="ttc" id="classHSImage_html_a7505859168aca2a1616e722fa0ece075"><div class="ttname"><a href="classHSImage.html#a7505859168aca2a1616e722fa0ece075">HSImage::nir_spec_file</a></div><div class="ttdeci">std::string nir_spec_file</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00190">hsimage.h:190</a></div></div>
 <div class="ttc" id="classHSImage_html_aca2984a12c33110a809469226fcbe26f"><div class="ttname"><a href="classHSImage.html#aca2984a12c33110a809469226fcbe26f">HSImage::hasSpecFiles</a></div><div class="ttdeci">static bool hasSpecFiles(std::string header_location)</div><div class="ttdoc">Checks if spectrometer file locations are stored as part of the ENVI .hdr file. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00342">hsimage.cpp:342</a></div></div>
 <div class="ttc" id="classHSImage_html_aa386b2de653bc3fad7bda7c1997c2918"><div class="ttname"><a href="classHSImage.html#aa386b2de653bc3fad7bda7c1997c2918">HSImage::load</a></div><div class="ttdeci">void load(std::string header_location, std::string image_location)</div><div class="ttdoc">Load hyperspectral image into HSImage. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00082">hsimage.cpp:82</a></div></div>
-<div class="ttc" id="classHSImage_html_ae83f750ddb14b9d730d384650cd60845"><div class="ttname"><a href="classHSImage.html#ae83f750ddb14b9d730d384650cd60845">HSImage::wavelengths</a></div><div class="ttdeci">std::vector&lt; float &gt; wavelengths</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00177">hsimage.h:177</a></div></div>
-<div class="ttc" id="classHSImage_html_af4f709b1009ea6e1fb0b2c95bbc414f5"><div class="ttname"><a href="classHSImage.html#af4f709b1009ea6e1fb0b2c95bbc414f5">HSImage::tint</a></div><div class="ttdeci">int tint</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00171">hsimage.h:171</a></div></div>
-<div class="ttc" id="classHSImage_html_a7d1d5867ff9220144757c20e8088b435"><div class="ttname"><a href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">HSImage::loadSpectrometerData</a></div><div class="ttdeci">void loadSpectrometerData(std::vector&lt; std::string &gt; filenames)</div><div class="ttdoc">Load only spectrometer data for use with hyperspectral image. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00279">hsimage.cpp:279</a></div></div>
-<div class="ttc" id="classHSImage_html_a83f99042aeaf44441ac91b3e18df6412"><div class="ttname"><a href="classHSImage.html#a83f99042aeaf44441ac91b3e18df6412">HSImage::vis_spec_file</a></div><div class="ttdeci">std::string vis_spec_file</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00186">hsimage.h:186</a></div></div>
+<div class="ttc" id="classHSImage_html_ae83f750ddb14b9d730d384650cd60845"><div class="ttname"><a href="classHSImage.html#ae83f750ddb14b9d730d384650cd60845">HSImage::wavelengths</a></div><div class="ttdeci">std::vector&lt; float &gt; wavelengths</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00182">hsimage.h:182</a></div></div>
+<div class="ttc" id="classHSImage_html_af4f709b1009ea6e1fb0b2c95bbc414f5"><div class="ttname"><a href="classHSImage.html#af4f709b1009ea6e1fb0b2c95bbc414f5">HSImage::tint</a></div><div class="ttdeci">int tint</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00176">hsimage.h:176</a></div></div>
+<div class="ttc" id="classHSImage_html_a7d1d5867ff9220144757c20e8088b435"><div class="ttname"><a href="classHSImage.html#a7d1d5867ff9220144757c20e8088b435">HSImage::loadSpectrometerData</a></div><div class="ttdeci">void loadSpectrometerData(std::vector&lt; std::string &gt; filenames)</div><div class="ttdoc">Load only spectrometer data for use with hyperspectral image. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00280">hsimage.cpp:280</a></div></div>
+<div class="ttc" id="classHSImage_html_a83f99042aeaf44441ac91b3e18df6412"><div class="ttname"><a href="classHSImage.html#a83f99042aeaf44441ac91b3e18df6412">HSImage::vis_spec_file</a></div><div class="ttdeci">std::string vis_spec_file</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00191">hsimage.h:191</a></div></div>
 <div class="ttc" id="classHSImage_html_ae629cd4dbac4ec4f626df8c56c3111ed"><div class="ttname"><a href="classHSImage.html#ae629cd4dbac4ec4f626df8c56c3111ed">HSImage::HSImage</a></div><div class="ttdeci">HSImage()</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00002">hsimage.cpp:2</a></div></div>
 <div class="ttc" id="classHSImage_html_a58dc0292b6d0d8a57d8f92e57cc60204"><div class="ttname"><a href="classHSImage.html#a58dc0292b6d0d8a57d8f92e57cc60204">HSImage::getPixelSpectra</a></div><div class="ttdeci">std::vector&lt; u_int16_t &gt; getPixelSpectra(int row, int col)</div><div class="ttdoc">returns vector of pixel data </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00381">hsimage.cpp:381</a></div></div>
-<div class="ttc" id="classHSImage_html_a10a9880ae3386fb6b36459c90df4ca37"><div class="ttname"><a href="classHSImage.html#a10a9880ae3386fb6b36459c90df4ca37">HSImage::img_file</a></div><div class="ttdeci">std::string img_file</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00183">hsimage.h:183</a></div></div>
-<div class="ttc" id="classHSImage_html_a682882b33eb7db05c29f3f3063cf136f"><div class="ttname"><a href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">HSImage::lines</a></div><div class="ttdeci">int lines</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00173">hsimage.h:173</a></div></div>
-<div class="ttc" id="classHSImage_html_a725abc308fcb988bd124d788829e22fa"><div class="ttname"><a href="classHSImage.html#a725abc308fcb988bd124d788829e22fa">HSImage::ambient_intensities</a></div><div class="ttdeci">std::vector&lt; float &gt; ambient_intensities</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00179">hsimage.h:179</a></div></div>
-<div class="ttc" id="classHSImage_html"><div class="ttname"><a href="classHSImage.html">HSImage</a></div><div class="ttdoc">The HSImage class is the base class for interacting with ENVI type hyperspectral images. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00066">hsimage.h:66</a></div></div>
+<div class="ttc" id="classHSImage_html_a10a9880ae3386fb6b36459c90df4ca37"><div class="ttname"><a href="classHSImage.html#a10a9880ae3386fb6b36459c90df4ca37">HSImage::img_file</a></div><div class="ttdeci">std::string img_file</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00188">hsimage.h:188</a></div></div>
+<div class="ttc" id="classHSImage_html_a682882b33eb7db05c29f3f3063cf136f"><div class="ttname"><a href="classHSImage.html#a682882b33eb7db05c29f3f3063cf136f">HSImage::lines</a></div><div class="ttdeci">int lines</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00178">hsimage.h:178</a></div></div>
+<div class="ttc" id="classHSImage_html_a725abc308fcb988bd124d788829e22fa"><div class="ttname"><a href="classHSImage.html#a725abc308fcb988bd124d788829e22fa">HSImage::ambient_intensities</a></div><div class="ttdeci">std::vector&lt; float &gt; ambient_intensities</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00184">hsimage.h:184</a></div></div>
+<div class="ttc" id="classHSImage_html"><div class="ttname"><a href="classHSImage.html">HSImage</a></div><div class="ttdoc">The HSImage class is the base class for interacting with ENVI type hyperspectral images. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00071">hsimage.h:71</a></div></div>
 <div class="ttc" id="classHSImage_html_a9a770d00e8652463e0f9c95dc231bac9"><div class="ttname"><a href="classHSImage.html#a9a770d00e8652463e0f9c95dc231bac9">HSImage::getRange</a></div><div class="ttdeci">std::vector&lt; cv::Mat &gt; getRange(const float lower_wavelength, const float upper_wavelength)</div><div class="ttdoc">Return a range of wavelength images as OpenCV cv::Mat objects. </div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8cpp_source.html#l00422">hsimage.cpp:422</a></div></div>
-<div class="ttc" id="classHSImage_html_a7b305bcb7d523cffc2e233d02b94c0f7"><div class="ttname"><a href="classHSImage.html#a7b305bcb7d523cffc2e233d02b94c0f7">HSImage::fwhm</a></div><div class="ttdeci">std::vector&lt; float &gt; fwhm</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00178">hsimage.h:178</a></div></div>
+<div class="ttc" id="classHSImage_html_a7b305bcb7d523cffc2e233d02b94c0f7"><div class="ttname"><a href="classHSImage.html#a7b305bcb7d523cffc2e233d02b94c0f7">HSImage::fwhm</a></div><div class="ttdeci">std::vector&lt; float &gt; fwhm</div><div class="ttdef"><b>Definition:</b> <a href="hsimage_8h_source.html#l00183">hsimage.h:183</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 10 2017 15:20:56 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 14 2017 17:14:53 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
