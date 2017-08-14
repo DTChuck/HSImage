@@ -34,9 +34,6 @@
 #include "pybind11_opencv_numpy/pybind11/stl.h"
 #include "pybind11_opencv_numpy/ndarray_converter.h"
 
-
-#include <boost/mpl/vector.hpp>
-
 /*! \defgroup cplus_module C++ Interface 
  * This library allows C++ interactivity with ENVI-BIL hyperspectral images
  * \{
