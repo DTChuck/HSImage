@@ -523,6 +523,7 @@ void export_hsimage(pybind11::module m)
 
     py::class_<HSImage> hsimage (m, "hsimage");
     hsimage
+            .def(py::init<>())
             .def(py::init<std::string, std::string>())
             .def(py::init<std::string, std::string, std::vector<std::string>>())
             .def(py::init<const HSImage&>())

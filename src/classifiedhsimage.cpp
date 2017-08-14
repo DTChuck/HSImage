@@ -232,6 +232,7 @@ void export_classifiedhsimage(pybind11::module m)
 
     py::class_<ClassifiedHSImage> classified_hsimage(m, "classified_hsimage");
     classified_hsimage
+                .def(py::init<>())
                 .def(py::init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
                 .def(py::init<std::string, std::string, std::string>())
                 .def_readwrite("hsimage",&ClassifiedHSImage::image)

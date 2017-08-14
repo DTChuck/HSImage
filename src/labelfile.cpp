@@ -234,6 +234,7 @@ void export_labelfile(pybind11::module m)
 
     py::class_<LabelFile> labelfile (m, "labelfile");
     labelfile
+            .def(py::init<>())
             .def(py::init<std::string>())
             .def("load", &LabelFile::loadFile)
             .def("getRGBImage", &LabelFile::getRGBImage)

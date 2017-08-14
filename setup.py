@@ -1,4 +1,4 @@
-fom setuptools import setup, Extension
+from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
 
 class CustomBuildExtCommand(build_ext):
@@ -20,7 +20,7 @@ hsimodule = Extension(
         )
 
 setup(
-        name='hsimage',
+        name='HSI',
 	version='1.0.0',
         description='Interactivity class for hyperspectral ENVI-BIL images',
         author='Ryan Brown',
