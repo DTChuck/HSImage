@@ -15,13 +15,13 @@ class CustomBuildExtCommand(build_ext):
 hsimodule = Extension(
         'HSI',
         libraries = ['opencv_core','opencv_highgui','opencv_imgproc','opencv_imgcodecs'],
-        sources = ['src/hsimage.cpp','src/pybind11_opencv_numpy/ndarray_converter.cpp' 'src/classifiedhsimage.cpp', 'src/target.cpp', 'src/colormap.cpp','src/main.cpp','src/labelfile.cpp','src/jsoncpp/jsoncpp.cpp'],
+        sources = ['src/hsimage.cpp','src/pybind11_opencv_numpy/ndarray_converter.cpp','src/classifiedhsimage.cpp', 'src/target.cpp', 'src/colormap.cpp','src/main.cpp','src/labelfile.cpp','src/jsoncpp/jsoncpp.cpp'],
         extra_compile_args=['-std=c++11'],
         )
 
 setup(
         name='HSI',
-	version='1.0.2b1',
+	version='1.0.4b1',
         description='Interactivity class for hyperspectral ENVI-BIL images',
         author='Ryan Brown',
         author_email='brownrc@vt.edu',
