@@ -18,9 +18,7 @@
 #include "pybind11_opencv_numpy/ndarray_converter.h"
 
 #include "hsimage.h"
-//#include "hsimage_global.h"
 #include "colormap.h"
-//#include "python_utils.h"
 #include "labelfile.h"
 
 

@@ -13,7 +13,7 @@ class CustomBuildExtCommand(build_ext):
 
 
 hsimodule = Extension(
-        'hsimage',
+        'HSI',
         libraries = ['opencv_core','opencv_highgui','opencv_imgproc','opencv_imgcodecs','boost_python'],
         sources = ['src/hsimage.cpp', 'src/classifiedhsimage.cpp', 'src/target.cpp', 'src/colormap.cpp','src/main.cpp','src/python_utils.cpp','src/pyboost_cv3_converter.cpp','src/labelfile.cpp','src/jsoncpp/jsoncpp.cpp'],
         extra_compile_args=['-std=c++11'],
@@ -21,13 +21,25 @@ hsimodule = Extension(
 
 setup(
         name='HSI',
-	version='1.0.0',
+	version='1.0.1b1',
         description='Interactivity class for hyperspectral ENVI-BIL images',
         author='Ryan Brown',
         author_email='brownrc@vt.edu',
         
         url='https://osf.io/b5t3x',
 	download_url = "https://github.com/dtchuck/HSImage/archive/0.1.targ.gz",
+
+        license='MIT',
+
+        classifiers=[
+            'Development Status :: 4 - Beta',
+            'Intended Audience :: Science/Research',
+            'Topic :: Scientific/Engineering :: Image Recognition',
+            'License :: OSI Approved :: MIT License',
+            'Programming Language :: Python :: 3 :: Only'
+            ],
+
+        python_requires='>=3',
 
         include_package_data=True,
 	keywords = ['hyperspectral','image','interface'],

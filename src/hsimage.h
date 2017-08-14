@@ -35,30 +35,12 @@
 #include "pybind11_opencv_numpy/ndarray_converter.h"
 
 
-//#include <boost/python.hpp>
 #include <boost/mpl/vector.hpp>
-
-//#include "python_utils.h"
 
 /*! \defgroup cplus_module C++ Interface 
  * This library allows C++ interactivity with ENVI-BIL hyperspectral images
  * \{
  */
-
-///// @brief Adapter a member function that returns a shared_ptr to
-/////        a python function object that returns a raw pointer but
-/////        explicitly passes ownership to Python.
-//template <typename T,
-//          typename C,
-//          typename ...Args>
-//boost::python::object adapt_unique(std::unique_ptr<T>& (C::*fn)(Args...))
-//{
-//  return boost::python::make_function(
-//      [fn](C& self, Args... args) { return (self.*fn)(args...).release(); },
-//      boost::python::return_value_policy<boost::python::manage_new_object>(),
-//      boost::mpl::vector<T*, C&, Args...>()
-//    );
-//}
 
 /*!
  * \brief The HSImage class is the base class for interacting with ENVI type hyperspectral images.

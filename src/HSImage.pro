@@ -60,8 +60,6 @@ LIBS += -L/usr/local/lib \
         -lopencv_imgproc \
         -lopencv_imgcodecs \
         -lboost_system \
-        -lboost_python3 \
-        -lboost_system \
 
 
 }
