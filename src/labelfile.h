@@ -21,6 +21,8 @@
 #include <boost/archive/iterators/remove_whitespace.hpp>
 
 #include "pybind11_opencv_numpy/pybind11/pybind11.h"
+#include "pybind11_opencv_numpy/pybind11/stl.h"
+#include "pybind11_opencv_numpy/ndarray_converter.h"
 
 #include "jsoncpp/json/json.h"
 
