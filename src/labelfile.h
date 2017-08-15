@@ -20,8 +20,7 @@
 #include <boost/archive/iterators/insert_linebreaks.hpp>
 #include <boost/archive/iterators/remove_whitespace.hpp>
 
-#include <boost/python.hpp>
-#include "python_utils.h"
+#include "pybind11_opencv_numpy/pybind11/pybind11.h"
 
 #include "jsoncpp/json/json.h"
 

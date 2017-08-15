@@ -9,12 +9,16 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 
-#include <boost/python.hpp>
+//#include <boost/python.hpp>
+
+#include <Python.h>
+
+#include "pybind11_opencv_numpy/pybind11/pybind11.h"
+#include "pybind11_opencv_numpy/pybind11/stl.h"
+#include "pybind11_opencv_numpy/ndarray_converter.h"
 
 #include "hsimage.h"
-//#include "hsimage_global.h"
 #include "colormap.h"
-#include "python_utils.h"
 #include "labelfile.h"
 
 

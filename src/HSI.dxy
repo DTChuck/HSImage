@@ -8,7 +8,11 @@
 #
 #This class provides an interface to an unlabeled hyperspectral image. It requires a header (.hdr) file and an image (.raw) file for basic operation, and two spectrometer files (.txt) for full operation. 
 class hsimage:
-    	
+ 
+	## Constructor
+	#Default Constructor to create empty hsimage instance
+	def __init__():
+   	
     	## Constructor
     	# Construction for loading with a header (.hdr) file and an image (.raw) file
     	# @param header_loc: Location of header file
@@ -121,6 +125,10 @@ class hsimage:
 class classified_hsimage:
 
 	##Constructor
+	#Default constructor to create empty classified_hsimage instance
+	def __init__():
+
+	##Constructor
 	#
 	#Constructor for loading with hsimage instance, OpenCV Label image and vector of class name and color tuples
 	#@param img hsimage instance
@@ -207,6 +215,10 @@ class classified_hsimage:
 #
 #The LabelFile class is used to open and extract labeled object information from a CSAIL/LabelMe style label file, usually with a .lif extension. This file contains all the information about labeled objects in a specific image, as well as an encoded .png image file containing the RGB image that was used to generate the labeling information. This interface allows you to gather all necessary information from the label file and apply it to classified hyperspectral images.
 class labelfile:
+
+	##Constructor
+	#Default constructor to create empty labelfile instance
+	def __init__():
 
 	##Constructor from file
 	#

@@ -30,30 +30,14 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 
-#include <boost/python.hpp>
-#include <boost/mpl/vector.hpp>
-
-#include "python_utils.h"
+#include "pybind11_opencv_numpy/pybind11/pybind11.h"
+#include "pybind11_opencv_numpy/pybind11/stl.h"
+#include "pybind11_opencv_numpy/ndarray_converter.h"
 
 /*! \defgroup cplus_module C++ Interface 
  * This library allows C++ interactivity with ENVI-BIL hyperspectral images
  * \{
  */
-
-/// @brief Adapter a member function that returns a shared_ptr to
-///        a python function object that returns a raw pointer but
-///        explicitly passes ownership to Python.
-template <typename T,
-          typename C,
-          typename ...Args>
-boost::python::object adapt_unique(std::unique_ptr<T>& (C::*fn)(Args...))
-{
-  return boost::python::make_function(
-      [fn](C& self, Args... args) { return (self.*fn)(args...).release(); },
-      boost::python::return_value_policy<boost::python::manage_new_object>(),
-      boost::mpl::vector<T*, C&, Args...>()
-    );
-}
 
 /*!
  * \brief The HSImage class is the base class for interacting with ENVI type hyperspectral images.
@@ -69,7 +53,7 @@ class HSImage
 public:
     HSImage(); /*!< Base Constructor*/
     HSImage(std::string header_location, std::string image_location);/*!< Constuctor with file locations */
-    HSImage(std::string header_location, std::string image_location, std::vector<std::string> spec_location); /*!< Constructor with spectrometer files*/
+    HSImage(std::string header_location, std::string image_location, std::vector<std::string> &spec_location); /*!< Constructor with spectrometer files*/
     HSImage(const HSImage& other); /*!< Reference Constructor */
     HSImage& operator=( const HSImage& other); /*!< Copy Constructor */
 

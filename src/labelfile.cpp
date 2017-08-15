@@ -226,22 +226,40 @@ std::vector<cv::Point> LabeledObject::getPolygon()
     return polygon;
 }
 
-void export_labelfile()
+void export_labelfile(pybind11::module m)
 {
-    namespace bp = boost::python;
-    //map the namespace to a submodule
-    //make "from myPackage.class1 import <anything>" work
-    bp::object hsimageModule(bp::handle<>(bp::borrowed(PyImport_AddModule("hsi.labelfile"))));
-    //make "from myPackage import class1 work
-    bp::scope().attr("labelfile") = hsimageModule;
-    //set current scope to the new sub-module
-    bp::scope io_scope = hsimageModule;
+    namespace py = pybind11;
 
-    bp::class_<LabelFile>("labelfile")
-	    .def(bp::init<std::string>())
-	    .def("load", &LabelFile::loadFile)
-	    .def("getRGBImage", &LabelFile::getRGBImage)
-	    .def("getLabelImage", &LabelFile::getLabelImage)
-	    .def("getOverlayImage", &LabelFile::getViewingImage)
-	    .def("getClassInfo", &LabelFile::getClassInfo);
+//    py::module m2 = m.def_submodule("labelfile","CSAIL/LabelMe label file interface module");
+
+    py::class_<LabelFile> labelfile (m, "labelfile");
+    labelfile
+            .def(py::init<>())
+            .def(py::init<std::string>())
+            .def("load", &LabelFile::loadFile)
+            .def("getRGBImage", &LabelFile::getRGBImage)
+            .def("getLabelImage", &LabelFile::getLabelImage)
+            .def("getOverlayImage", &LabelFile::getViewingImage)
+            .def("getClassInfo", &LabelFile::getClassInfo);
+
 }
+
+//void export_labelfile()
+//{
+//    namespace bp = boost::python;
+//    //map the namespace to a submodule
+//    //make "from myPackage.class1 import <anything>" work
+//    bp::object hsimageModule(bp::handle<>(bp::borrowed(PyImport_AddModule("hsi.labelfile"))));
+//    //make "from myPackage import class1 work
+//    bp::scope().attr("labelfile") = hsimageModule;
+//    //set current scope to the new sub-module
+//    bp::scope io_scope = hsimageModule;
+
+//    bp::class_<LabelFile>("labelfile")
+//	    .def(bp::init<std::string>())
+//	    .def("load", &LabelFile::loadFile)
+//	    .def("getRGBImage", &LabelFile::getRGBImage)
+//	    .def("getLabelImage", &LabelFile::getLabelImage)
+//	    .def("getOverlayImage", &LabelFile::getViewingImage)
+//	    .def("getClassInfo", &LabelFile::getClassInfo);
+//}

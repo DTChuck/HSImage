@@ -56,9 +56,9 @@ ClassifiedHSImage::ClassifiedHSImage(std::string raw_file, std::string hdr_file,
 
 ClassifiedHSImage::ClassifiedHSImage(std::string raw_file, std::string hdr_file, std::string lif_file)
 {
+    if (PyObject *err = PyErr_Occurred()) PyErr_Clear();
     HSImage im(hdr_file,raw_file);
     LabelFile lf(lif_file);
-
     load(im,lf.getLabelImage(),lf.getClassInfo());
 }
 
@@ -224,34 +224,61 @@ cv::Mat ClassifiedHSImage::getImageClass()
     return label;
 }
 
-void export_classifiedhsimage()
+void export_classifiedhsimage(pybind11::module m)
 {
-    namespace bp = boost::python;
-    // map the IO namespace to a sub-module
-    // make "from myPackage.class1 import <whatever>" work
-    bp::object classified_hsimageModule(bp::handle<>(bp::borrowed(PyImport_AddModule("hsi.classified_hsimage"))));
-    // make "from mypackage import class1" work
-    bp::scope().attr("classified_hsimage") = classified_hsimageModule;
-    // set the current scope to the new sub-module
-    bp::scope io_scope = classified_hsimageModule;
+    namespace py = pybind11;
 
-    void (ClassifiedHSImage::*d1)(int, int, std::string) = &ClassifiedHSImage::setSpectraClass; // Dealing with overloaded function
-    void (ClassifiedHSImage::*d2)(std::vector<std::pair<int, int > >, std::string) = &ClassifiedHSImage::setSpectraClass;
-    void (ClassifiedHSImage::*d3)(cv::Mat, std::vector<classColor>) = &ClassifiedHSImage::setImageClass;
+//    py::module m2 = m.def_submodule("classified_hsimage","Labeled ENVI-BIL Hyperspectral Image Interface Module using CSAIL/LabelMe label-style.");
 
-    bp::class_<ClassifiedHSImage>("classified_hsimage")
-    .def(bp::init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
-//    .def(bp::init<std::string, std::string, std::string, std::string>())
-    .def(bp::init<std::string, std::string, std::string>())
-    .def_readwrite("hsimage",&ClassifiedHSImage::image)
-//    .def("load",&ClassifiedHSImage::load) //Member Functions
-    .def("getClassSpectra", &ClassifiedHSImage::getClassSpectra)
-    .def("getClassTF",&ClassifiedHSImage::getClassTF)
-    .def("getAvgClassTF", &ClassifiedHSImage::getAvgClassTF)
-    .def("getPixelClass", &ClassifiedHSImage::getPixelClass)
-    .def("setSpectraClass", d1)
-    .def("setSpectraClass", d2)
-    .def("setSpectraClass", d3)
-    .def("setImageClass", &ClassifiedHSImage::setImageClass)
-    .def("getImageClass", &ClassifiedHSImage::getImageClass);
+    py::class_<ClassifiedHSImage> classified_hsimage(m, "classified_hsimage");
+    classified_hsimage
+                .def(py::init<>())
+                .def(py::init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
+                .def(py::init<std::string, std::string, std::string>())
+                .def_readwrite("hsimage",&ClassifiedHSImage::image)
+
+                .def("getClassSpectra", &ClassifiedHSImage::getClassSpectra)
+                .def("getClassTF",&ClassifiedHSImage::getClassTF)
+                .def("getAvgClassTF", &ClassifiedHSImage::getAvgClassTF)
+                .def("getPixelClass", &ClassifiedHSImage::getPixelClass)
+                .def("setSpectraClass", (void (ClassifiedHSImage::*)(int,int,std::string)) &ClassifiedHSImage::setSpectraClass, "Set Spectra Class", py::arg("row"), py::arg("column"), py::arg("class_name"))
+                .def("setSpectraClass", (void (ClassifiedHSImage::*)(std::vector<std::pair<int,int>>,std::string)) &ClassifiedHSImage::setSpectraClass, "Set Spectra Class", py::arg("point_vector"), py::arg("class_name"))
+                .def("setImageClass", &ClassifiedHSImage::setImageClass)
+                .def("getImageClass", &ClassifiedHSImage::getImageClass);
+
+
+
 }
+
+//void export_classifiedhsimage(pybind11::module m)
+//{
+//    namespace bp = boost::python;
+//    // map the IO namespace to a sub-module
+//    // make "from myPackage.class1 import <whatever>" work
+//    bp::object classified_hsimageModule(bp::handle<>(bp::borrowed(PyImport_AddModule("hsi.classified_hsimage"))));
+//    // make "from mypackage import class1" work
+//    bp::scope().attr("classified_hsimage") = classified_hsimageModule;
+//    // set the current scope to the new sub-module
+//    bp::scope io_scope = classified_hsimageModule;
+
+//    void (ClassifiedHSImage::*d1)(int, int, std::string) = &ClassifiedHSImage::setSpectraClass; // Dealing with overloaded function
+//    void (ClassifiedHSImage::*d2)(std::vector<std::pair<int, int > >, std::string) = &ClassifiedHSImage::setSpectraClass;
+//    void (ClassifiedHSImage::*d3)(cv::Mat, std::vector<classColor>) = &ClassifiedHSImage::setImageClass;
+
+//    bp::class_<ClassifiedHSImage>("classified_hsimage")
+//    .def(bp::init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
+////    .def(bp::init<std::string, std::string, std::string, std::string>())
+//    .def(bp::init<std::string, std::string, std::string>())
+//    .def_readwrite("hsimage",&ClassifiedHSImage::image)
+
+////    .def("load",&ClassifiedHSImage::load) //Member Functions
+//    .def("getClassSpectra", &ClassifiedHSImage::getClassSpectra)
+//    .def("getClassTF",&ClassifiedHSImage::getClassTF)
+//    .def("getAvgClassTF", &ClassifiedHSImage::getAvgClassTF)
+//    .def("getPixelClass", &ClassifiedHSImage::getPixelClass)
+//    .def("setSpectraClass", d1)
+//    .def("setSpectraClass", d2)
+//    .def("setSpectraClass", d3)
+//    .def("setImageClass", &ClassifiedHSImage::setImageClass)
+//    .def("getImageClass", &ClassifiedHSImage::getImageClass);
+//}

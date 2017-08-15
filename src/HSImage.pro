@@ -17,21 +17,23 @@ SOURCES += hsimage.cpp \
     colormap.cpp \
     main.cpp \
     python_utils.cpp \
-    pyboost_cv3_converter.cpp \
+    #pyboost_cv3_converter.cpp \
     labelfile.cpp \
-    jsoncpp/jsoncpp.cpp
+    jsoncpp/jsoncpp.cpp \
+    pybind11_opencv_numpy/ndarray_converter.cpp
 
 HEADERS += hsimage.h\
-        hsimage_global.h \
-        classifiedhsimage.h \
-        annEnums.h \
-        target.h \
-        colormap.h \
+    #hsimage_global.h \
+    classifiedhsimage.h \
+    annEnums.h \
+    target.h \
+    colormap.h \
     python_utils.h \
-    pyboostconverter/pyboostcvconverter.hpp \
+    #pyboostconverter/pyboostcvconverter.hpp \
     labelfile.h \
     jsoncpp/json/json.h \
-    jsoncpp/json/json-forwards.h
+    jsoncpp/json/json-forwards.h \
+    pybind11_opencv_numpy/ndarray_converter.h
 
 QMAKE_CXXFLAGS += -std=c++11
 
@@ -57,8 +59,6 @@ LIBS += -L/usr/local/lib \
         -lopencv_highgui \
         -lopencv_imgproc \
         -lopencv_imgcodecs \
-        -lboost_system \
-        -lboost_python3 \
         -lboost_system \
 
 
