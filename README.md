@@ -1,3 +1,6 @@
-HSImage library project. 
+HSImage
 
-Requires OpenCV 3 and STL libraries to function.
+Interface Library for ENVI-BIL Hyperspectral Images
+(C++/Python)
+
+install with `pip install HSI`
