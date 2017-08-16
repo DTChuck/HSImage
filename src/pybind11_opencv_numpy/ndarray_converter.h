@@ -21,6 +21,38 @@ public:
 #include "pybind11/pybind11.h"
 
 namespace pybind11 { namespace detail {
+    template <> struct type_caster<cv::Vec3b> {
+    public:
+        PYBIND11_TYPE_CASTER(cv::Vec3b, _("list"));
+
+        bool load(handle src, bool)
+        {
+            PyObject *source = src.ptr();
+
+            list l =  reinterpret_steal<list>(source);
+
+            value[0] = l[0].cast<uchar>();
+            value[1] = l[1].cast<uchar>();
+            value[2] = l[2].cast<uchar>();
+
+            return PyErr_Occurred();
+        }
+
+        static handle cast(cv::Vec3b vec, return_value_policy, handle defval)
+        {
+            list l;
+            l.append((vec[0]));
+            l.append((vec[1]));
+            l.append((vec[2]));
+            return l.ptr();
+        }
+
+
+    };
+}}
+
+
+namespace pybind11 { namespace detail {
     template <> struct type_caster<cv::Mat> {
     public:
         PYBIND11_TYPE_CASTER(cv::Mat,_("numpy.ndarray"));
