@@ -3,6 +3,7 @@
 
 #include <Python.h>
 #include <opencv2/core.hpp>
+#include "pybind11/pybind11.h"
 
 
 class NDArrayConverter {
@@ -18,7 +19,6 @@ public:
 // Define the type converter
 //
 
-#include "pybind11/pybind11.h"
 
 namespace pybind11 { namespace detail {
     template <> struct type_caster<cv::Vec3b> {
@@ -29,7 +29,7 @@ namespace pybind11 { namespace detail {
         {
             PyObject *source = src.ptr();
 
-            list l =  reinterpret_steal<list>(source);
+            list l =  reinterpret_borrow<list>(source);
 
             value[0] = l[0].cast<uchar>();
             value[1] = l[1].cast<uchar>();
@@ -41,10 +41,10 @@ namespace pybind11 { namespace detail {
         static handle cast(cv::Vec3b vec, return_value_policy, handle defval)
         {
             list l;
-            l.append((vec[0]));
-            l.append((vec[1]));
-            l.append((vec[2]));
-            return l.ptr();
+            l.append(vec[0]);
+            l.append(vec[1]);
+            l.append(vec[2]);
+            return l.release();
         }
 
 

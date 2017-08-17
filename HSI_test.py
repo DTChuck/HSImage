@@ -10,8 +10,8 @@ hdr_filename = "/media/ryan/HDD/Perception/TO8_SVN/TO8-docs/HS_Images/8_12_2015/
 ######################### hsimage testing ###################################3####3
 
 #test loading
-test_img_1 = hsimage.hsimage(hdr_filename,raw_filename)
-test_img_2 = hsimage.hsimage()
+test_img_1 = hsimage(hdr_filename,raw_filename)
+test_img_2 = hsimage()
 
 test_img_2.load(hdr_filename,raw_filename)
 

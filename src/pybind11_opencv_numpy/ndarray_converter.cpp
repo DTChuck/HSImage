@@ -339,12 +339,17 @@ PyObject* NDArrayConverter::toNDArray(const cv::Mat& m)
 {
     if( !m.data )
         Py_RETURN_NONE;
+
     Mat temp, *p = (Mat*)&m;
     if(!p->u || p->allocator != &g_numpyAllocator)
     {
+
         temp.allocator = &g_numpyAllocator;
+
         ERRWRAP2(m.copyTo(temp));
+
         p = &temp;
+
     }
     PyObject* o = (PyObject*)p->u->userdata;
     Py_INCREF(o);
