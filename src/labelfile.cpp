@@ -129,7 +129,7 @@ cv::Mat LabelFile::createLabelImage()
         std::vector<std::vector<cv::Point>> polygon;
         polygon.push_back(obj.getPolygon());
         cv::Vec3b c= obj.getColor();
-        cv::fillPoly(overlay,polygon,cv::Scalar(c[0],c[1],c[2]),cv::LINE_AA);
+        cv::fillPoly(overlay,polygon,cv::Scalar(c[0],c[1],c[2]),8);
     }
 
     return overlay;
