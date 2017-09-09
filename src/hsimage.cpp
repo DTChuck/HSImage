@@ -227,8 +227,8 @@ void HSImage::loadRawImage(std::string image_location)
             //image_data.reset(new u_int16_t[lines*samples*bands]);
             //pixel_data.reset(new u_int16_t[lines*samples*bands]);
 
-            image_data.reserve(lines*samples*bands);
-            pixel_data.reserve(lines*samples*bands);
+            image_data.resize(lines*samples*bands);
+            pixel_data.resize(lines*samples*bands);
 
             raw_file.seekg(0,std::ios::beg);
             int storage_spot = 0;
@@ -276,6 +276,11 @@ void HSImage::loadRawImage(std::string image_location)
     {
         std::cout << "Cannot Open .raw Image File!" << std::endl;
     }
+}
+
+std::tuple<int,int,int> HSImage::getShape()
+{
+    return std::make_tuple(lines,samples,bands);
 }
 
 void HSImage::loadSpectrometerData(std::vector<std::string> filenames)
@@ -482,7 +487,7 @@ cv::Mat HSImage::operator[] (const float wavelength)
 
 }
 
-std::vector<u_int16_t>&  HSImage::getRawPixelData()
+std::vector<u_int16_t>  HSImage::getRawPixelData()
 {
     return pixel_data;
 }
@@ -543,7 +548,8 @@ void export_hsimage(pybind11::module m)
             .def("getRange", &HSImage::getRange)
             .def("getSet", &HSImage::getSet)
             .def("getBand", &HSImage::operator [])
-            .def("getPixelArray",&HSImage::getRawPixelData);
+            .def("getPixelArray",&HSImage::getRawPixelData)
+            .def("getShape", &HSImage::getShape);
 
 }
 
