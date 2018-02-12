@@ -236,6 +236,7 @@ void export_classifiedhsimage(pybind11::module m)
                 .def(py::init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
                 .def(py::init<std::string, std::string, std::string>())
                 .def_readwrite("hsimage",&ClassifiedHSImage::image)
+                .def_readonly("classes",&ClassifiedHSImage::class_names)
 
                 .def("getClassSpectra", &ClassifiedHSImage::getClassSpectra)
                 .def("getClassTF",&ClassifiedHSImage::getClassTF)
@@ -249,36 +250,3 @@ void export_classifiedhsimage(pybind11::module m)
 
 
 }
-
-//void export_classifiedhsimage(pybind11::module m)
-//{
-//    namespace bp = boost::python;
-//    // map the IO namespace to a sub-module
-//    // make "from myPackage.class1 import <whatever>" work
-//    bp::object classified_hsimageModule(bp::handle<>(bp::borrowed(PyImport_AddModule("hsi.classified_hsimage"))));
-//    // make "from mypackage import class1" work
-//    bp::scope().attr("classified_hsimage") = classified_hsimageModule;
-//    // set the current scope to the new sub-module
-//    bp::scope io_scope = classified_hsimageModule;
-
-//    void (ClassifiedHSImage::*d1)(int, int, std::string) = &ClassifiedHSImage::setSpectraClass; // Dealing with overloaded function
-//    void (ClassifiedHSImage::*d2)(std::vector<std::pair<int, int > >, std::string) = &ClassifiedHSImage::setSpectraClass;
-//    void (ClassifiedHSImage::*d3)(cv::Mat, std::vector<classColor>) = &ClassifiedHSImage::setImageClass;
-
-//    bp::class_<ClassifiedHSImage>("classified_hsimage")
-//    .def(bp::init<HSImage, cv::Mat, std::vector<classColor> >()) //Constructors
-////    .def(bp::init<std::string, std::string, std::string, std::string>())
-//    .def(bp::init<std::string, std::string, std::string>())
-//    .def_readwrite("hsimage",&ClassifiedHSImage::image)
-
-////    .def("load",&ClassifiedHSImage::load) //Member Functions
-//    .def("getClassSpectra", &ClassifiedHSImage::getClassSpectra)
-//    .def("getClassTF",&ClassifiedHSImage::getClassTF)
-//    .def("getAvgClassTF", &ClassifiedHSImage::getAvgClassTF)
-//    .def("getPixelClass", &ClassifiedHSImage::getPixelClass)
-//    .def("setSpectraClass", d1)
-//    .def("setSpectraClass", d2)
-//    .def("setSpectraClass", d3)
-//    .def("setImageClass", &ClassifiedHSImage::setImageClass)
-//    .def("getImageClass", &ClassifiedHSImage::getImageClass);
-//}

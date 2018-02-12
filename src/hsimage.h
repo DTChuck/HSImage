@@ -23,6 +23,7 @@
 #include <unordered_map>
 #include <vector>
 #include <string>
+#include <tuple>
 #include <algorithm>
 #include <memory>
 
@@ -136,7 +137,7 @@ public:
      * \brief Get all data formatted as a row major pixel array (row*col,bands)
      * \return std::vector<u_int16_t> Vector of pixel values
      */
-    std::vector<u_int16_t>& getRawPixelData();
+    std::vector<u_int16_t> getRawPixelData();
 
     /*!
      * \brief Return vector of imaged wavlengths.
@@ -149,6 +150,13 @@ public:
      * \return std::vector<float> containing the intensity of the ambient light at each wavelength imaged.
      */
     std::vector<float> getAmbientIntensities(); 
+
+    /*!
+     * \brief Return tuple containing the shape of the HSImage data array (row,col,bands)
+     * \return std::tuple<int,int,int> containing shape of HSImage data array
+     */
+    std::tuple<int,int,int> getShape();
+
 
     //image metadata
     std::string acquisition_date; /*!< Date of image aquisition. Acquired from .hdr file. */
