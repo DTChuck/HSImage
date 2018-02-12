@@ -287,6 +287,8 @@ void HSImage::loadSpectrometerData(std::vector<std::string> filenames)
 {
     std::vector<float> w,val;
 
+    float last_val = -1;
+
     for(auto filename : filenames)
     {
         std::ifstream file;
@@ -299,6 +301,9 @@ void HSImage::loadSpectrometerData(std::vector<std::string> filenames)
             for(int i=0;i<18-1;i++)
                 file.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 
+            int first_val = 0;
+            float NIR_correction = 0;
+
             while(std::getline(file,line))
             {
                 line.erase(line.end()-1,line.end());
@@ -308,8 +313,21 @@ void HSImage::loadSpectrometerData(std::vector<std::string> filenames)
                 {
                     if(w.size() < 1 || stof(words.front()) > w.back())
                     {
+                        if(first_val == 0 && last_val != -1)
+                        {
+                            NIR_correction = last_val / stof(words.back());
+                            first_val = 1;
+                        }
+
+                        float current_val;
+
+                        if(NIR_correction != 0)
+                            current_val = NIR_correction * stof(words.back());
+                        else
+                            current_val = stof(words.back());
+
                         w.push_back(stof(words.front()));
-                        val.push_back(stof(words.back()));
+                        val.push_back(current_val);
                     }
                 }
             }                
@@ -320,7 +338,7 @@ void HSImage::loadSpectrometerData(std::vector<std::string> filenames)
             std::cout << "Cannot Open Spectrometer Data File!" << std::endl;
             return;
         }
-
+        last_val = val.back();
     }
 
     ambient_intensities.resize(wavelengths.size());
@@ -552,44 +570,3 @@ void export_hsimage(pybind11::module m)
             .def("getShape", &HSImage::getShape);
 
 }
-
-//void export_hsimage()
-//{
-//    namespace bp = boost::python;
-//    // map the IO namespace to a sub-module
-//    // make "from myPackage.class1 import <whatever>" work
-//    bp::object hsimageModule(bp::handle<>(bp::borrowed(PyImport_AddModule("hsi.hsimage"))));
-//    // make "from mypackage import class1" work
-//    bp::scope().attr("hsimage") = hsimageModule;
-//    // set the current scope to the new sub-module
-//    bp::scope io_scope = hsimageModule;
-
-
-//    void (HSImage::*d1)(std::string, std::string) = &HSImage::load; // Dealing with overloaded function
-//    void (HSImage::*d2)(std::string, std::string, std::vector<std::string>) = &HSImage::load;
-
-//    bp::class_<HSImage>("hsimage")
-//        .def(bp::init<std::string, std::string>())
-//        .def(bp::init<std::string, std::string, std::vector<std::string>>())
-//        .def(bp::init<const HSImage&>())
-
-//        //.def("operator=", &HSImage::operator =) //Member Functions
-//        .def("load", d1)
-//        .def("load", d2)
-////        .def("loadHeader", &HSImage::loadHeader)
-////        .def("loadRawImage", &HSImage::loadRawImage)
-//        .def("loadSpectrometerData", &HSImage::loadSpectrometerData)
-////        .def("addSpecDataToHeader", &HSImage::addSpecDataToHeader)
-//        .def("hasSpecFiles", &HSImage::hasSpecFiles)
-//        .staticmethod("hasSpecFiles")
-//        .def("getPixelSpectra", &HSImage::getPixelSpectra)
-//	.def("getWavelengths", &HSImage::getWavelengths)
-//	.def("getAmbientIntensities",&HSImage::getAmbientIntensities)
-////        .def("getNormalizedPixelSpectra", &HSImage::getNormalizedPixelSpectra)
-//        .def("getPixelTransferFunction", &HSImage::getPixelTransferFunction)
-//        .def("getRange", &HSImage::getRange)
-//        .def("getSet", &HSImage::getSet)
-//        .def("getBand", &HSImage::operator [])
-//        .def("getPixelArray",&HSImage::getRawPixelData,
-//             boost::python::return_value_policy<boost::python::reference_existing_object>());
-//}
