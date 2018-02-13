@@ -21,7 +21,7 @@ hsimodule = Extension(
 
 setup(
         name='HSI',
-	version='1.1.7',
+	version='1.1.8',
         description='Interactivity class for hyperspectral ENVI-BIL images',
         author='Ryan Brown',
         author_email='brownrc@vt.edu',
