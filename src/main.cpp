@@ -23,7 +23,7 @@ PYBIND11_MAKE_OPAQUE(std::vector<std::vector<double> >)
 PYBIND11_MAKE_OPAQUE(std::vector<float>)
 PYBIND11_MAKE_OPAQUE(std::vector<cv::Mat>)
 PYBIND11_MAKE_OPAQUE(std::vector<classColor>)
-
+PYBIND11_MAKE_OPAQUE(std::vector<colorClass>)
 
 PYBIND11_MODULE(HSI,m)
 {
@@ -39,6 +39,7 @@ PYBIND11_MODULE(HSI,m)
     py::bind_vector<std::vector<float> >(m, "FloatVector");
     py::bind_vector<std::vector<cv::Mat> >(m, "MatVector");
     py::bind_vector<std::vector<classColor> >(m, "ClassInfoVector");
+    py::bind_vector<std::vector<colorClass> >(m, "ColorInfoVector");    
 
     export_labelfile(m);
     export_hsimage(m);

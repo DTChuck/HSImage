@@ -31,6 +31,11 @@
  */
 typedef std::pair<std::string,cv::Vec3b> classColor;
 
+/*!
+ * \brief The colorClass typedef creates a simple interface that is reversed from classColor, for ease of use in creating Python dict() types relating a color to a class.
+*/
+typedef std::pair<cv::Vec3b,std::string> colorClass;
+
 //converters for base64 image data
 typedef boost::archive::iterators::transform_width<boost::archive::iterators::binary_from_base64<boost::archive::iterators::remove_whitespace<std::string::const_iterator> > ,8,6> it_binary_t;
 typedef boost::archive::iterators::insert_linebreaks<boost::archive::iterators::base64_from_binary<boost::archive::iterators::transform_width<std::string::const_iterator,6,8> >, 72 > it_base64_t;
@@ -131,6 +136,11 @@ public:
      * \return std::vector<classColor> Vector of class information
      */
     std::vector<classColor> getClassInfo();
+    /*!
+     * \brief Get vector of colorClass objects made from name and color associations
+     * \return std::vector<colorClass> Vector of colorClass objects
+     */
+    std::vector<colorClass> getColorInfo();
 
 private:
     void makeObject();

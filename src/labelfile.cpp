@@ -180,6 +180,18 @@ std::vector<classColor> LabelFile::getClassInfo()
     return class_info;
 }
 
+std::vector<colorClass> LabelFile::getColorInfo()
+{
+    std::vector<colorClass> color_info;
+    for(classColor c : class_info)
+    {
+        colorClass a;
+        a.first = c.second;
+        a.second = c.first;
+        color_info.push_back(a);
+    }
+    return color_info;
+}
 //////////////////////////////////////////////  LabeledObject Class Definitions ////////////////////////////////////
 
 LabeledObject::LabeledObject()
@@ -240,8 +252,8 @@ void export_labelfile(pybind11::module m)
             .def("getRGBImage", &LabelFile::getRGBImage)
             .def("getLabelImage", &LabelFile::getLabelImage)
             .def("getOverlayImage", &LabelFile::getViewingImage)
-            .def("getClassInfo", &LabelFile::getClassInfo);
-
+            .def("getClassInfo", &LabelFile::getClassInfo)
+            .def("getColorInfo",&LabelFile::getColorInfo);
 }
 
 //void export_labelfile()
