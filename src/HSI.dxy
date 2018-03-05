@@ -119,6 +119,12 @@ class hsimage:
 	#@return np.array OpenCV compatible numpy array wavelength image
 	def getBand(wavelength):
 
+	##getShape
+	#
+	#Returns a tuple of (row,col,bands) that give the size of the underlying hyperspectral data
+	#@return tuple (row,col,bands)
+	def getShape():
+
 ## @class classified_hsimage
 #
 #This class provides an interface for labeled and classified ENVI-BIL hyperspectral images. It requires either a loaded hsimage instance, an OpenCV image and a list of ("name", [color]) tuples or a full set of hyperspectral image files: header (.hdr), image (.raw) and a label (.lif) file. Using the method with the .lif files is recommended. This method assumes that the spectrometer files have been previously loaded with the hsimage instance and have been saved to the (.hdr) file. This happens automatically if the spectrometer files are loaded with the hsimage instance.
@@ -197,13 +203,17 @@ class classified_hsimage:
 	#@param class_name New class name for updated pixel
 	def setSpectraClass(pixel_locs,class_name):
 
-	##setSpectraClass
+	##setImageClass
 	#
-	#Sets the class(es) of the whole image to a new class or set of classes by updating the label image
+	#Sets the class(es) of the whole image to a new set based on the class_labels input which is an image colored with the class information
 	#@param class_labels OpenCV compatible numpy array where each point is colored with the corresponding class color
 	#@param class_list List of tuples of class name and corresponding color
-	def setSpectraClass(class_labels,class_list):
+	def setImageClass(class_labels,class_list):
 
+	##setImageClass
+	#
+	#Sets the class(es) of the 
+	
 	##getImageClass
 	#
 	#Returns the OpenCV compatilble numpy array showing the class labels by color at each pixel of the image.
@@ -256,4 +266,8 @@ class labelfile:
 	#@return List[("name",[red,green,blue])] List of class color associations
 	def getClassInfo():
 
+	##Get Color Info
+	#
+	#Returns the vector of class color and name associations, in reverse order
+	#@return List[([red,green,blue],"name")]
 ## @}
