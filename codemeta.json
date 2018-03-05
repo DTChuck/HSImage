@@ -1,0 +1,30 @@
+{
+  "@context": "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld",
+  "@type": "Code",
+  "author": [
+    {
+      "@id": "",
+      "@type": "Person",
+      "email": "brownrc@vt.edu",
+      "name": "Ryan Brown",
+      "affiliation": "Virginia Tech"
+    },
+    {
+      "@id": "",
+      "@type": "Person",
+      "email": "joshnm7@vt.edu",
+      "name": "Joshua Moser",
+      "affiliation": "Virginia Tech"
+    }
+  ],
+  "identifier": "",
+  "codeRepository": "https://github.com/DTChuck/HSImage",
+  "datePublished": "2018-03-05",
+  "dateModified": "2018-03-05",
+  "dateCreated": "2018-03-05",
+  "description": "Interface Library for ENVI-BIL Hyperspectral Images (C++/Python)",
+  "keywords": "Hyperspectral,Camera,ENVI,Classified,Labeled,Images",
+  "license": "MIT",
+  "title": "HSImage",
+  "version": "v1.2.0"
+}
