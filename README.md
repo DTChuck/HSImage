@@ -32,7 +32,6 @@ Loading a image, converting to a pixel vector array and normalizing by the ambie
 ```python
 img = HSI.hsimage(header_filename,raw_filename)
 
-band = img.getBand(550)
 pix_array = img.getPixelArray()
 amb = img.getAmbientIntensities()
 shape = img.getShape()
