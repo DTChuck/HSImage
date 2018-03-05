@@ -26,6 +26,10 @@
 
 #include "jsoncpp/json/json.h"
 
+/*! \addtogroup cplus_module
+ * \{
+ */
+
 /*!
  * \brief The classColor typedef creates a simple interface for pairing a class name with a specific OpenCV color.
  */

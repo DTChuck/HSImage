@@ -21,7 +21,7 @@ hsimodule = Extension(
 
 setup(
         name='HSI',
-	version='1.1.8',
+	version='1.2.0',
         description='Interactivity class for hyperspectral ENVI-BIL images',
         author='Ryan Brown',
         author_email='brownrc@vt.edu',
@@ -48,6 +48,9 @@ setup(
 	cmdclass = {'build_ext': CustomBuildExtCommand},
 
 	install_requires=['numpy'],
+
+        setup_requires=['pytest-runner'],
+        tests_require=['pytest'],
 
         ext_modules=[hsimodule],
         )

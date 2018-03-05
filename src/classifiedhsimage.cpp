@@ -86,8 +86,6 @@ std::vector<std::vector<u_int16_t> > ClassifiedHSImage::getClassSpectra(std::str
         cv::inRange(label,class_color,class_color,mask);
         cv::findNonZero(mask,idx);
 
-        std::cout << idx.size() << std::endl;
-
         if(idx.size() > 0)
         {
             cv::randShuffle(idx);
