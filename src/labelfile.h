@@ -14,11 +14,11 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
 
-#include "boost_archive/base64_from_binary.hpp"
-#include "boost_archive/binary_from_base64.hpp"
-#include "boost_archive/transform_width.hpp"
-#include "boost_archive/insert_linebreaks.hpp"
-#include "boost_archive/remove_whitespace.hpp"
+#include <boost/archive/iterators/base64_from_binary.hpp>
+#include <boost/archive/iterators/binary_from_base64.hpp>
+#include <boost/archive/iterators/transform_width.hpp>
+#include <boost/archive/iterators/insert_linebreaks.hpp>
+#include <boost/archive/iterators/remove_whitespace.hpp>
 
 #include "pybind11_opencv_numpy/pybind11/pybind11.h"
 #include "pybind11_opencv_numpy/pybind11/stl.h"
