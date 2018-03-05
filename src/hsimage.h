@@ -4,15 +4,23 @@
  *This library is designed to allow open-source experimentation with ENVI-BIL hyperspectral images. The goal of this software is to promote the study of hyperspectral images in the academic computer vision research world. This software provides both a C++ and Python interface for ease of use. An associated project has resulted in a publicly available library of images available at https://osf.io/pd49t/. These images are all compatible and intended to be used with this software interface library.
  *
  * \section install_sec Installation
- * To install, clone this repository or download the zip file and extract to the location of your choice. Ensure that you have a C++ compiler installed, the boost cross-platform framework <a href="http://www.boost.org"> (boost.org)</a>and OpenCV 3.x.
- * Also ensure you have Python 3.x installed with numpy and OpenCV 3.x as a python package.
- * Once the prequisites have been installed, you will need to identify the location of the numpy header "ndarrayobject.h". This file is usually present in the include folder inside the numpy folder located in your python packages directory. Copy the location of that file. 
- * Return to the directory containing the source code for the library and run 
- * \code{.sh}python setup.py build build_ext -I/location/to/your/ndarrayobject.h/file
- *python setup.py install
+ * Currently the software ONLY supports Linux (tested on Ubuntu 14.04) and MacOS. There is no platform specific software included in HSImage, but the software has not been tested on Windows, and so cannot claim to support it. If a user wishes to use HSImage on Windows, it should be possible, but there may be issues in the compliation with linking to the OpenCV libraries.
+ * To install, ensure that you have a C++ compiler installed, the boost cross-platform framework <a href="http://www.boost.org"> (boost.org)</a>and OpenCV 3.x.
+ * Also ensure you have Python 3.x installed with numpy and OpenCV 3.x as a python package. 
+ * Installation is handled through the PIP package manager. Simply type into your terminal:
+ * \code{.sh}pip install HSI
  * \endcode
  *
  * This will build the c++/python combined library file and install it to the site-packages folder in your current Python evironment. To use the C++ libary, simply include the hsimage.h and classifiedhsimage.h files in your project and link to the generated library file at compile.
+ *
+ * \section test_sec Testing
+ * Included is a test python script HSI_test.py, and test data. Simply run
+ * \code{.sh}python HSI_test.py --all
+ * \endcode
+ * This will perform the set of tests and output a result to the terminal the software is ran from. Providing the flag `--all` to the script will run all tests. There are also options for testing the individual modules.
+ * `--hsi` tests the hsimage class, hsimage.h
+ * `--chsi` tests the classified_hsimage class, classifiedhsimage.h
+ * `--lab` tests the  labelfile class, labelfile.h
  */
 
 #ifndef HSIMAGE_H
