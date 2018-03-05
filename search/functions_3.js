@@ -7,6 +7,7 @@ var searchData=
   ['getclassspectra',['getClassSpectra',['../classClassifiedHSImage.html#adcc665df3989d42064ea44aaaeb3c387',1,'ClassifiedHSImage']]],
   ['getclasstf',['getClassTF',['../classClassifiedHSImage.html#a3ceac86996d7b86471c123043cf75ba7',1,'ClassifiedHSImage::getClassTF()'],['../classHSI_1_1classified__hsimage.html#a9e261b66f195083bfde53c9e74597d51',1,'HSI.classified_hsimage.getClassTF()']]],
   ['getcolor',['getColor',['../classLabeledObject.html#a3c37f77e130be1ca83794273a9165f22',1,'LabeledObject']]],
+  ['getcolorinfo',['getColorInfo',['../classLabelFile.html#a66f0a5cf63425fa5d88f72588ae97c7b',1,'LabelFile']]],
   ['getimageclass',['getImageClass',['../classClassifiedHSImage.html#ae0728520d89945ec5114a0632cf434e2',1,'ClassifiedHSImage::getImageClass()'],['../classHSI_1_1classified__hsimage.html#a45eed5bc08f4cc8b600fbbc3b5470abf',1,'HSI.classified_hsimage.getImageClass()']]],
   ['getinfo',['getInfo',['../classLabeledObject.html#aebe1027151204286c1a70183954dbdec',1,'LabeledObject']]],
   ['getlabelimage',['getLabelImage',['../classLabelFile.html#af6cc1b27e00a37990cbb0ace99e0a33e',1,'LabelFile::getLabelImage()'],['../classHSI_1_1labelfile.html#ab9f74f69153ddfc9719c872398f2289f',1,'HSI.labelfile.getLabelImage()']]],
@@ -19,9 +20,10 @@ var searchData=
   ['getpixeltransferfunction',['getPixelTransferFunction',['../classHSImage.html#afef0b6b25c88572065ca401834e0c9df',1,'HSImage::getPixelTransferFunction()'],['../classHSI_1_1hsimage.html#adbc47b3323602c8f61f112a22814e8cd',1,'HSI.hsimage.getPixelTransferFunction()']]],
   ['getpolygon',['getPolygon',['../classLabeledObject.html#a4c702cad7cfda4a16139de3ff43fbbd9',1,'LabeledObject']]],
   ['getrange',['getRange',['../classHSImage.html#a9a770d00e8652463e0f9c95dc231bac9',1,'HSImage::getRange()'],['../classHSI_1_1hsimage.html#a529b4509df4c7696ab44acae26e2b9b4',1,'HSI.hsimage.getRange()']]],
-  ['getrawpixeldata',['getRawPixelData',['../classHSImage.html#a228e2a3272a0607c865d1bfcb7830b2c',1,'HSImage']]],
+  ['getrawpixeldata',['getRawPixelData',['../classHSImage.html#aeb5144c625f51197ff6289143852e075',1,'HSImage']]],
   ['getrgbimage',['getRGBImage',['../classLabelFile.html#aa2e02aca0ebe2f75989249e7577257ae',1,'LabelFile::getRGBImage()'],['../classHSI_1_1labelfile.html#a63c7e9731ce5102615a64ced683054de',1,'HSI.labelfile.getRGBImage()']]],
   ['getset',['getSet',['../classHSImage.html#a7cda1fcf99a4c01c96a22042ea2c6773',1,'HSImage::getSet()'],['../classHSI_1_1hsimage.html#a7bc5e7f6f4a660f43eea40fe9258c234',1,'HSI.hsimage.getSet()']]],
+  ['getshape',['getShape',['../classHSImage.html#a79c7754c5670d29f8c6b907be0b12123',1,'HSImage::getShape()'],['../classHSI_1_1hsimage.html#aff9d5c57c919de0d0c784c74f02335ce',1,'HSI.hsimage.getShape()']]],
   ['getviewingimage',['getViewingImage',['../classLabelFile.html#ac95b25c935461c1b9462bff86f605ce4',1,'LabelFile']]],
   ['getwavelengths',['getWavelengths',['../classHSImage.html#a91341f838f5ae2d8168b3b130f43eb15',1,'HSImage::getWavelengths()'],['../classHSI_1_1hsimage.html#aed3f58757003b011ed6ae9bd8a863a28',1,'HSI.hsimage.getWavelengths()']]]
 ];
