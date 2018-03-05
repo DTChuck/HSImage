@@ -86,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classLabelFile-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">LabelFile Class Reference</div>  </div>
+<div class="title">LabelFile Class Reference<div class="ingroups"><a class="el" href="group__cplus__module.html">C++ Interface</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -97,148 +97,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a61f48403f734f81d2a4257e11e803e84"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61f48403f734f81d2a4257e11e803e84"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabelFile.html#a61f48403f734f81d2a4257e11e803e84">LabelFile</a> ()</td></tr>
-<tr class="memdesc:a61f48403f734f81d2a4257e11e803e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="classLabelFile.html" title="The LabelFile class allows an interface to read and process CSAIL/LabelMe style label (...">LabelFile</a>. <br/></td></tr>
-<tr class="separator:a61f48403f734f81d2a4257e11e803e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34372dd13995b38d39c35513e17d2be0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34372dd13995b38d39c35513e17d2be0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabelFile.html#a34372dd13995b38d39c35513e17d2be0">LabelFile</a> (std::string filename)</td></tr>
-<tr class="memdesc:a34372dd13995b38d39c35513e17d2be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to build from file on disk. <br/></td></tr>
-<tr class="separator:a34372dd13995b38d39c35513e17d2be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b366af82b91f03b5bb9ea70edf9016f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b366af82b91f03b5bb9ea70edf9016f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabelFile.html#a9b366af82b91f03b5bb9ea70edf9016f">loadFile</a> (std::string filename)</td></tr>
-<tr class="memdesc:a9b366af82b91f03b5bb9ea70edf9016f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load file on disk into <a class="el" href="classLabelFile.html" title="The LabelFile class allows an interface to read and process CSAIL/LabelMe style label (...">LabelFile</a> instance. <br/></td></tr>
-<tr class="separator:a9b366af82b91f03b5bb9ea70edf9016f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2e02aca0ebe2f75989249e7577257ae"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabelFile.html#aa2e02aca0ebe2f75989249e7577257ae">getRGBImage</a> ()</td></tr>
-<tr class="memdesc:aa2e02aca0ebe2f75989249e7577257ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get RGB image of original scene the labels were generated from.  <a href="#aa2e02aca0ebe2f75989249e7577257ae">More...</a><br/></td></tr>
-<tr class="separator:aa2e02aca0ebe2f75989249e7577257ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6cc1b27e00a37990cbb0ace99e0a33e"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabelFile.html#af6cc1b27e00a37990cbb0ace99e0a33e">getLabelImage</a> ()</td></tr>
-<tr class="memdesc:af6cc1b27e00a37990cbb0ace99e0a33e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get image showing class colors and contours for whole label file.  <a href="#af6cc1b27e00a37990cbb0ace99e0a33e">More...</a><br/></td></tr>
-<tr class="separator:af6cc1b27e00a37990cbb0ace99e0a33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac95b25c935461c1b9462bff86f605ce4"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabelFile.html#ac95b25c935461c1b9462bff86f605ce4">getViewingImage</a> ()</td></tr>
-<tr class="memdesc:ac95b25c935461c1b9462bff86f605ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get image showing RGB scene with class information overlaid in semi-transparent color. Designed for human viewing, not computer analysis.  <a href="#ac95b25c935461c1b9462bff86f605ce4">More...</a><br/></td></tr>
-<tr class="separator:ac95b25c935461c1b9462bff86f605ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36fb1317b008ab54b1a6d9e7be26ae8f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__cplus__module.html#gabff5449da239a87b6dac4f35fd13daf0">classColor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabelFile.html#a36fb1317b008ab54b1a6d9e7be26ae8f">getClassInfo</a> ()</td></tr>
-<tr class="memdesc:a36fb1317b008ab54b1a6d9e7be26ae8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get vector of class name and color associations.  <a href="#a36fb1317b008ab54b1a6d9e7be26ae8f">More...</a><br/></td></tr>
-<tr class="separator:a36fb1317b008ab54b1a6d9e7be26ae8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66f0a5cf63425fa5d88f72588ae97c7b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; colorClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabelFile.html#a66f0a5cf63425fa5d88f72588ae97c7b">getColorInfo</a> ()</td></tr>
-<tr class="memdesc:a66f0a5cf63425fa5d88f72588ae97c7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get vector of colorClass objects made from name and color associations.  <a href="#a66f0a5cf63425fa5d88f72588ae97c7b">More...</a><br/></td></tr>
-<tr class="separator:a66f0a5cf63425fa5d88f72588ae97c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga61f48403f734f81d2a4257e11e803e84"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga61f48403f734f81d2a4257e11e803e84"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga61f48403f734f81d2a4257e11e803e84">LabelFile</a> ()</td></tr>
+<tr class="memdesc:ga61f48403f734f81d2a4257e11e803e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="classLabelFile.html" title="The LabelFile class allows an interface to read and process CSAIL/LabelMe style label (...">LabelFile</a>. <br/></td></tr>
+<tr class="separator:ga61f48403f734f81d2a4257e11e803e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga34372dd13995b38d39c35513e17d2be0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga34372dd13995b38d39c35513e17d2be0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga34372dd13995b38d39c35513e17d2be0">LabelFile</a> (std::string filename)</td></tr>
+<tr class="memdesc:ga34372dd13995b38d39c35513e17d2be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to build from file on disk. <br/></td></tr>
+<tr class="separator:ga34372dd13995b38d39c35513e17d2be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b366af82b91f03b5bb9ea70edf9016f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9b366af82b91f03b5bb9ea70edf9016f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga9b366af82b91f03b5bb9ea70edf9016f">loadFile</a> (std::string filename)</td></tr>
+<tr class="memdesc:ga9b366af82b91f03b5bb9ea70edf9016f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load file on disk into <a class="el" href="classLabelFile.html" title="The LabelFile class allows an interface to read and process CSAIL/LabelMe style label (...">LabelFile</a> instance. <br/></td></tr>
+<tr class="separator:ga9b366af82b91f03b5bb9ea70edf9016f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa2e02aca0ebe2f75989249e7577257ae"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#gaa2e02aca0ebe2f75989249e7577257ae">getRGBImage</a> ()</td></tr>
+<tr class="memdesc:gaa2e02aca0ebe2f75989249e7577257ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get RGB image of original scene the labels were generated from.  <a href="group__cplus__module.html#gaa2e02aca0ebe2f75989249e7577257ae">More...</a><br/></td></tr>
+<tr class="separator:gaa2e02aca0ebe2f75989249e7577257ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6cc1b27e00a37990cbb0ace99e0a33e"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#gaf6cc1b27e00a37990cbb0ace99e0a33e">getLabelImage</a> ()</td></tr>
+<tr class="memdesc:gaf6cc1b27e00a37990cbb0ace99e0a33e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get image showing class colors and contours for whole label file.  <a href="group__cplus__module.html#gaf6cc1b27e00a37990cbb0ace99e0a33e">More...</a><br/></td></tr>
+<tr class="separator:gaf6cc1b27e00a37990cbb0ace99e0a33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac95b25c935461c1b9462bff86f605ce4"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#gac95b25c935461c1b9462bff86f605ce4">getViewingImage</a> ()</td></tr>
+<tr class="memdesc:gac95b25c935461c1b9462bff86f605ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get image showing RGB scene with class information overlaid in semi-transparent color. Designed for human viewing, not computer analysis.  <a href="group__cplus__module.html#gac95b25c935461c1b9462bff86f605ce4">More...</a><br/></td></tr>
+<tr class="separator:gac95b25c935461c1b9462bff86f605ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga36fb1317b008ab54b1a6d9e7be26ae8f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__cplus__module.html#gabff5449da239a87b6dac4f35fd13daf0">classColor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga36fb1317b008ab54b1a6d9e7be26ae8f">getClassInfo</a> ()</td></tr>
+<tr class="memdesc:ga36fb1317b008ab54b1a6d9e7be26ae8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get vector of class name and color associations.  <a href="group__cplus__module.html#ga36fb1317b008ab54b1a6d9e7be26ae8f">More...</a><br/></td></tr>
+<tr class="separator:ga36fb1317b008ab54b1a6d9e7be26ae8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66f0a5cf63425fa5d88f72588ae97c7b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__cplus__module.html#ga23f7ccd4ffbfa7ac4ac20f26204c96bb">colorClass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga66f0a5cf63425fa5d88f72588ae97c7b">getColorInfo</a> ()</td></tr>
+<tr class="memdesc:ga66f0a5cf63425fa5d88f72588ae97c7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get vector of colorClass objects made from name and color associations.  <a href="group__cplus__module.html#ga66f0a5cf63425fa5d88f72588ae97c7b">More...</a><br/></td></tr>
+<tr class="separator:ga66f0a5cf63425fa5d88f72588ae97c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classLabelFile.html" title="The LabelFile class allows an interface to read and process CSAIL/LabelMe style label (...">LabelFile</a> class allows an interface to read and process CSAIL/LabelMe style label (.lif) files. </p>
 <p>The <a class="el" href="classLabelFile.html" title="The LabelFile class allows an interface to read and process CSAIL/LabelMe style label (...">LabelFile</a> class is used to open and extract labeled object information from a CSAIL/LabelMe style label file, usually with a .lif extension. This file contains all the information about labeled objects in a specific image, as well as an encoded .png image file containing the RGB image that was used to generate the labeling information. This interface allows you to gather all necessary information from the label file and apply it to classified hyperspectral images. </p>
 
-<p>Definition at line <a class="el" href="labelfile_8h_source.html#l00104">104</a> of file <a class="el" href="labelfile_8h_source.html">labelfile.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a36fb1317b008ab54b1a6d9e7be26ae8f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="group__cplus__module.html#gabff5449da239a87b6dac4f35fd13daf0">classColor</a> &gt; LabelFile::getClassInfo </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get vector of class name and color associations. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;classColor&gt; Vector of class information </dd></dl>
-
-<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00178">178</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a66f0a5cf63425fa5d88f72588ae97c7b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; colorClass &gt; LabelFile::getColorInfo </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get vector of colorClass objects made from name and color associations. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;colorClass&gt; Vector of colorClass objects </dd></dl>
-
-<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00183">183</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af6cc1b27e00a37990cbb0ace99e0a33e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">cv::Mat LabelFile::getLabelImage </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get image showing class colors and contours for whole label file. </p>
-<dl class="section return"><dt>Returns</dt><dd>cv::Mat Image of class information </dd></dl>
-
-<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00165">165</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa2e02aca0ebe2f75989249e7577257ae"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">cv::Mat LabelFile::getRGBImage </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get RGB image of original scene the labels were generated from. </p>
-<dl class="section return"><dt>Returns</dt><dd>cv::Mat Image of scene </dd></dl>
-
-<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00160">160</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac95b25c935461c1b9462bff86f605ce4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">cv::Mat LabelFile::getViewingImage </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get image showing RGB scene with class information overlaid in semi-transparent color. Designed for human viewing, not computer analysis. </p>
-<dl class="section return"><dt>Returns</dt><dd>cv::Mat Image showing class overlays on scene </dd></dl>
-
-<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00170">170</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<p>Definition at line <a class="el" href="labelfile_8h_source.html#l00108">108</a> of file <a class="el" href="labelfile_8h_source.html">labelfile.h</a>.</p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>/media/ryan/HDD/Perception/Dissertation/Software/HSImage/src/<a class="el" href="labelfile_8h_source.html">labelfile.h</a></li>
 <li>/media/ryan/HDD/Perception/Dissertation/Software/HSImage/src/<a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 5 2018 13:00:46 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 5 2018 17:36:52 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

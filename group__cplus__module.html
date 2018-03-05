@@ -77,7 +77,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">C++ Interface</div>  </div>
 </div><!--header-->
@@ -91,6 +92,12 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHSImage.html">HSImage</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classHSImage.html" title="The HSImage class is the base class for interacting with ENVI type hyperspectral images. ">HSImage</a> class is the base class for interacting with ENVI type hyperspectral images.  <a href="classHSImage.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabeledObject.html">LabeledObject</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classLabeledObject.html" title="The LabeledObject class represents one labeled object in an image with all the necessary information ...">LabeledObject</a> class represents one labeled object in an image with all the necessary information to identify it.  <a href="classLabeledObject.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabelFile.html">LabelFile</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classLabelFile.html" title="The LabelFile class allows an interface to read and process CSAIL/LabelMe style label (...">LabelFile</a> class allows an interface to read and process CSAIL/LabelMe style label (.lif) files.  <a href="classLabelFile.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -99,13 +106,332 @@ typedef std::pair&lt; std::string, <br class="typebreak"/>
 cv::Vec3b &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#gabff5449da239a87b6dac4f35fd13daf0">classColor</a></td></tr>
 <tr class="memdesc:gabff5449da239a87b6dac4f35fd13daf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The classColor typedef creates a simple interface for pairing a class name with a specific OpenCV color. <br/></td></tr>
 <tr class="separator:gabff5449da239a87b6dac4f35fd13daf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabff5449da239a87b6dac4f35fd13daf0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gabff5449da239a87b6dac4f35fd13daf0"></a>
+typedef std::pair&lt; std::string, <br class="typebreak"/>
+cv::Vec3b &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#gabff5449da239a87b6dac4f35fd13daf0">classColor</a></td></tr>
+<tr class="memdesc:gabff5449da239a87b6dac4f35fd13daf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The classColor typedef creates a simple interface for pairing a class name with a specific OpenCV color. <br/></td></tr>
+<tr class="separator:gabff5449da239a87b6dac4f35fd13daf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23f7ccd4ffbfa7ac4ac20f26204c96bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga23f7ccd4ffbfa7ac4ac20f26204c96bb"></a>
+typedef std::pair&lt; cv::Vec3b, <br class="typebreak"/>
+std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga23f7ccd4ffbfa7ac4ac20f26204c96bb">colorClass</a></td></tr>
+<tr class="memdesc:ga23f7ccd4ffbfa7ac4ac20f26204c96bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The colorClass typedef creates a simple interface that is reversed from classColor, for ease of use in creating Python dict() types relating a color to a class. <br/></td></tr>
+<tr class="separator:ga23f7ccd4ffbfa7ac4ac20f26204c96bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d13ebe57bc9c957647c0e894af96f40"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga7d13ebe57bc9c957647c0e894af96f40"></a>
+typedef <br class="typebreak"/>
+boost::archive::iterators::transform_width<br class="typebreak"/>
+&lt; boost::archive::iterators::binary_from_base64<br class="typebreak"/>
+&lt; boost::archive::iterators::remove_whitespace<br class="typebreak"/>
+&lt; std::string::const_iterator &gt; &gt;,8, 6 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>it_binary_t</b></td></tr>
+<tr class="separator:ga7d13ebe57bc9c957647c0e894af96f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9db9459a07651f1221569ebe1fd08c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa9db9459a07651f1221569ebe1fd08c2"></a>
+typedef <br class="typebreak"/>
+boost::archive::iterators::insert_linebreaks<br class="typebreak"/>
+&lt; boost::archive::iterators::base64_from_binary<br class="typebreak"/>
+&lt; boost::archive::iterators::transform_width<br class="typebreak"/>
+&lt; std::string::const_iterator, 6, 8 &gt; &gt;, 72 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>it_base64_t</b></td></tr>
+<tr class="separator:gaa9db9459a07651f1221569ebe1fd08c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga69ccd59886fccfdbe4413b3db80b7b61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga69ccd59886fccfdbe4413b3db80b7b61"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga69ccd59886fccfdbe4413b3db80b7b61">LabeledObject::LabeledObject</a> ()</td></tr>
+<tr class="memdesc:ga69ccd59886fccfdbe4413b3db80b7b61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor for <a class="el" href="classLabeledObject.html" title="The LabeledObject class represents one labeled object in an image with all the necessary information ...">LabeledObject</a>. <br/></td></tr>
+<tr class="separator:ga69ccd59886fccfdbe4413b3db80b7b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf65eefd3b5a5a6067da034144ee2b09b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#gaf65eefd3b5a5a6067da034144ee2b09b">LabeledObject::setPolygon</a> (std::vector&lt; cv::Point &gt; new_polygon)</td></tr>
+<tr class="memdesc:gaf65eefd3b5a5a6067da034144ee2b09b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the object defining polygon to a new set of points.  <a href="#gaf65eefd3b5a5a6067da034144ee2b09b">More...</a><br/></td></tr>
+<tr class="separator:gaf65eefd3b5a5a6067da034144ee2b09b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4a36c83dc617a954ce64517dc96c7fdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga4a36c83dc617a954ce64517dc96c7fdc">LabeledObject::setName</a> (std::string new_name)</td></tr>
+<tr class="memdesc:ga4a36c83dc617a954ce64517dc96c7fdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets name of object.  <a href="#ga4a36c83dc617a954ce64517dc96c7fdc">More...</a><br/></td></tr>
+<tr class="separator:ga4a36c83dc617a954ce64517dc96c7fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace996256a8f4f177a211e0058cc546b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#gace996256a8f4f177a211e0058cc546b2">LabeledObject::setColor</a> (cv::Vec3b new_color)</td></tr>
+<tr class="memdesc:gace996256a8f4f177a211e0058cc546b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets color of object for label image.  <a href="#gace996256a8f4f177a211e0058cc546b2">More...</a><br/></td></tr>
+<tr class="separator:gace996256a8f4f177a211e0058cc546b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaebe1027151204286c1a70183954dbdec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__cplus__module.html#gabff5449da239a87b6dac4f35fd13daf0">classColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#gaebe1027151204286c1a70183954dbdec">LabeledObject::getInfo</a> ()</td></tr>
+<tr class="memdesc:gaebe1027151204286c1a70183954dbdec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets class and name association info.  <a href="#gaebe1027151204286c1a70183954dbdec">More...</a><br/></td></tr>
+<tr class="separator:gaebe1027151204286c1a70183954dbdec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafde4a3136d53e938a6a0279a17062897"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#gafde4a3136d53e938a6a0279a17062897">LabeledObject::getName</a> ()</td></tr>
+<tr class="memdesc:gafde4a3136d53e938a6a0279a17062897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets name of <a class="el" href="classLabeledObject.html" title="The LabeledObject class represents one labeled object in an image with all the necessary information ...">LabeledObject</a>.  <a href="#gafde4a3136d53e938a6a0279a17062897">More...</a><br/></td></tr>
+<tr class="separator:gafde4a3136d53e938a6a0279a17062897"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c37f77e130be1ca83794273a9165f22"><td class="memItemLeft" align="right" valign="top">cv::Vec3b&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga3c37f77e130be1ca83794273a9165f22">LabeledObject::getColor</a> ()</td></tr>
+<tr class="memdesc:ga3c37f77e130be1ca83794273a9165f22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets color of <a class="el" href="classLabeledObject.html" title="The LabeledObject class represents one labeled object in an image with all the necessary information ...">LabeledObject</a>.  <a href="#ga3c37f77e130be1ca83794273a9165f22">More...</a><br/></td></tr>
+<tr class="separator:ga3c37f77e130be1ca83794273a9165f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c702cad7cfda4a16139de3ff43fbbd9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4c702cad7cfda4a16139de3ff43fbbd9"></a>
+std::vector&lt; cv::Point &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga4c702cad7cfda4a16139de3ff43fbbd9">LabeledObject::getPolygon</a> ()</td></tr>
+<tr class="memdesc:ga4c702cad7cfda4a16139de3ff43fbbd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets shape polygon of <a class="el" href="classLabeledObject.html" title="The LabeledObject class represents one labeled object in an image with all the necessary information ...">LabeledObject</a>. <br/></td></tr>
+<tr class="separator:ga4c702cad7cfda4a16139de3ff43fbbd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga61f48403f734f81d2a4257e11e803e84"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga61f48403f734f81d2a4257e11e803e84"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga61f48403f734f81d2a4257e11e803e84">LabelFile::LabelFile</a> ()</td></tr>
+<tr class="memdesc:ga61f48403f734f81d2a4257e11e803e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="classLabelFile.html" title="The LabelFile class allows an interface to read and process CSAIL/LabelMe style label (...">LabelFile</a>. <br/></td></tr>
+<tr class="separator:ga61f48403f734f81d2a4257e11e803e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga34372dd13995b38d39c35513e17d2be0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga34372dd13995b38d39c35513e17d2be0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga34372dd13995b38d39c35513e17d2be0">LabelFile::LabelFile</a> (std::string filename)</td></tr>
+<tr class="memdesc:ga34372dd13995b38d39c35513e17d2be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to build from file on disk. <br/></td></tr>
+<tr class="separator:ga34372dd13995b38d39c35513e17d2be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b366af82b91f03b5bb9ea70edf9016f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9b366af82b91f03b5bb9ea70edf9016f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga9b366af82b91f03b5bb9ea70edf9016f">LabelFile::loadFile</a> (std::string filename)</td></tr>
+<tr class="memdesc:ga9b366af82b91f03b5bb9ea70edf9016f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load file on disk into <a class="el" href="classLabelFile.html" title="The LabelFile class allows an interface to read and process CSAIL/LabelMe style label (...">LabelFile</a> instance. <br/></td></tr>
+<tr class="separator:ga9b366af82b91f03b5bb9ea70edf9016f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa2e02aca0ebe2f75989249e7577257ae"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#gaa2e02aca0ebe2f75989249e7577257ae">LabelFile::getRGBImage</a> ()</td></tr>
+<tr class="memdesc:gaa2e02aca0ebe2f75989249e7577257ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get RGB image of original scene the labels were generated from.  <a href="#gaa2e02aca0ebe2f75989249e7577257ae">More...</a><br/></td></tr>
+<tr class="separator:gaa2e02aca0ebe2f75989249e7577257ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6cc1b27e00a37990cbb0ace99e0a33e"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#gaf6cc1b27e00a37990cbb0ace99e0a33e">LabelFile::getLabelImage</a> ()</td></tr>
+<tr class="memdesc:gaf6cc1b27e00a37990cbb0ace99e0a33e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get image showing class colors and contours for whole label file.  <a href="#gaf6cc1b27e00a37990cbb0ace99e0a33e">More...</a><br/></td></tr>
+<tr class="separator:gaf6cc1b27e00a37990cbb0ace99e0a33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac95b25c935461c1b9462bff86f605ce4"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#gac95b25c935461c1b9462bff86f605ce4">LabelFile::getViewingImage</a> ()</td></tr>
+<tr class="memdesc:gac95b25c935461c1b9462bff86f605ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get image showing RGB scene with class information overlaid in semi-transparent color. Designed for human viewing, not computer analysis.  <a href="#gac95b25c935461c1b9462bff86f605ce4">More...</a><br/></td></tr>
+<tr class="separator:gac95b25c935461c1b9462bff86f605ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga36fb1317b008ab54b1a6d9e7be26ae8f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__cplus__module.html#gabff5449da239a87b6dac4f35fd13daf0">classColor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga36fb1317b008ab54b1a6d9e7be26ae8f">LabelFile::getClassInfo</a> ()</td></tr>
+<tr class="memdesc:ga36fb1317b008ab54b1a6d9e7be26ae8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get vector of class name and color associations.  <a href="#ga36fb1317b008ab54b1a6d9e7be26ae8f">More...</a><br/></td></tr>
+<tr class="separator:ga36fb1317b008ab54b1a6d9e7be26ae8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66f0a5cf63425fa5d88f72588ae97c7b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__cplus__module.html#ga23f7ccd4ffbfa7ac4ac20f26204c96bb">colorClass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cplus__module.html#ga66f0a5cf63425fa5d88f72588ae97c7b">LabelFile::getColorInfo</a> ()</td></tr>
+<tr class="memdesc:ga66f0a5cf63425fa5d88f72588ae97c7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get vector of colorClass objects made from name and color associations.  <a href="#ga66f0a5cf63425fa5d88f72588ae97c7b">More...</a><br/></td></tr>
+<tr class="separator:ga66f0a5cf63425fa5d88f72588ae97c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>This library allows C++ interactivity with ENVI-BIL hyperspectral images </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga36fb1317b008ab54b1a6d9e7be26ae8f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="group__cplus__module.html#gabff5449da239a87b6dac4f35fd13daf0">classColor</a> &gt; LabelFile::getClassInfo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get vector of class name and color associations. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;classColor&gt; Vector of class information </dd></dl>
+
+<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00178">178</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga3c37f77e130be1ca83794273a9165f22"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Vec3b LabeledObject::getColor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets color of <a class="el" href="classLabeledObject.html" title="The LabeledObject class represents one labeled object in an image with all the necessary information ...">LabeledObject</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>cv::Vec3b Class color of <a class="el" href="classLabeledObject.html" title="The LabeledObject class represents one labeled object in an image with all the necessary information ...">LabeledObject</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00217">217</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga66f0a5cf63425fa5d88f72588ae97c7b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="group__cplus__module.html#ga23f7ccd4ffbfa7ac4ac20f26204c96bb">colorClass</a> &gt; LabelFile::getColorInfo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get vector of colorClass objects made from name and color associations. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;colorClass&gt; Vector of colorClass objects </dd></dl>
+
+<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00183">183</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaebe1027151204286c1a70183954dbdec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__cplus__module.html#gabff5449da239a87b6dac4f35fd13daf0">classColor</a> LabeledObject::getInfo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets class and name association info. </p>
+<dl class="section return"><dt>Returns</dt><dd>classColor Vector containing class name and color association information </dd></dl>
+
+<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00227">227</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaf6cc1b27e00a37990cbb0ace99e0a33e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat LabelFile::getLabelImage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get image showing class colors and contours for whole label file. </p>
+<dl class="section return"><dt>Returns</dt><dd>cv::Mat Image of class information </dd></dl>
+
+<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00165">165</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gafde4a3136d53e938a6a0279a17062897"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string LabeledObject::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets name of <a class="el" href="classLabeledObject.html" title="The LabeledObject class represents one labeled object in an image with all the necessary information ...">LabeledObject</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::string Name of <a class="el" href="classLabeledObject.html" title="The LabeledObject class represents one labeled object in an image with all the necessary information ...">LabeledObject</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00222">222</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaa2e02aca0ebe2f75989249e7577257ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat LabelFile::getRGBImage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get RGB image of original scene the labels were generated from. </p>
+<dl class="section return"><dt>Returns</dt><dd>cv::Mat Image of scene </dd></dl>
+
+<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00160">160</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gac95b25c935461c1b9462bff86f605ce4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat LabelFile::getViewingImage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get image showing RGB scene with class information overlaid in semi-transparent color. Designed for human viewing, not computer analysis. </p>
+<dl class="section return"><dt>Returns</dt><dd>cv::Mat Image showing class overlays on scene </dd></dl>
+
+<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00170">170</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gace996256a8f4f177a211e0058cc546b2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LabeledObject::setColor </td>
+          <td>(</td>
+          <td class="paramtype">cv::Vec3b&#160;</td>
+          <td class="paramname"><em>new_color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets color of object for label image. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_color</td><td>Color to set as <a class="el" href="classLabeledObject.html" title="The LabeledObject class represents one labeled object in an image with all the necessary information ...">LabeledObject</a> color </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00202">202</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga4a36c83dc617a954ce64517dc96c7fdc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LabeledObject::setName </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>new_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets name of object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_name</td><td>Name to set as <a class="el" href="classLabeledObject.html" title="The LabeledObject class represents one labeled object in an image with all the necessary information ...">LabeledObject</a> name </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00207">207</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaf65eefd3b5a5a6067da034144ee2b09b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LabeledObject::setPolygon </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; cv::Point &gt;&#160;</td>
+          <td class="paramname"><em>new_polygon</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the object defining polygon to a new set of points. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_polygon</td><td>Polygon to set new object bounds </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="labelfile_8cpp_source.html#l00212">212</a> of file <a class="el" href="labelfile_8cpp_source.html">labelfile.cpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 5 2018 13:00:46 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 5 2018 17:36:52 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
