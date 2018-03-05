@@ -15,12 +15,9 @@
  *
  * \section test_sec Testing
  * Included is a test python script HSI_test.py, and test data. Simply run
- * \code{.sh}python HSI_test.py --all
+ * \code{.sh}python setup.py pytest
  * \endcode
- * This will perform the set of tests and output a result to the terminal the software is ran from. Providing the flag `--all` to the script will run all tests. There are also options for testing the individual modules.
- * -`--hsi` : tests the hsimage class, hsimage.h
- * -`--chsi` : tests the classified_hsimage class, classifiedhsimage.h
- * -`--lab` : tests the  labelfile class, labelfile.h
+ * This will perform the set of tests and output a result to the terminal the software is ran from.
  */
 
 #ifndef HSIMAGE_H
