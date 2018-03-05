@@ -18,9 +18,9 @@
  * \code{.sh}python HSI_test.py --all
  * \endcode
  * This will perform the set of tests and output a result to the terminal the software is ran from. Providing the flag `--all` to the script will run all tests. There are also options for testing the individual modules.
- * `--hsi` tests the hsimage class, hsimage.h
- * `--chsi` tests the classified_hsimage class, classifiedhsimage.h
- * `--lab` tests the  labelfile class, labelfile.h
+ * -`--hsi` : tests the hsimage class, hsimage.h
+ * -`--chsi` : tests the classified_hsimage class, classifiedhsimage.h
+ * -`--lab` : tests the  labelfile class, labelfile.h
  */
 
 #ifndef HSIMAGE_H
