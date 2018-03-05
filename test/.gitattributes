@@ -1,0 +1,5 @@
+HSI_test_images/HokieStoneWindowSny_exp20000_VNIR.hdr filter=lfs diff=lfs merge=lfs -text
+HSI_test_images/HokieStoneWindowSny_exp20000_VNIR.lif filter=lfs diff=lfs merge=lfs -text
+HSI_test_images/HokieStoneWindowSny_exp20000_VNIR.raw filter=lfs diff=lfs merge=lfs -text
+HSI_test_images/NIR_HokieStoneWindowSny.txt filter=lfs diff=lfs merge=lfs -text
+HSI_test_images/VIS_HokieStoneWindowSny.txt filter=lfs diff=lfs merge=lfs -text
