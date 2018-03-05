@@ -23,6 +23,8 @@ Cloning the repository will include the test suite which can be run using setupt
 
 `python setup.py pytest`
 
+This test **REQUIRES** external data (hyperspectral image files) to run. These files are stored on GitHub using the Git LFS protocol. Cloning the repository should automatically download the files to the appropriate folder. 
+
 ## Documentation ## 
 Full documentation is available at [https://dtchuck.github.io/HSImage/]()
 
