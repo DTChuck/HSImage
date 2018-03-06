@@ -39,6 +39,6 @@ An abbreviated list of the capabilities of HSImage is:
 * Transform raw emittance data using spectrometers into spectral reflectance
 * Allow native processing of hyperspectral data using Numpy or OpenCV
 
-A short example of the software can be found on the GitHub repository. The software was written using C++11 and the Python module was created using Pybind11, and OpenCV was included for image viewing and matrix operations.[@itseez2015opencv,;@pybind11]
+A short example of the software can be found on the GitHub repository. The software was written using C++11 and the Python module was created using Pybind11, and OpenCV was included for image viewing and matrix operations.[@itseez2015opencv;@pybind11]
 
 # References 
