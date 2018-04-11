@@ -84,9 +84,25 @@ Introduction</h1>
 <p>This library is designed to allow open-source experimentation with ENVI-BIL hyperspectral images. The goal of this software is to promote the study of hyperspectral images in the academic computer vision research world. This software provides both a C++ and Python interface for ease of use. An associated project has resulted in a publicly available library of images available at <a href="https://osf.io/pd49t/">https://osf.io/pd49t/</a>. These images are all compatible and intended to be used with this software interface library.</p>
 <h1><a class="anchor" id="install_sec"></a>
 Installation</h1>
-<p>Currently the software ONLY supports Linux (tested on Ubuntu 14.04) and MacOS. There is no platform specific software included in <a class="el" href="classHSImage.html" title="The HSImage class is the base class for interacting with ENVI type hyperspectral images. ">HSImage</a>, but the software has not been tested on Windows, and so cannot claim to support it. If a user wishes to use <a class="el" href="classHSImage.html" title="The HSImage class is the base class for interacting with ENVI type hyperspectral images. ">HSImage</a> on Windows, it should be possible, but there may be issues in the compliation with linking to the OpenCV libraries. To install, ensure that you have a C++ compiler installed, the boost cross-platform framework <a href="http://www.boost.org">(boost.org)</a>and OpenCV 3.x. Also ensure you have Python 3.x installed with numpy and OpenCV 3.x as a python package. Installation is handled through the PIP package manager. Simply type into your terminal: </p>
+<p>Currently the software ONLY supports Linux (tested on Ubuntu 14.04) and MacOS. There is no platform specific software included in <a class="el" href="classHSImage.html" title="The HSImage class is the base class for interacting with ENVI type hyperspectral images. ">HSImage</a>, but the software has not been tested on Windows, and so cannot claim to support it. If a user wishes to use <a class="el" href="classHSImage.html" title="The HSImage class is the base class for interacting with ENVI type hyperspectral images. ">HSImage</a> on Windows, it should be possible, but there may be issues in the compliation with linking to the OpenCV libraries.</p>
+<p>The dependencies for <a class="el" href="classHSImage.html" title="The HSImage class is the base class for interacting with ENVI type hyperspectral images. ">HSImage</a> are:</p>
+<ul>
+<li>Python 3.x</li>
+<li>Boost</li>
+<li>Numpy</li>
+<li>OpenCV 3.x</li>
+</ul>
+<p>Ensure that you have Python 3.x installed. The practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal: </p>
+<div class="fragment"><div class="line">pip install virtualenv virtualenvwrapper</div>
+<div class="line">echo <span class="stringliteral">&#39;# virtualenv and virtualenvwrapper\n export WORKON_HOME=$HOME/.virtualenvs\n source /usr/local/bin/virtualenvwrapper.sh&#39;</span> &gt;&gt; ~/.bashrc</div>
+<div class="line">source /usr/local/bin/virtualenvwrapper.sh</div>
+<div class="line">mkvirtualenv hsi_env</div>
+</div><!-- fragment --><p>To install Boost and Numpy type into the terminal </p>
+<div class="fragment"><div class="line">sudo apt-<span class="keyword">get</span> install libboost-dev</div>
+<div class="line">pip install numpy</div>
+</div><!-- fragment --><p>To install, ensure that you have a C++ compiler installed, the boost cross-platform framework <a href="http://www.boost.org">(boost.org)</a>and OpenCV 3.x. Also ensure you have Python 3.x installed with numpy and OpenCV 3.x as a python package. Installation is handled through the PIP package manager. Simply type into your terminal: </p>
 <div class="fragment"><div class="line">pip install HSI</div>
-</div><!-- fragment --><p>This will build the c++/python combined library file and install it to the site-packages folder in your current Python evironment. To use the C++ libary, simply include the <a class="el" href="hsimage_8h_source.html">hsimage.h</a> and <a class="el" href="classifiedhsimage_8h_source.html">classifiedhsimage.h</a> files in your project and link to the generated library file at compile.</p>
+</div><!-- fragment --><p>This will build the c++/python combined library file and install it to the site-packages folder in your current Python evironment. To use the C++ libary, simply include `hsimage.h, <a class="el" href="classifiedhsimage_8h_source.html">classifiedhsimage.h</a>, and <a class="el" href="labelfile_8h_source.html">labelfile.h</a> in your project and link to the generated library file at compile.</p>
 <h1><a class="anchor" id="test_sec"></a>
 Testing</h1>
 <p>Included is a test python script HSI_test.py, and test data. Simply run </p>
@@ -95,7 +111,7 @@ Testing</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 5 2018 17:36:52 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 11 2018 13:03:24 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
