@@ -7,7 +7,7 @@
  * Currently the software ONLY supports Linux (tested on Ubuntu 14.04) and MacOS. There is no platform specific software included in HSImage, but the software has not been tested on Windows, and so cannot claim to support it. If a user wishes to use HSImage on Windows, it should be possible, but there may be issues in the compliation with linking to the OpenCV libraries.
  *
  * The dependencies for HSImage are:
- * - Python 3.x
+ * - Python 2 >=2.7 or Python 3 >=3.2
  * - Boost
  * - Numpy
  * - OpenCV 3.x
@@ -15,7 +15,6 @@
  * Ensure that you have Python 3.x installed. The practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal:
  * \code{.sh}
  * pip install virtualenv virtualenvwrapper
- * echo '# virtualenv and virtualenvwrapper\n export WORKON_HOME=$HOME/.virtualenvs\n source /usr/local/bin/virtualenvwrapper.sh' >> ~/.bashrc
  * source /usr/local/bin/virtualenvwrapper.sh
  * mkvirtualenv hsi_env
  * \endcode
@@ -35,8 +34,9 @@
  * This will build the c++/python combined library file and install it to the site-packages folder in your current Python evironment. To use the C++ libary, simply include `hsimage.h, classifiedhsimage.h, and labelfile.h in your project and link to the generated library file at compile.
  *
  * \section test_sec Testing
- * Included is a test python script HSI_test.py, and test data. Simply run
- * \code{.sh}python setup.py pytest
+ * To test the software, the Github repository will need to be cloned to your computer. This will give you access to the setup.py file with the testing scripts. Simply run
+ * \code{.sh}
+ * python setup.py pytest
  * \endcode
  * This will perform the set of tests and output a result to the terminal the software is ran from.
  */
