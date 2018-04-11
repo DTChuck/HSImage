@@ -5,6 +5,27 @@
  *
  * \section install_sec Installation
  * Currently the software ONLY supports Linux (tested on Ubuntu 14.04) and MacOS. There is no platform specific software included in HSImage, but the software has not been tested on Windows, and so cannot claim to support it. If a user wishes to use HSImage on Windows, it should be possible, but there may be issues in the compliation with linking to the OpenCV libraries.
+ *
+ * The dependencies for HSImage are:
+ * - Python 3.x
+ * - Boost
+ * - Numpy
+ * - OpenCV 3.x
+ *
+ * Ensure that you have Python 3.x installed. The practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal:
+ * \code{.sh}
+ * pip install virtualenv virtualenvwrapper
+ * echo '# virtualenv and virtualenvwrapper\n export WORKON_HOME=$HOME/.virtualenvs\n source /usr/local/bin/virtualenvwrapper.sh' >> ~/.bashrc
+ * source /usr/local/bin/virtualenvwrapper.sh
+ * mkvirtualenv hsi_env
+ * \endcode
+ *
+ *  To install Boost and Numpy type into the terminal
+ * \code{.sh}
+ * sudo apt-get install libboost-dev
+ * pip install numpy
+ * \endcode
+ *
  * To install, ensure that you have a C++ compiler installed, the boost cross-platform framework <a href="http://www.boost.org"> (boost.org)</a>and OpenCV 3.x.
  * Also ensure you have Python 3.x installed with numpy and OpenCV 3.x as a python package. 
  * Installation is handled through the PIP package manager. Simply type into your terminal:

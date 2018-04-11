@@ -1,3 +1,4 @@
+import setuptools
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
 
@@ -21,7 +22,7 @@ hsimodule = Extension(
 
 setup(
         name='HSI',
-	version='1.2.0',
+	version='1.2.1',
         description='Interactivity class for hyperspectral ENVI-BIL images',
         author='Ryan Brown',
         author_email='brownrc@vt.edu',
@@ -39,7 +40,7 @@ setup(
             'Programming Language :: Python :: 3 :: Only'
             ],
 
-        python_requires='>=3',
+        python_requires='>=2.7,!=3.0.*,!=3.1.*',
 
         include_package_data=True,
 	keywords = ['hyperspectral','image','interface'],
