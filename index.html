@@ -87,31 +87,41 @@ Installation</h1>
 <p>Currently the software ONLY supports Linux (tested on Ubuntu 14.04) and MacOS. There is no platform specific software included in <a class="el" href="classHSImage.html" title="The HSImage class is the base class for interacting with ENVI type hyperspectral images. ">HSImage</a>, but the software has not been tested on Windows, and so cannot claim to support it. If a user wishes to use <a class="el" href="classHSImage.html" title="The HSImage class is the base class for interacting with ENVI type hyperspectral images. ">HSImage</a> on Windows, it should be possible, but there may be issues in the compliation with linking to the OpenCV libraries.</p>
 <p>The dependencies for <a class="el" href="classHSImage.html" title="The HSImage class is the base class for interacting with ENVI type hyperspectral images. ">HSImage</a> are:</p>
 <ul>
-<li>Python 3.x</li>
+<li>Python 2 &gt;=2.7 or Python 3 &gt;=3.2</li>
 <li>Boost</li>
 <li>Numpy</li>
 <li>OpenCV 3.x</li>
 </ul>
-<p>Ensure that you have Python 3.x installed. The practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal: </p>
+<p>The practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal: </p>
 <div class="fragment"><div class="line">pip install virtualenv virtualenvwrapper</div>
-<div class="line">echo <span class="stringliteral">&#39;# virtualenv and virtualenvwrapper\n export WORKON_HOME=$HOME/.virtualenvs\n source /usr/local/bin/virtualenvwrapper.sh&#39;</span> &gt;&gt; ~/.bashrc</div>
 <div class="line">source /usr/local/bin/virtualenvwrapper.sh</div>
 <div class="line">mkvirtualenv hsi_env</div>
 </div><!-- fragment --><p>To install Boost and Numpy type into the terminal </p>
 <div class="fragment"><div class="line">sudo apt-<span class="keyword">get</span> install libboost-dev</div>
 <div class="line">pip install numpy</div>
-</div><!-- fragment --><p>To install, ensure that you have a C++ compiler installed, the boost cross-platform framework <a href="http://www.boost.org">(boost.org)</a>and OpenCV 3.x. Also ensure you have Python 3.x installed with numpy and OpenCV 3.x as a python package. Installation is handled through the PIP package manager. Simply type into your terminal: </p>
+</div><!-- fragment --><p>The OpenCV installation is non-trivial, as the HSI package requires both the Python and C++ OpenCV libraries. If you already have OpenCV 3.x with the appropriate Python version installed, there should be no additional steps needed to install <a class="el" href="classHSImage.html" title="The HSImage class is the base class for interacting with ENVI type hyperspectral images. ">HSImage</a>. If you do not have OpenCV installed, a bash script on the repository will can peform the installation for you on Ubuntu. The steps in the script should be appropriate for MacOS, but it has not been tested. </p>
+<div class="fragment"><div class="line">wget https:<span class="comment">//raw.githubusercontent.com/DTChuck/HSImage/master/install_opencv.sh</span></div>
+<div class="line">bash install_opencv.sh</div>
+</div><!-- fragment --><p>After OpenCV is installed, the Python module will need to be symlinked into the virtual environment you have created.</p>
+<p>Python 2: </p>
+<div class="fragment"><div class="line">ln -s /usr/local/lib/python2.x/site_packages/cv2.so cv2.so</div>
+</div><!-- fragment --><p>Python 3: </p>
+<div class="fragment"><div class="line">ln -s /usr/local/lib/python3.x/site_packages/cv2.cpython-3xm.so cv2.so</div>
+</div><!-- fragment --><p> where x is the minor version of Python installed on your system.</p>
+<p>Potentially, you will need to provide the directory of the C++ OpenCV libraries to your virtualenv. This is done by modifying the LD_LIBRARY_PATH variable </p>
+<div class="fragment"><div class="line">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/folder_holding_opencv_libs/</div>
+</div><!-- fragment --><p>Installation of HSI is handled through the PIP package manager. Simply type into your terminal: </p>
 <div class="fragment"><div class="line">pip install HSI</div>
 </div><!-- fragment --><p>This will build the c++/python combined library file and install it to the site-packages folder in your current Python evironment. To use the C++ libary, simply include `hsimage.h, <a class="el" href="classifiedhsimage_8h_source.html">classifiedhsimage.h</a>, and <a class="el" href="labelfile_8h_source.html">labelfile.h</a> in your project and link to the generated library file at compile.</p>
 <h1><a class="anchor" id="test_sec"></a>
 Testing</h1>
-<p>Included is a test python script HSI_test.py, and test data. Simply run </p>
+<p>To test the software, the Github repository will need to be cloned to your computer. This will give you access to the setup.py file with the testing scripts. Simply run </p>
 <div class="fragment"><div class="line">python setup.py pytest</div>
 </div><!-- fragment --><p> This will perform the set of tests and output a result to the terminal the software is ran from. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 11 2018 13:03:24 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 11 2018 14:18:26 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
