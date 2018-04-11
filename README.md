@@ -35,6 +35,7 @@ bash install_opencv.sh
 ```
 
 After OpenCV is installed, the Python module will need to be symlinked into the virtual environment you have created.
+
 Python 2:
 ```bash
 ln -s /usr/local/lib/python2.x/site_packages/cv2.so cv2.so
