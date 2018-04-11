@@ -12,7 +12,7 @@
  * - Numpy
  * - OpenCV 3.x
  *
- * Ensure that you have Python 3.x installed. The practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal:
+ * The practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal:
  * \code{.sh}
  * pip install virtualenv virtualenvwrapper
  * source /usr/local/bin/virtualenvwrapper.sh
@@ -25,10 +25,34 @@
  * pip install numpy
  * \endcode
  *
- * To install, ensure that you have a C++ compiler installed, the boost cross-platform framework <a href="http://www.boost.org"> (boost.org)</a>and OpenCV 3.x.
- * Also ensure you have Python 3.x installed with numpy and OpenCV 3.x as a python package. 
- * Installation is handled through the PIP package manager. Simply type into your terminal:
- * \code{.sh}pip install HSI
+ * The OpenCV installation is non-trivial, as the HSI package requires both the Python and C++ OpenCV libraries. If you already have OpenCV 3.x with the appropriate Python version installed, there should be no additional steps needed to install HSImage.
+ * If you do not have OpenCV installed, a bash script on the repository will can peform the installation for you on Ubuntu. The steps in the script should be appropriate for MacOS, but it has not been tested.
+ * \code{.sh}
+ * wget https://raw.githubusercontent.com/DTChuck/HSImage/master/install_opencv.sh
+ * bash install_opencv.sh
+ * \endcode
+ *
+ * After OpenCV is installed, the Python module will need to be symlinked into the virtual environment you have created.
+ *
+ * Python 2:
+ * \code{.sh}
+ * ln -s /usr/local/lib/python2.x/site_packages/cv2.so cv2.so
+ * \endcode
+ *
+ * Python 3:
+ * \code{.sh}
+ * ln -s /usr/local/lib/python3.x/site_packages/cv2.cpython-3xm.so cv2.so
+ * \endcode
+ * where x is the minor version of Python installed on your system.
+ *
+ * Potentially, you will need to provide the directory of the C++ OpenCV libraries to your virtualenv. This is done by modifying the LD_LIBRARY_PATH variable
+ * \code{.sh}
+ * export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/folder_holding_opencv_libs/
+ * \endcode
+ *
+ * Installation of HSI is handled through the PIP package manager. Simply type into your terminal:
+ * \code{.sh}
+ * pip install HSI
  * \endcode
  *
  * This will build the c++/python combined library file and install it to the site-packages folder in your current Python evironment. To use the C++ libary, simply include `hsimage.h, classifiedhsimage.h, and labelfile.h in your project and link to the generated library file at compile.
