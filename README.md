@@ -15,31 +15,41 @@ This package requires:
 4) OpenCV C++ and Python
 
 The practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal:
-
-`pip install virtualenv virtualenvwrapper
-`source /usr/local/bin/virtualenvwrapper.sh
-`mkvirtualenv hsi_env
+```bash
+pip install virtualenv virtualenvwrapper
+source /usr/local/bin/virtualenvwrapper.sh
+mkvirtualenv hsi_env
+```
 
 To install Boost and Numpy type into the terminal
-`sudo apt-get install libboost-dev
-`pip install numpy
+```bash
+sudo apt-get install libboost-dev
+pip install numpy
+```
 
 The OpenCV installation is non-trivial, as the HSI package requires both the Python and C++ OpenCV libraries. If you already have OpenCV 3.x with the appropriate Python version installed, there should be no additional steps needed to install HSImage.
 If you do not have OpenCV installed, a bash script on the repository will can peform the installation for you on Ubuntu. The steps in the script should be appropriate for MacOS, but it has not been tested.
-`wget https://raw.githubusercontent.com/DTChuck/HSImage/master/install_opencv.sh
-`bash install_opencv.sh
+```bash
+wget https://raw.githubusercontent.com/DTChuck/HSImage/master/install_opencv.sh
+bash install_opencv.sh
+```
 
 After OpenCV is installed, the Python module will need to be symlinked into the virtual environment you have created.
 Python 2:
-`ln -s /usr/local/lib/python2.x/site_packages/cv2.so cv2.so
-
+```bash
+ln -s /usr/local/lib/python2.x/site_packages/cv2.so cv2.so
+```
 Python 3:
-`ln -s /usr/local/lib/python3.x/site_packages/cv2.cpython-3xm.so cv2.so
+```bash
+ln -s /usr/local/lib/python3.x/site_packages/cv2.cpython-3xm.so cv2.so
+```
 where x is the minor version of Python installed on your system.
 
 Potentially, you will need to provide the directory of the C++ OpenCV libraries to your virtualenv. This is done by modifying the LD_LIBRARY_PATH variable
-`export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/folder_holding_opencv_libs/
- 
+```bash
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/folder_holding_opencv_libs/
+```
+
 After the prerequisites are installed, simply install with pip:
 
 `pip install HSI`
