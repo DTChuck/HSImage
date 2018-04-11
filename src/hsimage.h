@@ -32,7 +32,7 @@
  * \code{.sh}pip install HSI
  * \endcode
  *
- * This will build the c++/python combined library file and install it to the site-packages folder in your current Python evironment. To use the C++ libary, simply include the hsimage.h and classifiedhsimage.h files in your project and link to the generated library file at compile.
+ * This will build the c++/python combined library file and install it to the site-packages folder in your current Python evironment. To use the C++ libary, simply include `hsimage.h, classifiedhsimage.h, and labelfile.h in your project and link to the generated library file at compile.
  *
  * \section test_sec Testing
  * Included is a test python script HSI_test.py, and test data. Simply run
