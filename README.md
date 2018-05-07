@@ -12,7 +12,7 @@ This package requires:
 1) Python >= 2.7 or Python >= 3.2
 2) Boost
 3) Numpy
-4) OpenCV C++ and Python
+4) OpenCV 3.x - C++ and Python
 
 The practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal:
 ```bash
@@ -27,7 +27,7 @@ sudo apt-get install libboost-dev
 pip install numpy
 ```
 
-The OpenCV installation is non-trivial, as the HSI package requires both the Python and C++ OpenCV libraries. If you already have OpenCV 3.x with the appropriate Python version installed, there should be no additional steps needed to install HSImage.
+The OpenCV 3.x installation is non-trivial, as the HSI package requires both the Python and C++ OpenCV libraries. If you already have OpenCV 3.x with the appropriate Python version installed, there should be no additional steps needed to install HSImage.
 If you do not have OpenCV installed, a bash script on the repository will can peform the installation for you on Ubuntu. The steps in the script should be appropriate for MacOS, but it has not been tested.
 ```bash
 wget https://raw.githubusercontent.com/DTChuck/HSImage/master/install_opencv.sh
@@ -70,7 +70,7 @@ Cloning the repository will include the test suite which can be run using setupt
 This test **REQUIRES** external data (hyperspectral image files) to run. These files are stored on GitHub using the Git LFS protocol. Cloning the repository should automatically download the files to the appropriate folder. 
 
 ## Documentation ## 
-Full documentation is available at [https://dtchuck.github.io/HSImage/]([https://dtchuck.github.io/HSImage/)
+Full documentation is available [here]([https://dtchuck.github.io/HSImage/)
 
 ## Example Usage ##
 Loading a image, converting to a pixel vector array and normalizing by the ambient intensity to create spectral reflectance data.
