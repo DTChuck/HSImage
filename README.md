@@ -13,13 +13,27 @@ This package requires:
 2) Boost
 3) Numpy
 4) OpenCV 3.x - C++ and Python
+	OpenCV 2.x is NOT supported
+
 
 The practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal:
+```bash
+pip install virtualenv
+virtualenv hsi_env
+source hsi_env/bin/activate
+```
+
+Virtualenvwrapper is a convenience package built around virtualenv and is optional for this software, but is useful for managing multiple virtual environments. THIS DOES NOT NEED TO BE INSTALLED FOR HSI TO FUNCTION.
+
+ To install it and use it to create a virtual environment, type the following into terminal:
 ```bash
 pip install virtualenv virtualenvwrapper
 source /usr/local/bin/virtualenvwrapper.sh
 mkvirtualenv hsi_env
+workon hsi_env
 ```
+
+After these steps you will be in a Python virtual environment named `hsi_env`
 
 To install Boost and Numpy type into the terminal
 ```bash

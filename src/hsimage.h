@@ -10,13 +10,25 @@
  * - Python 2 >=2.7 or Python 3 >=3.2
  * - Boost
  * - Numpy
- * - OpenCV 3.x
+ * - OpenCV 3.x - C++ and Python Bindings
+ *      OpenCV 2.x is NOT supported
  *
- * The practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal:
+ * Tnstall it and use it to create a virtual environment, type the following into terminal:he practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal:
+ * \code{.sh}
+ * pip install virtualenv
+ * virtualenv hsi_env
+ * source hsi_env/bin/activate
+ * pip install HSI
+ * \endcode
+ *
+ * Virtualenvwrapper is a convenience package built around virtualenv and is optional for this software, but is useful for managing multiple virtual environments. THIS DOES NOT NEED TO BE INSTALLED FOR HSI TO FUNCTION.
+ *
+ * To install it and use it to create a virtual environment, type the following into terminal:
  * \code{.sh}
  * pip install virtualenv virtualenvwrapper
  * source /usr/local/bin/virtualenvwrapper.sh
  * mkvirtualenv hsi_env
+ * workon hsi_env
  * \endcode
  *
  *  To install Boost and Numpy type into the terminal
