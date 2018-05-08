@@ -13,7 +13,7 @@ This package requires:
 2) Boost
 3) Numpy
 4) OpenCV 3.x - C++ and Python
-	OpenCV 2.x is NOT supported
+	(OpenCV 2.x is NOT supported)
 
 
 The practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal:
