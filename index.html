@@ -90,12 +90,19 @@ Installation</h1>
 <li>Python 2 &gt;=2.7 or Python 3 &gt;=3.2</li>
 <li>Boost</li>
 <li>Numpy</li>
-<li>OpenCV 3.x</li>
+<li>OpenCV 3.x - C++ and Python Bindings OpenCV 2.x is NOT supported</li>
 </ul>
-<p>The practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal: </p>
+<p>Tnstall it and use it to create a virtual environment, type the following into terminal:he practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal: </p>
+<div class="fragment"><div class="line">pip install virtualenv</div>
+<div class="line">virtualenv hsi_env</div>
+<div class="line">source hsi_env/bin/activate</div>
+<div class="line">pip install HSI</div>
+</div><!-- fragment --><p>Virtualenvwrapper is a convenience package built around virtualenv and is optional for this software, but is useful for managing multiple virtual environments. THIS DOES NOT NEED TO BE INSTALLED FOR HSI TO FUNCTION.</p>
+<p>To install it and use it to create a virtual environment, type the following into terminal: </p>
 <div class="fragment"><div class="line">pip install virtualenv virtualenvwrapper</div>
 <div class="line">source /usr/local/bin/virtualenvwrapper.sh</div>
 <div class="line">mkvirtualenv hsi_env</div>
+<div class="line">workon hsi_env</div>
 </div><!-- fragment --><p>To install Boost and Numpy type into the terminal </p>
 <div class="fragment"><div class="line">sudo apt-<span class="keyword">get</span> install libboost-dev</div>
 <div class="line">pip install numpy</div>
@@ -121,7 +128,7 @@ Testing</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 11 2018 14:18:26 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 8 2018 16:16:19 for HSImage by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
