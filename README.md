@@ -119,8 +119,7 @@ wavelengths = img.getWavelengths()
 
 The example script [here](examples/examples.py), when run will produce two images, one showing an artificial RGB image generated from the hyperspectral data and stored in the label file with a point over the selected pixel, and another showing the plots of the wavelengths, ambient intensities and spectral reflectance of the selected pixel. These images are shown below and also saved as [TrueImage.png](examples/TrueImage.png) and [TruePlots.png](examples/TruePlots.png).
 
-![alt text](examples/TrueImage.png "Example Script RGB Image")
-![alt_text](examples/TruePlots.png "Example Script Plots")
+![alt text](examples/TrueImage.png "Example Script RGB Image") ![alt_text](examples/TruePlots.png "Example Script Plots")
 
 
 A few more short examples are below for additional information.
