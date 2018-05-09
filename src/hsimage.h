@@ -11,7 +11,7 @@
  * - Boost
  * - Numpy
  * - OpenCV 3.x - C++ and Python Bindings
- *      OpenCV 2.x is NOT supported
+ *      (OpenCV 2.x is NOT supported)
  *
  * Tnstall it and use it to create a virtual environment, type the following into terminal:he practice of using Python virtual environments is recommended. To set up a virtual environment, type the following into terminal:
  * \code{.sh}

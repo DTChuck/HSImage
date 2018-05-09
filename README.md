@@ -87,6 +87,38 @@ This test **REQUIRES** external data (hyperspectral image files) to run. These f
 Full documentation is available at [https://dtchuck/github.io/HSImage/](https://dtchuck.github.io/HSImage/)
 
 ## Example Usage ##
+There is an example script in the examples folder [here](examples/examples.py) that shows some of the basic operations of the software. The script is repeated below, but without some of the plotting and image viewing functions for clarity. To view the full script, see the link above.
+
+```python
+import cv2 as cv
+import numpy as np
+import matplotlib.pyplot as plt
+import HSI
+
+#load hsimage object
+img = HSI.hsimage(directory + filename + hdr_ext,directory + filename + raw_ext,[directory + VIS_spec_file,directory + NIR_spec_file])
+
+#load labelfile object
+lif = HSI.labelfile(directory + filename+lif_ext)
+
+#load classified_hsimage object
+cl_img = HSI.classified_hsimage(directory + filename+raw_ext,directory + filename+hdr_ext,directory + filename+lif_ext)
+
+#Acquire the RGB image from the labelfile
+rgb_img = lif.getRGBImage()
+
+#Choose a pixel to view
+pixel = (200,300)
+
+#Get the chosen spectra
+pix = img.getPixelSpectra(pixel[0],pixel[1])
+
+#Spectrum of the measured point
+wavelengths = img.getWavelengths()
+```
+
+The example script [here](examples/examples.py), when run will produce two images, one showing an artificial RGB image generated from the hyperspectral data and stored in the label file with a point over the selected pixel, and another showing the plots of the wavelengths, ambient intensities and spectral reflectance of the selected pixel. These images are shown below and also saved as [TrueImage.png](TrueImage.png) and [TruePlots.png](examples/TruePlots.png).
+
 Loading a image, converting to a pixel vector array and normalizing by the ambient intensity to create spectral reflectance data.
 
 ```python
