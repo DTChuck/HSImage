@@ -148,5 +148,5 @@ cv2.imshow("Overlay",overlay_image)
 cv2.waitKey(0)
 ```
 
-## Support ##
+## How to Contribute ##
 This software is under active development. If you wish to contribute to this software, contact Ryan Brown at **brownrc@vt.edu**. Issues can be reported here using the GitHub issue tracker.
