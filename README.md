@@ -5,6 +5,10 @@ Interface Library for ENVI-BIL Hyperspectral Images
 
 This library is designed to allow open-source experimentation with ENVI-BIL hyperspectral images. The goal of this software is to promote the study of hyperspectral images in the academic computer vision research world. This software provides both a C++ and Python interface for ease of use. An associated project has resulted in a publicly available library of images available at [https://osf.io/pd49t/](https://osf.io/pd49t/). These images are all compatible and intended to be used with this software interface library.
 
+## Citation and Archival information
+An archival version of this software is available through Zenodo
+[![DOI](https://zenodo.org/badge/96904936.svg)](https://zenodo.org/badge/latestdoi/96904936)
+
 ## Installation ##
 NOTE: This software, while it is build with only cross-platform libraries, has not been tested on Windows. It currently has been tested on MacOS 10.11.x and Ubuntu 14.04. If a user wishes to use this software on Windows, it should be possible to build and run, but there may be issues in the linking of the OpenCV libraries. Environment variable settings on Windows can be tricky, and there is no official Windows support for HSImage at this time.
 
